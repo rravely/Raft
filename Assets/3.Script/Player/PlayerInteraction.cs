@@ -24,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
 
     [Header("Tools")]
     [SerializeField] GameObject hammer;
+    [SerializeField] PlasticHook hook;
 
     [SerializeField] Transform hookT;
 
@@ -123,7 +124,9 @@ public class PlayerInteraction : MonoBehaviour
         {
             //Throw hook
             hookAni.SetTrigger("Throw");
-            playerAni.SetTrigger("Throw");
+            hookAni.SetBool("Charge", false);
+            hook.isThrowing = true;
+            playerAni.SetTrigger("HookThrowing");
             
             isHookThrown = true; //Hook will be thrown by itself
         }
