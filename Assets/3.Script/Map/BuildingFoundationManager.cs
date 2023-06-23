@@ -66,6 +66,7 @@ public class BuildingFoundationManager : MonoBehaviour
                     //Instantiate foundation temp object
                     tempObject = Instantiate(foundationObject, tilemapPlace, Quaternion.identity);
                     tempObject.GetComponent<MeshRenderer>().material = temp;
+                    tempObject.GetComponent<Collider>().isTrigger = true;
                     tempObjectExists = true;
                 }
 
@@ -85,6 +86,8 @@ public class BuildingFoundationManager : MonoBehaviour
 
                     DestoryTempObject();
                 }
+
+                //Debug.Log($"{tempObject.GetComponent<Foundation>().isExist}, {tempObject.GetComponent<Foundation>().isBuildable}");
 
                 if (tempObject != null)
                 {

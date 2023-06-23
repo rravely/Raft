@@ -33,7 +33,6 @@ public class PlayerInteraction : MonoBehaviour
     public Item pickupItem = null;
     public GameObject pickupObject = null;
 
-    public bool isLock = false;
 
     private void Start()
     {
@@ -56,35 +55,22 @@ public class PlayerInteraction : MonoBehaviour
         switch (selectedItem.selectedItem.itemName)
         {
             case "Hammer":
-                if (!isLock)
-                {
-                    playerAni.SetTrigger("Grab");
-                    isLock = true;
-                }
+                playerAni.SetBool("Grab", true);
                 Hammer();
                 break;
             case "PlasticHook":
-                if (!isLock)
-                {
-                    playerAni.SetTrigger("Grab");
-                    isLock = true;
-                }
+                playerAni.SetBool("Grab", true);
                 Hook();
                 break;
             default:
-                if (!selectedItem.selectedItem.isBuildable)
-                {
-                    isLock = false;
-                }
-                
+                playerAni.SetBool("Grab", false);
                 break;
         }
     }
 
     public void GrabHands()
     {
-        playerAni.SetTrigger("Grab");
-        isLock = true;
+        playerAni.SetBool("Grab", true);
     }
 
     public void Hammer()

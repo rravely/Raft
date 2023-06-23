@@ -14,6 +14,10 @@ public class Foundation : MonoBehaviour
         {
             isBuildable = true;
         }
+        if (other.CompareTag("Foundation"))
+        {
+            isExist = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -21,6 +25,10 @@ public class Foundation : MonoBehaviour
         if (other.CompareTag("FoundationInside"))
         {
             isBuildable = true;
+        }
+        if (other.CompareTag("Foundation"))
+        {
+            isExist = true;
         }
     }
 

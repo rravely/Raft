@@ -62,11 +62,9 @@ public class SelectedItem : MonoBehaviour
         }
         else
         {
+            hammer.SetActive(true);
             hook.SetActive(false);
-            if (!playerInteraction.isLock)
-            {
-                playerInteraction.GrabHands();
-            }
+            playerInteraction.GrabHands();
 
             switch (selectedItem.itemName)
             {
