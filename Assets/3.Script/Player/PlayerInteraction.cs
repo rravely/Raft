@@ -94,6 +94,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (playerClickPanel.isPossibleClick)
         {
+            playerAni.SetBool("Grab", false);
             if (playerInput.isLMD)
             {
                 playerAni.SetBool("HookCharging", true);
