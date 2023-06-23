@@ -60,7 +60,7 @@ public class BuildingManager : MonoBehaviour
                 //If player clicks and temp object is buildable, instantiate object.
                 if (Input.GetMouseButtonDown(0) && tempObject.GetComponent<BuildableItem>().isBuildable)
                 {
-                    Instantiate(objectToPlace, place, Quaternion.identity);
+                    Instantiate(objectToPlace, place, /*Quaternion.identity*/ tempObject.transform.rotation);
                     placeNow = false;
                     placeObject = false;
 
@@ -68,6 +68,11 @@ public class BuildingManager : MonoBehaviour
                     selectedItem.RemoveSelectedItem();
 
                     DestoryTempObject();
+                }
+
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    tempObject.transform.Rotate(0f, 90f, 0f);
                 }
 
                 //Temp object follows aim.
