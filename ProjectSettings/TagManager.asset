@@ -12,6 +12,7 @@ TagManager:
   - Foundation
   - Buildable
   - FoundationInside
+  - DropItem
   layers:
   - Default
   - TransparentFX

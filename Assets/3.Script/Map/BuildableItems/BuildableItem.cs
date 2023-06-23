@@ -21,4 +21,20 @@ public class BuildableItem : MonoBehaviour
             isBuildable = true;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Buildable"))
+        {
+            isBuildable = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Buildable"))
+        {
+            isBuildable = true;
+        }
+    }
 }

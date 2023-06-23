@@ -4,16 +4,45 @@ using UnityEngine;
 
 public class RandomObjectSpawn : MonoBehaviour
 {
-    [SerializeField] GameObject[] itemObjectPrefabs;
+    //[SerializeField] GameObject[] itemObjectPrefabs;
+    [SerializeField] GameObject[] dropItems;
 
     int randomIndex = 0;
     float randomPositionX = 0f;
 
+    int inactiveIndex = 0;
+
     private void Start()
     {
-        StartCoroutine(SpawnDropItems_co());
+        //StartCoroutine(SpawnDropItems_co());
+        StartCoroutine(SetActiveDropItem_co());
     }
 
+    private void Update()
+    {
+        
+    }
+
+    IEnumerator SetActiveDropItem_co()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            for (int i = 0; i < dropItems.Length; i++)
+            {
+                if (!dropItems[i].activeSelf)
+                {
+                    inactiveIndex = i;
+                    break;
+                }
+            }
+
+            dropItems[inactiveIndex].transform.localPosition = new Vector3(dropItems[inactiveIndex].transform.localPosition.x, dropItems[inactiveIndex].transform.localPosition.y, 0f);
+            dropItems[inactiveIndex].SetActive(true);
+        }
+    }
+
+    /*
     IEnumerator SpawnDropItems_co()
     {
         while (true)
@@ -26,4 +55,5 @@ public class RandomObjectSpawn : MonoBehaviour
             dropItem.transform.SetParent(transform);
         }
     }
+    */
 }

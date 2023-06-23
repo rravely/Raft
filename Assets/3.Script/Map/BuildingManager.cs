@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
+    PlayerInteraction playerInteraction;
+
     SelectedItem selectedItem;
     [HideInInspector] public int selectedItemIndex = 0;
 
@@ -25,6 +27,7 @@ public class BuildingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerInteraction = FindObjectOfType<PlayerInteraction>();
         selectedItem = FindObjectOfType<SelectedItem>();
 
         layerMaskFoundation = 1 << LayerMask.NameToLayer("Foundation");
@@ -60,7 +63,10 @@ public class BuildingManager : MonoBehaviour
                 //If player clicks and temp object is buildable, instantiate object.
                 if (Input.GetMouseButtonDown(0) && tempObject.GetComponent<BuildableItem>().isBuildable)
                 {
-                    Instantiate(objectToPlace, place, /*Quaternion.identity*/ tempObject.transform.rotation);
+                    playerInteraction.Hammer();
+
+                    GameObject buildableItem = Instantiate(objectToPlace, place, /*Quaternion.identity*/ tempObject.transform.rotation);
+                    buildableItem.transform.SetParent(transform);
                     placeNow = false;
                     placeObject = false;
 

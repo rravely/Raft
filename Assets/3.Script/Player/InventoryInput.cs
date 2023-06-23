@@ -177,7 +177,7 @@ public class InventoryInput : MonoBehaviour
 
         for (int i = 0; i < quickSlotBtns.Length; i++)
         {
-            if (quickSlotBtns[i].transform.GetChild(0) != null)
+            if (quickSlotBtns[i].transform.childCount > 0)
             {
                 if (quickSlotBtns[i].transform.GetChild(0).GetComponent<SlotItem>().item.itemName.Equals("Hammer"))
                 {
