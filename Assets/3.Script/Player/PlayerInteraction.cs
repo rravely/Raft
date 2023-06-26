@@ -16,7 +16,6 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] PlayerClickPanel playerClickPanel;
 
     [HideInInspector] public float charging = 0f;
-    float hookBack = 0f;
 
     [Header("Animator")]
     [SerializeField] Animator playerAni;
@@ -34,6 +33,8 @@ public class PlayerInteraction : MonoBehaviour
     public bool isHookThrown = false; 
     public bool isHookPull = false; 
     public bool isHookBack = false;
+    public bool isHooked = false;
+    public bool canThrowHook = true;
 
     public bool canPickup = false;
     public Item pickupItem = null;
@@ -97,7 +98,11 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (playerClickPanel.isPossibleClick)
         {
-            if (playerInput.isLMD && !isHookThrown)
+            if (playerInput.isLMDDown)
+            {
+                canThrowHook = true;
+            }
+            if (playerInput.isLMD && !isHookThrown && canThrowHook)
             {
                 isThrow = true;
 
@@ -109,7 +114,7 @@ public class PlayerInteraction : MonoBehaviour
                     charging += 1f;
                 }
             }
-            else if (isHookThrown)
+            else if (isHookThrown && canThrowHook)
             {
                 if (playerInput.isLMD)
                 {
@@ -123,10 +128,11 @@ public class PlayerInteraction : MonoBehaviour
                     isHookPull = false;
                 }
                 
-                if (playerInput.isRMD)
+                if (playerInput.isRMD && !isHooked)
                 {
                     //Pull hook right away
                     isHookThrown = false;
+                    canThrowHook = false;
                     plasticHook.ResetHook();
                     playerAni.SetBool("Grab", true);
                 }
@@ -169,6 +175,8 @@ public class PlayerInteraction : MonoBehaviour
     public void ResetHook()
     {
         plasticHook.ResetHook();
+        isHookThrown = false;
+        playerAni.SetBool("Grab", true);
     }
 
     public void PlayerIdle(bool isActive)
@@ -180,6 +188,4 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerAni.SetBool("Grab", true);
     }
-
-
 }

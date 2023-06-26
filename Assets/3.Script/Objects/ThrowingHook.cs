@@ -45,7 +45,14 @@ public class ThrowingHook : MonoBehaviour
                 //Reset Hook position
                 playerInteraction.ResetHook();
                 playerInteraction.isHookPull = false;
+                playerInteraction.isHooked = false;
+                playerInteraction.canThrowHook = false;
             }
+        }
+
+        if (dropItem.Count > 0)
+        {
+            playerInteraction.isHooked = true;
         }
     }
 

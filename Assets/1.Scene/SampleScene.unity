@@ -1582,6 +1582,8 @@ MonoBehaviour:
   isHookThrown: 0
   isHookPull: 0
   isHookBack: 0
+  isHooked: 0
+  canThrowHook: 1
   canPickup: 0
   pickupItem: {fileID: 0}
   pickupObject: {fileID: 0}
@@ -19131,8 +19133,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.18271741, y: 0.18010744, z: 0.17321944}
-  m_Center: {x: 0.09885608, y: 0.015787244, z: 0.11721871}
+  m_Size: {x: 0.093598366, y: 0.109382376, z: 0.09369016}
+  m_Center: {x: 0.10775739, y: -0.0053221965, z: 0.13938703}
 --- !u!1 &1724827149
 GameObject:
   m_ObjectHideFlags: 0

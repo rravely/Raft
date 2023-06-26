@@ -56,6 +56,7 @@ public class PlasticHook : MonoBehaviour
             }
             */
             #endregion
+
             playerDir = new Vector3(Mathf.Sin(playerInteraction.transform.eulerAngles.y * Mathf.Deg2Rad), 0f, Mathf.Cos(playerInteraction.transform.eulerAngles.y * Mathf.Deg2Rad));
             Vector3 target;
             if (playerInteraction.charging < 30)
