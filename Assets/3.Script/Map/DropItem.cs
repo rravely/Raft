@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class DropItem : MonoBehaviour
 {
-    [SerializeField] Item dropItem;
-    GameObject ui;
+    [Header("Drop Item")]
+    [SerializeField] public Item dropItem;
 
+    [Header("Fake Hook")]
+    [SerializeField] Transform fakeHook;
+
+    GameObject ui;
     PlayerInteraction playerInteraction;
 
     float speed = 0.1f;
+    [HideInInspector] public bool isHooked = false;
 
     string playerTag = "PlayerSight";
 
@@ -21,7 +26,14 @@ public class DropItem : MonoBehaviour
 
     private void Update()
     {
-        transform.position -= Vector3.forward * speed * Time.deltaTime;
+        if (!isHooked)
+        {
+            transform.position -= Vector3.forward * speed * Time.deltaTime;
+        }
+        else
+        {
+            transform.position = fakeHook.transform.position;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

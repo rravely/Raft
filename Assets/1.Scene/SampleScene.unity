@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 2891448}
   - component: {fileID: 2891447}
   - component: {fileID: 2891446}
+  - component: {fileID: 2891450}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic (3)
   m_TagString: DropItem
@@ -184,6 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &2891448
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -234,6 +237,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2891444}
   m_Mesh: {fileID: -6015262002813137213, guid: 668733e0022c6c34aabebc23d6ccad8b, type: 3}
+--- !u!54 &2891450
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891444}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &18314558
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33562571}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00125, y: 0, z: 0.01095}
+  m_LocalPosition: {x: -0.0012500003, y: 0, z: 0.01095}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -864,6 +883,37 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 66e64a82a5c414f4e9a09d2fffc5754b, type: 2}
   - {fileID: 11400000, guid: 6248f8f610c124ace86ec660e907209b, type: 2}
   - {fileID: 11400000, guid: 1388141e574834f08aea83b6ddc6d02d, type: 2}
+--- !u!1 &73488433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73488434}
+  m_Layer: 0
+  m_Name: RopeEndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73488434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73488433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00061, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5968256645072749380}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &79324833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1205,7 @@ GameObject:
   - component: {fileID: 104247482}
   - component: {fileID: 104247481}
   - component: {fileID: 104247480}
+  - component: {fileID: 104247484}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank (5)
   m_TagString: DropItem
@@ -1203,6 +1254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &104247482
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1253,6 +1306,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104247478}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!54 &104247484
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104247478}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &105563318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,7 +1517,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146249262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.016261045, y: -0, z: -0, w: 0.99986786}
   m_LocalPosition: {x: 0.239, y: -0.112, z: 0.047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1456,9 +1525,10 @@ Transform:
   - {fileID: 2012680945}
   - {fileID: 1939270741}
   - {fileID: 673948358}
+  - {fileID: 2119554359}
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.863, y: 0, z: 0}
 --- !u!114 &146249264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,9 +1576,12 @@ MonoBehaviour:
   hammerAni: {fileID: 6262379156482775831}
   hookAni: {fileID: 6207636682570130477}
   hammer: {fileID: 3336789065787326284}
-  hook: {fileID: 6207636682570130478}
+  plasticHook: {fileID: 6207636682570130478}
   hookT: {fileID: 5968256645072749380}
+  fakeHook: {fileID: 1721827529}
   isHookThrown: 0
+  isHookPull: 0
+  isHookBack: 0
   canPickup: 0
   pickupItem: {fileID: 0}
   pickupObject: {fileID: 0}
@@ -3395,6 +3468,7 @@ GameObject:
   - component: {fileID: 296356709}
   - component: {fileID: 296356708}
   - component: {fileID: 296356707}
+  - component: {fileID: 296356711}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank (1)
   m_TagString: DropItem
@@ -3443,6 +3517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &296356709
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3493,6 +3569,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296356705}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!54 &296356711
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296356705}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &318488407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,6 +3732,7 @@ GameObject:
   - component: {fileID: 320804291}
   - component: {fileID: 320804290}
   - component: {fileID: 320804289}
+  - component: {fileID: 320804293}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic (2)
   m_TagString: DropItem
@@ -3688,6 +3781,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &320804291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3738,6 +3833,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320804287}
   m_Mesh: {fileID: -6015262002813137213, guid: 668733e0022c6c34aabebc23d6ccad8b, type: 3}
+--- !u!54 &320804293
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320804287}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &321086127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3790,6 +3901,7 @@ GameObject:
   - component: {fileID: 323998203}
   - component: {fileID: 323998202}
   - component: {fileID: 323998201}
+  - component: {fileID: 323998205}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel (1)
   m_TagString: DropItem
@@ -3840,6 +3952,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &323998203
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3890,6 +4004,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323998199}
   m_Mesh: {fileID: 392952260546720908, guid: ee984997aa590e44eb8b0039d121471a, type: 3}
+--- !u!54 &323998205
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323998199}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &325075590
 GameObject:
   m_ObjectHideFlags: 0
@@ -5124,6 +5254,7 @@ GameObject:
   - component: {fileID: 434206796}
   - component: {fileID: 434206795}
   - component: {fileID: 434206794}
+  - component: {fileID: 434206798}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch (6)
   m_TagString: DropItem
@@ -5172,6 +5303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &434206796
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5222,6 +5355,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434206792}
   m_Mesh: {fileID: -6095433250602750988, guid: 86121f63013abb245812e15ea817fcb4, type: 3}
+--- !u!54 &434206798
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434206792}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &453381146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5554,6 +5703,7 @@ GameObject:
   - component: {fileID: 478882087}
   - component: {fileID: 478882086}
   - component: {fileID: 478882085}
+  - component: {fileID: 478882089}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch (5)
   m_TagString: DropItem
@@ -5602,6 +5752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &478882087
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5652,6 +5804,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478882083}
   m_Mesh: {fileID: -6095433250602750988, guid: 86121f63013abb245812e15ea817fcb4, type: 3}
+--- !u!54 &478882089
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478882083}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &504719689
 GameObject:
   m_ObjectHideFlags: 0
@@ -7020,7 +7188,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673948357}
-  m_LocalRotation: {x: 0.08849874, y: -0, z: -0, w: 0.99607635}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0005533993, y: -0.39082575, z: 2.144022}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
@@ -7391,6 +7559,7 @@ GameObject:
   - component: {fileID: 706760859}
   - component: {fileID: 706760858}
   - component: {fileID: 706760857}
+  - component: {fileID: 706760861}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank (3)
   m_TagString: DropItem
@@ -7439,6 +7608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &706760859
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7489,6 +7660,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706760855}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!54 &706760861
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706760855}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &709966176
 GameObject:
   m_ObjectHideFlags: 0
@@ -7578,6 +7765,7 @@ GameObject:
   - component: {fileID: 714556033}
   - component: {fileID: 714556032}
   - component: {fileID: 714556031}
+  - component: {fileID: 714556035}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank (8)
   m_TagString: DropItem
@@ -7626,6 +7814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &714556033
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7676,6 +7866,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714556029}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!54 &714556035
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714556029}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &717852989
 GameObject:
   m_ObjectHideFlags: 0
@@ -7915,8 +8121,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743539547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0294}
-  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 0.01}
+  m_LocalPosition: {x: 0, y: -3.7252904e-10, z: 0.0294}
+  m_LocalScale: {x: 0.010000001, y: 0.010000003, z: 0.010000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2012680945}
@@ -9423,6 +9629,7 @@ GameObject:
   - component: {fileID: 952151264}
   - component: {fileID: 952151263}
   - component: {fileID: 952151262}
+  - component: {fileID: 952151266}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic (6)
   m_TagString: DropItem
@@ -9471,6 +9678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &952151264
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9521,6 +9730,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952151260}
   m_Mesh: {fileID: -6015262002813137213, guid: 668733e0022c6c34aabebc23d6ccad8b, type: 3}
+--- !u!54 &952151266
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952151260}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &959901661
 GameObject:
   m_ObjectHideFlags: 0
@@ -9738,8 +9963,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.08849874, y: 0, z: 0, w: 0.99607635}
-  m_LocalPosition: {x: 0.239, y: -0.03135498, z: -0.19936076}
+  m_LocalRotation: {x: 0.10468427, y: 0, z: 0, w: 0.9945055}
+  m_LocalPosition: {x: 0.239, y: -0.023386523, z: -0.19660807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10095,6 +10320,7 @@ GameObject:
   - component: {fileID: 1006423257}
   - component: {fileID: 1006423256}
   - component: {fileID: 1006423255}
+  - component: {fileID: 1006423259}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank (7)
   m_TagString: DropItem
@@ -10143,6 +10369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1006423257
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10193,6 +10421,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006423253}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!54 &1006423259
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006423253}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1008177761
 GameObject:
   m_ObjectHideFlags: 0
@@ -10420,6 +10664,7 @@ GameObject:
   - component: {fileID: 1018851640}
   - component: {fileID: 1018851639}
   - component: {fileID: 1018851638}
+  - component: {fileID: 1018851642}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank (4)
   m_TagString: DropItem
@@ -10468,6 +10713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1018851640
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10518,6 +10765,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018851636}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!54 &1018851642
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018851636}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1025531528
 GameObject:
   m_ObjectHideFlags: 0
@@ -10562,6 +10825,7 @@ GameObject:
   - component: {fileID: 1033404230}
   - component: {fileID: 1033404229}
   - component: {fileID: 1033404228}
+  - component: {fileID: 1033404232}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank (6)
   m_TagString: DropItem
@@ -10610,6 +10874,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1033404230
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10660,6 +10926,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033404226}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!54 &1033404232
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033404226}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1034766669
 GameObject:
   m_ObjectHideFlags: 0
@@ -10673,6 +10955,7 @@ GameObject:
   - component: {fileID: 1034766673}
   - component: {fileID: 1034766672}
   - component: {fileID: 1034766671}
+  - component: {fileID: 1034766675}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel (4)
   m_TagString: DropItem
@@ -10723,6 +11006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1034766673
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10773,6 +11058,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034766669}
   m_Mesh: {fileID: 392952260546720908, guid: ee984997aa590e44eb8b0039d121471a, type: 3}
+--- !u!54 &1034766675
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766669}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1040918964
 GameObject:
   m_ObjectHideFlags: 0
@@ -11265,6 +11566,7 @@ GameObject:
   - component: {fileID: 1070220103}
   - component: {fileID: 1070220102}
   - component: {fileID: 1070220101}
+  - component: {fileID: 1070220105}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic (5)
   m_TagString: DropItem
@@ -11313,6 +11615,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1070220103
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11363,6 +11667,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070220099}
   m_Mesh: {fileID: -6015262002813137213, guid: 668733e0022c6c34aabebc23d6ccad8b, type: 3}
+--- !u!54 &1070220105
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070220099}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1102603756
 GameObject:
   m_ObjectHideFlags: 0
@@ -11659,6 +11979,7 @@ GameObject:
   - component: {fileID: 1114061321}
   - component: {fileID: 1114061320}
   - component: {fileID: 1114061319}
+  - component: {fileID: 1114061323}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel (3)
   m_TagString: DropItem
@@ -11709,6 +12030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1114061321
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11759,6 +12082,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114061317}
   m_Mesh: {fileID: 392952260546720908, guid: ee984997aa590e44eb8b0039d121471a, type: 3}
+--- !u!54 &1114061323
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114061317}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1125544673
 GameObject:
   m_ObjectHideFlags: 0
@@ -11924,6 +12263,7 @@ GameObject:
   - component: {fileID: 1138453093}
   - component: {fileID: 1138453092}
   - component: {fileID: 1138453091}
+  - component: {fileID: 1138453095}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank (2)
   m_TagString: DropItem
@@ -11972,6 +12312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1138453093
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12022,6 +12364,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138453089}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!54 &1138453095
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138453089}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1143381629
 GameObject:
   m_ObjectHideFlags: 0
@@ -12035,6 +12393,7 @@ GameObject:
   - component: {fileID: 1143381633}
   - component: {fileID: 1143381632}
   - component: {fileID: 1143381631}
+  - component: {fileID: 1143381635}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel (7)
   m_TagString: DropItem
@@ -12085,6 +12444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1143381633
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12135,6 +12496,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143381629}
   m_Mesh: {fileID: 392952260546720908, guid: ee984997aa590e44eb8b0039d121471a, type: 3}
+--- !u!54 &1143381635
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143381629}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1146135301
 GameObject:
   m_ObjectHideFlags: 0
@@ -12384,6 +12761,7 @@ GameObject:
   - component: {fileID: 1182986460}
   - component: {fileID: 1182986459}
   - component: {fileID: 1182986458}
+  - component: {fileID: 1182986462}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch (4)
   m_TagString: DropItem
@@ -12432,6 +12810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1182986460
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12482,6 +12862,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182986456}
   m_Mesh: {fileID: -6095433250602750988, guid: 86121f63013abb245812e15ea817fcb4, type: 3}
+--- !u!54 &1182986462
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182986456}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &1184343693
 Animator:
   serializedVersion: 5
@@ -14297,6 +14693,7 @@ GameObject:
   - component: {fileID: 1363467499}
   - component: {fileID: 1363467498}
   - component: {fileID: 1363467497}
+  - component: {fileID: 1363467501}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch (8)
   m_TagString: DropItem
@@ -14345,6 +14742,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1363467499
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14395,6 +14794,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363467495}
   m_Mesh: {fileID: -6095433250602750988, guid: 86121f63013abb245812e15ea817fcb4, type: 3}
+--- !u!54 &1363467501
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363467495}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1376523737
 GameObject:
   m_ObjectHideFlags: 0
@@ -14606,6 +15021,7 @@ GameObject:
   - component: {fileID: 1391569953}
   - component: {fileID: 1391569952}
   - component: {fileID: 1391569951}
+  - component: {fileID: 1391569955}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch (3)
   m_TagString: DropItem
@@ -14654,6 +15070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1391569953
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14704,6 +15122,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391569949}
   m_Mesh: {fileID: -6095433250602750988, guid: 86121f63013abb245812e15ea817fcb4, type: 3}
+--- !u!54 &1391569955
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391569949}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1393765764
 GameObject:
   m_ObjectHideFlags: 0
@@ -15791,6 +16225,7 @@ GameObject:
   - component: {fileID: 1515038325}
   - component: {fileID: 1515038324}
   - component: {fileID: 1515038323}
+  - component: {fileID: 1515038327}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic (4)
   m_TagString: DropItem
@@ -15839,6 +16274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1515038325
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15889,6 +16326,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515038321}
   m_Mesh: {fileID: -6015262002813137213, guid: 668733e0022c6c34aabebc23d6ccad8b, type: 3}
+--- !u!54 &1515038327
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515038321}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1517073729
 GameObject:
   m_ObjectHideFlags: 0
@@ -17496,6 +17949,7 @@ GameObject:
   - component: {fileID: 1645688912}
   - component: {fileID: 1645688911}
   - component: {fileID: 1645688910}
+  - component: {fileID: 1645688914}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel (6)
   m_TagString: DropItem
@@ -17546,6 +18000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1645688912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17596,6 +18052,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645688908}
   m_Mesh: {fileID: 392952260546720908, guid: ee984997aa590e44eb8b0039d121471a, type: 3}
+--- !u!54 &1645688914
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645688908}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1647158826
 GameObject:
   m_ObjectHideFlags: 0
@@ -17819,6 +18291,7 @@ GameObject:
   - component: {fileID: 1659226774}
   - component: {fileID: 1659226773}
   - component: {fileID: 1659226772}
+  - component: {fileID: 1659226776}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel (2)
   m_TagString: DropItem
@@ -17869,6 +18342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1659226774
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17919,6 +18394,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659226770}
   m_Mesh: {fileID: 392952260546720908, guid: ee984997aa590e44eb8b0039d121471a, type: 3}
+--- !u!54 &1659226776
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659226770}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1660727768
 GameObject:
   m_ObjectHideFlags: 0
@@ -18590,6 +19081,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1721827529}
+  - component: {fileID: 1721827530}
+  - component: {fileID: 1721827531}
   m_Layer: 0
   m_Name: FakeHook
   m_TagString: Untagged
@@ -18613,6 +19106,33 @@ Transform:
   m_Father: {fileID: 33562572}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1721827530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721827528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df69bad52121f8488c166b9dc5f5cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2119554359}
+  dropItem: []
+--- !u!65 &1721827531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721827528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18271741, y: 0.18010744, z: 0.17321944}
+  m_Center: {x: 0.09885608, y: 0.015787244, z: 0.11721871}
 --- !u!1 &1724827149
 GameObject:
   m_ObjectHideFlags: 0
@@ -19190,6 +19710,7 @@ GameObject:
   - component: {fileID: 1793814074}
   - component: {fileID: 1793814073}
   - component: {fileID: 1793814072}
+  - component: {fileID: 1793814076}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch (2)
   m_TagString: DropItem
@@ -19238,6 +19759,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1793814074
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19288,6 +19811,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793814070}
   m_Mesh: {fileID: -6095433250602750988, guid: 86121f63013abb245812e15ea817fcb4, type: 3}
+--- !u!54 &1793814076
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793814070}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1795420615
 GameObject:
   m_ObjectHideFlags: 0
@@ -20034,6 +20573,7 @@ GameObject:
   - component: {fileID: 1857228278}
   - component: {fileID: 1857228277}
   - component: {fileID: 1857228276}
+  - component: {fileID: 1857228280}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch (7)
   m_TagString: DropItem
@@ -20082,6 +20622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1857228278
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20132,6 +20674,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857228274}
   m_Mesh: {fileID: -6095433250602750988, guid: 86121f63013abb245812e15ea817fcb4, type: 3}
+--- !u!54 &1857228280
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857228274}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1885680006
 GameObject:
   m_ObjectHideFlags: 0
@@ -20514,8 +21072,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925735019}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0065, y: -0.0043, z: 0.01506}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0064999997, y: -0.0043000006, z: 0.01506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20541,7 +21099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1939270741
 Transform:
   m_ObjectHideFlags: 0
@@ -20551,7 +21109,7 @@ Transform:
   m_GameObject: {fileID: 1939270740}
   m_LocalRotation: {x: 0.762259, y: 0.07925321, z: -0.029331107, w: 0.641732}
   m_LocalPosition: {x: -0.08059999, y: -0.10114506, z: 0.31030878}
-  m_LocalScale: {x: 0.010000001, y: 0.39999998, z: 0.01}
+  m_LocalScale: {x: 0.005, y: 0.39999998, z: 0.005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 146249263}
@@ -20591,7 +21149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 780062d6a6435dd4aabbb818ad948bc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20635,6 +21193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {fileID: 1925735020}
   endPos: {fileID: 1025531529}
+  originalEndPos: {fileID: 73488434}
+  plasticHook: {fileID: 6207636682570130476}
+  fakeHook: {fileID: 1721827528}
 --- !u!1 &1971473886
 GameObject:
   m_ObjectHideFlags: 0
@@ -20648,6 +21209,7 @@ GameObject:
   - component: {fileID: 1971473890}
   - component: {fileID: 1971473889}
   - component: {fileID: 1971473888}
+  - component: {fileID: 1971473892}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel (5)
   m_TagString: DropItem
@@ -20698,6 +21260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &1971473890
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20748,6 +21312,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971473886}
   m_Mesh: {fileID: 392952260546720908, guid: ee984997aa590e44eb8b0039d121471a, type: 3}
+--- !u!54 &1971473892
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971473886}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1981579140
 GameObject:
   m_ObjectHideFlags: 0
@@ -21291,6 +21871,7 @@ GameObject:
   - component: {fileID: 2062892241}
   - component: {fileID: 2062892240}
   - component: {fileID: 2062892239}
+  - component: {fileID: 2062892243}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch (1)
   m_TagString: DropItem
@@ -21339,6 +21920,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &2062892241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21389,6 +21972,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062892237}
   m_Mesh: {fileID: -6095433250602750988, guid: 86121f63013abb245812e15ea817fcb4, type: 3}
+--- !u!54 &2062892243
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062892237}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2076622847
 GameObject:
   m_ObjectHideFlags: 0
@@ -21402,6 +22001,7 @@ GameObject:
   - component: {fileID: 2076622851}
   - component: {fileID: 2076622850}
   - component: {fileID: 2076622849}
+  - component: {fileID: 2076622853}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic (7)
   m_TagString: DropItem
@@ -21450,6 +22050,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &2076622851
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21500,6 +22102,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076622847}
   m_Mesh: {fileID: -6015262002813137213, guid: 668733e0022c6c34aabebc23d6ccad8b, type: 3}
+--- !u!54 &2076622853
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076622847}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2086417201
 GameObject:
   m_ObjectHideFlags: 0
@@ -21513,6 +22131,7 @@ GameObject:
   - component: {fileID: 2086417205}
   - component: {fileID: 2086417204}
   - component: {fileID: 2086417203}
+  - component: {fileID: 2086417207}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic (1)
   m_TagString: DropItem
@@ -21561,6 +22180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &2086417205
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21611,6 +22232,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086417201}
   m_Mesh: {fileID: -6015262002813137213, guid: 668733e0022c6c34aabebc23d6ccad8b, type: 3}
+--- !u!54 &2086417207
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086417201}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2094428974
 GameObject:
   m_ObjectHideFlags: 0
@@ -21903,6 +22540,7 @@ GameObject:
   - component: {fileID: 2116496613}
   - component: {fileID: 2116496612}
   - component: {fileID: 2116496611}
+  - component: {fileID: 2116496615}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel (8)
   m_TagString: DropItem
@@ -21953,6 +22591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &2116496613
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22003,6 +22643,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116496609}
   m_Mesh: {fileID: 392952260546720908, guid: ee984997aa590e44eb8b0039d121471a, type: 3}
+--- !u!54 &2116496615
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116496609}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2118138390
 GameObject:
   m_ObjectHideFlags: 0
@@ -22016,6 +22672,7 @@ GameObject:
   - component: {fileID: 2118138394}
   - component: {fileID: 2118138393}
   - component: {fileID: 2118138392}
+  - component: {fileID: 2118138396}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic (8)
   m_TagString: DropItem
@@ -22064,6 +22721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!23 &2118138394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22114,6 +22773,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118138390}
   m_Mesh: {fileID: -6015262002813137213, guid: 668733e0022c6c34aabebc23d6ccad8b, type: 3}
+--- !u!54 &2118138396
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118138390}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &2119554358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119554359}
+  m_Layer: 0
+  m_Name: HookEndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2119554359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119554358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.3908257, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 146249263}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125771245
 GameObject:
   m_ObjectHideFlags: 0
@@ -72904,8 +73610,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148057414618}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00040820308, y: -0.00565, z: 0.0325}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00040820317, y: -0.00565, z: 0.0325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -73351,6 +74057,7 @@ GameObject:
   - component: {fileID: 1711813855230545389}
   - component: {fileID: 3469287837882071336}
   - component: {fileID: 3469287837882071337}
+  - component: {fileID: 3469287837882071338}
   m_Layer: 0
   m_Name: Pickup_Floating_Plastic
   m_TagString: DropItem
@@ -73388,6 +74095,7 @@ GameObject:
   - component: {fileID: 1711813854542188105}
   - component: {fileID: 3469287838603065988}
   - component: {fileID: 3469287838603065989}
+  - component: {fileID: 3469287838603065990}
   m_Layer: 0
   m_Name: Pickup_Floating_Barrel
   m_TagString: DropItem
@@ -73408,6 +74116,7 @@ GameObject:
   - component: {fileID: 1711813855945281543}
   - component: {fileID: 3469287836784862414}
   - component: {fileID: 3469287836784862415}
+  - component: {fileID: 3469287836784862416}
   m_Layer: 0
   m_Name: Pickup_Floating_Thatch
   m_TagString: DropItem
@@ -73428,6 +74137,7 @@ GameObject:
   - component: {fileID: 1711813855546415178}
   - component: {fileID: 3469287837193432193}
   - component: {fileID: 3469287837193432194}
+  - component: {fileID: 3469287837193432195}
   m_Layer: 0
   m_Name: Pickup_Floating_Plank
   m_TagString: DropItem
@@ -74192,9 +74902,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051757148957323122}
-  m_LocalRotation: {x: -0.44941074, y: -0.0808562, z: -0.040887687, w: 0.8887185}
-  m_LocalPosition: {x: -0.00031, y: -0.0143, z: 0.02555001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.44941074, y: -0.080856204, z: -0.04088769, w: 0.8887185}
+  m_LocalPosition: {x: -0.00031000003, y: -0.014300003, z: 0.025550012}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999998}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8025324065998709400}
@@ -76393,6 +77103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!65 &3469287836784862415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76406,6 +77118,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01029891, y: 0.0016083906, z: 0.009384863}
   m_Center: {x: -0.000018689316, y: -0.000058114238, z: 0.0000073437113}
+--- !u!54 &3469287836784862416
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148879487442}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!33 &3469287837193432192
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -76427,6 +77155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!65 &3469287837193432194
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76440,6 +77170,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.014004406, y: 0.00058179535, z: 0.002604278}
   m_Center: {x: 0.00032982673, y: 0.00014189685, z: 0.000068117166}
+--- !u!54 &3469287837193432195
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149553052063}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!33 &3469287837882071335
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -76461,6 +77207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!65 &3469287837882071337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76474,6 +77222,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0069981525, y: 0.001621223, z: 0.006998152}
   m_Center: {x: -0.0005909548, y: 0.00047858933, z: -0.00053780084}
+--- !u!54 &3469287837882071338
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147681619000}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!33 &3469287838603065987
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -76495,6 +77259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  fakeHook: {fileID: 1721827529}
+  isHooked: 0
 --- !u!65 &3469287838603065989
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76508,6 +77274,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.006, y: 0.0069790995, z: 0.005999998}
   m_Center: {x: -0.0000022881432, y: 0.00014722452, z: 0.000019532978}
+--- !u!54 &3469287838603065990
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148135096220}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3488915521154723894
 GameObject:
   m_ObjectHideFlags: 0
@@ -76669,7 +77451,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5b9e792e8d3204246aaa5b6695ac2e19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79595,6 +80377,7 @@ Transform:
   m_Children:
   - {fileID: 3228173235745975434}
   - {fileID: 1250505887}
+  - {fileID: 73488434}
   m_Father: {fileID: 33562572}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 15.102, y: 135.511, z: 167.386}
@@ -79873,7 +80656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &6207636682570130477
 Animator:
   serializedVersion: 5

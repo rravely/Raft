@@ -16,6 +16,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] PlayerClickPanel playerClickPanel;
 
     [HideInInspector] public float charging = 0f;
+    float hookBack = 0f;
 
     [Header("Animator")]
     [SerializeField] Animator playerAni;
@@ -24,12 +25,15 @@ public class PlayerInteraction : MonoBehaviour
 
     [Header("Tools")]
     [SerializeField] GameObject hammer;
-    [SerializeField] PlasticHook hook;
 
+    [SerializeField] PlasticHook plasticHook;
     [SerializeField] Transform hookT;
+    [SerializeField] Transform fakeHook;
 
-    bool isThrow = false;
-    public bool isHookThrown = false;
+    bool isThrow = false; 
+    public bool isHookThrown = false; 
+    public bool isHookPull = false; 
+    public bool isHookBack = false;
 
     public bool canPickup = false;
     public Item pickupItem = null;
@@ -93,7 +97,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (playerClickPanel.isPossibleClick)
         {
-            if (playerInput.isLMD)
+            if (playerInput.isLMD && !isHookThrown)
             {
                 isThrow = true;
 
@@ -107,17 +111,27 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if (isHookThrown)
             {
-                if (playerInput.isRMD)
+                if (playerInput.isLMD)
                 {
                     //Pull hook
-                    Debug.Log("hook 당기는 중");
+                    isHookPull = true;
+                    //isHookThrown = false;
                     playerAni.SetBool("HookCharging", false);
                 }
-                else if (playerInput.isRMDDown)
+                else
+                {
+                    isHookPull = false;
+                }
+                
+                if (playerInput.isRMD)
                 {
                     //Pull hook right away
                     isHookThrown = false;
+                    plasticHook.ResetHook();
+                    playerAni.SetBool("Grab", true);
                 }
+                
+
             }
         }
 
@@ -126,7 +140,7 @@ public class PlayerInteraction : MonoBehaviour
             //Throw hook
             hookAni.SetTrigger("Throw");
             hookAni.SetBool("Charge", false);
-            hook.isThrowing = true;
+            plasticHook.isThrowing = true;
 
             playerAni.SetTrigger("HookThrowing");
             playerAni.SetBool("HookCharging", false);
@@ -152,6 +166,11 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    public void ResetHook()
+    {
+        plasticHook.ResetHook();
+    }
+
     public void PlayerIdle(bool isActive)
     {
         playerAni.SetBool("Idle", isActive);
@@ -161,4 +180,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerAni.SetBool("Grab", true);
     }
+
+
 }

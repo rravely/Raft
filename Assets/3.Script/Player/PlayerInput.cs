@@ -23,7 +23,7 @@ public class PlayerInput : MonoBehaviour
     public bool isLMDUp { get; private set; }
     public bool isLMDDown { get; private set; }
     public bool isRMD { get; private set; }
-    public bool isRMDDown { get; private set; }
+    public bool isRMDUp { get; private set; }
 
     public float mouseHorizontal { get; private set; }
     public float mouseVertical { get; private set; }
@@ -42,7 +42,6 @@ public class PlayerInput : MonoBehaviour
         isLMD = Input.GetMouseButton(0);
         isLMDUp = Input.GetMouseButtonUp(0);
         isLMDDown = Input.GetMouseButtonDown(0);
-        isRMDDown = Input.GetMouseButtonDown(1);
         isRMD = Input.GetMouseButton(1);
 
         //Debug.Log(isLMD);
