@@ -28,6 +28,7 @@ public class PlayerInteraction : MonoBehaviour
 
     [SerializeField] Transform hookT;
 
+    bool isThrow = false;
     public bool isHookThrown = false;
 
     public bool canPickup = false;
@@ -60,18 +61,16 @@ public class PlayerInteraction : MonoBehaviour
                 Hammer();
                 break;
             case "PlasticHook":
-                playerAni.SetBool("Grab", true);
+                if (!isThrow)
+                {
+                    playerAni.SetBool("Grab", true);
+                }
                 Hook();
                 break;
             default:
                 playerAni.SetBool("Grab", false);
                 break;
         }
-    }
-
-    public void GrabHands()
-    {
-        playerAni.SetBool("Grab", true);
     }
 
     public void Hammer()
@@ -94,9 +93,11 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (playerClickPanel.isPossibleClick)
         {
-            playerAni.SetBool("Grab", false);
             if (playerInput.isLMD)
             {
+                isThrow = true;
+
+                playerAni.SetBool("Grab", false);
                 playerAni.SetBool("HookCharging", true);
                 hookAni.SetTrigger("Charge");
                 if (charging < 100)
@@ -115,10 +116,9 @@ public class PlayerInteraction : MonoBehaviour
                 else if (playerInput.isRMDDown)
                 {
                     //Pull hook right away
+                    isHookThrown = false;
                 }
             }
-
-
         }
 
         if (playerInput.isLMDUp && charging > 5)
@@ -127,8 +127,10 @@ public class PlayerInteraction : MonoBehaviour
             hookAni.SetTrigger("Throw");
             hookAni.SetBool("Charge", false);
             hook.isThrowing = true;
+
             playerAni.SetTrigger("HookThrowing");
-            
+            playerAni.SetBool("HookCharging", false);
+
             isHookThrown = true; //Hook will be thrown by itself
         }
     }
@@ -153,5 +155,10 @@ public class PlayerInteraction : MonoBehaviour
     public void PlayerIdle(bool isActive)
     {
         playerAni.SetBool("Idle", isActive);
+    }
+
+    public void GrabHands()
+    {
+        playerAni.SetBool("Grab", true);
     }
 }

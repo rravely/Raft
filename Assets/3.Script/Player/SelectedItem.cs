@@ -13,6 +13,7 @@ public class SelectedItem : MonoBehaviour
 
     [SerializeField] GameObject hammer;
     [SerializeField] GameObject hook;
+    [SerializeField] GameObject rope;
 
     private void Start()
     {
@@ -44,10 +45,12 @@ public class SelectedItem : MonoBehaviour
                     case "Hammer":
                         hammer.SetActive(true);
                         hook.SetActive(false);
+                        rope.SetActive(false);
                         break;
                     case "PlasticHook":
                         hammer.SetActive(false);
                         hook.SetActive(true);
+                        rope.SetActive(true);
                         break;
                 }
             }
@@ -64,6 +67,7 @@ public class SelectedItem : MonoBehaviour
         {
             hammer.SetActive(true);
             hook.SetActive(false);
+            rope.SetActive(false);
             playerInteraction.GrabHands();
 
             switch (selectedItem.itemName)

@@ -1454,6 +1454,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2012680945}
+  - {fileID: 1939270741}
+  - {fileID: 673948358}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1658,6 +1660,7 @@ MonoBehaviour:
   selectedItem: {fileID: 11400000, guid: e3c5f0966e1d2de48a8999c5bd7d073d, type: 2}
   hammer: {fileID: 3336789065787326284}
   hook: {fileID: 6207636682570130476}
+  rope: {fileID: 1939270740}
 --- !u!1 &159771327
 GameObject:
   m_ObjectHideFlags: 0
@@ -7017,12 +7020,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673948357}
-  m_LocalRotation: {x: -0.91745996, y: -0.051350974, z: -0.35964766, w: 0.16212304}
-  m_LocalPosition: {x: 0.06330001, y: 0.03460002, z: -0.07390002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.08849874, y: -0, z: -0, w: 0.99607635}
+  m_LocalPosition: {x: -0.0005533993, y: -0.39082575, z: 2.144022}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5968256645072749380}
+  m_Father: {fileID: 146249263}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684814835
@@ -7917,7 +7920,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2012680945}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &743539549
 BoxCollider:
@@ -10515,6 +10518,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018851636}
   m_Mesh: {fileID: -5989954973185191133, guid: 8d658ac3b12429c4684026f17a1037be, type: 3}
+--- !u!1 &1025531528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1025531529}
+  m_Layer: 0
+  m_Name: RopeEndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1025531529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025531528}
+  m_LocalRotation: {x: 0.16212304, y: 0.3596477, z: -0.05135097, w: 0.91745996}
+  m_LocalPosition: {x: -0.0001156495, y: 0.000118152195, z: -0.00006987913}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1393765765}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033404226
 GameObject:
   m_ObjectHideFlags: 0
@@ -14700,7 +14734,8 @@ Transform:
   m_LocalPosition: {x: 0.10720396, y: -0.05577456, z: 0.15824074}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1025531529}
   m_Father: {fileID: 1721827529}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
@@ -15058,7 +15093,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2012680945}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1438186782
 MonoBehaviour:
@@ -18556,7 +18591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1721827529}
   m_Layer: 0
-  m_Name: ThrowingHookP
+  m_Name: FakeHook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20456,6 +20491,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892842583}
   m_Mesh: {fileID: 3517271401328098536, guid: 093036dabda31fa4aae3598fd6c50c06, type: 3}
+--- !u!1 &1925735019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925735020}
+  m_Layer: 0
+  m_Name: RopeStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1925735020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925735019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0065, y: -0.0043, z: 0.01506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2012680945}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1939270740
 GameObject:
   m_ObjectHideFlags: 0
@@ -20468,13 +20534,14 @@ GameObject:
   - component: {fileID: 1939270744}
   - component: {fileID: 1939270743}
   - component: {fileID: 1939270742}
+  - component: {fileID: 1939270745}
   m_Layer: 0
-  m_Name: Rope
+  m_Name: HookRope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1939270741
 Transform:
   m_ObjectHideFlags: 0
@@ -20482,14 +20549,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939270740}
-  m_LocalRotation: {x: 0.75233173, y: 0.09713779, z: -0.070262216, w: 0.6477843}
-  m_LocalPosition: {x: 0, y: -0.0047000023, z: 0.028400002}
-  m_LocalScale: {x: 0.0005, y: 0.01, z: 0.0005}
+  m_LocalRotation: {x: 0.762259, y: 0.07925321, z: -0.029331107, w: 0.641732}
+  m_LocalPosition: {x: -0.08059999, y: -0.10114506, z: 0.31030878}
+  m_LocalScale: {x: 0.010000001, y: 0.39999998, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2012680945}
+  m_Father: {fileID: 146249263}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 98.755005, y: -7.598999, z: -21.234985}
+  m_LocalEulerAnglesHint: {x: 93.26898, y: -91.405, z: -100.541016}
 --- !u!136 &1939270742
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20554,6 +20621,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939270740}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1939270745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939270740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04126678b4ff3054e95f2841df7ca886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {fileID: 1925735020}
+  endPos: {fileID: 1025531529}
 --- !u!1 &1971473886
 GameObject:
   m_ObjectHideFlags: 0
@@ -20766,11 +20847,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 33562572}
-  - {fileID: 1939270741}
   - {fileID: 1671573152557725128}
   - {fileID: 543450652515942752}
   - {fileID: 743539548}
   - {fileID: 1438186781}
+  - {fileID: 1925735020}
   m_Father: {fileID: 146249263}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 10.155, y: 0, z: 0}
@@ -72833,7 +72914,7 @@ Transform:
   - {fileID: 1176439276072835705}
   - {fileID: 8999980167772190486}
   m_Father: {fileID: 2012680945}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450652606182694
 Transform:
@@ -74118,7 +74199,7 @@ Transform:
   m_Children:
   - {fileID: 8025324065998709400}
   m_Father: {fileID: 2012680945}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -53.65, y: -10.397, z: 0}
 --- !u!1 &1677657564135859910
 GameObject:
@@ -79514,7 +79595,6 @@ Transform:
   m_Children:
   - {fileID: 3228173235745975434}
   - {fileID: 1250505887}
-  - {fileID: 673948358}
   m_Father: {fileID: 33562572}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 15.102, y: 135.511, z: 167.386}
@@ -79829,8 +79909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isThrowing: 0
   throwingHook: {fileID: 1721827529}
-  playerInteraction: {fileID: 146249265}
   maxTarget: {fileID: 673948358}
+  playerInteraction: {fileID: 146249265}
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!4 &6256818861395049417
 Transform:

@@ -9,14 +9,18 @@ public class PlasticHook : MonoBehaviour
 
     Transform originalHook;
 
+    [Header("Fake Hook")]
     [SerializeField] public Transform throwingHook;
-    [SerializeField] PlayerInteraction playerInteraction;
+    [Header("Target max position")]
     [SerializeField] Transform maxTarget;
+    [Header("Player")]
+    [SerializeField] PlayerInteraction playerInteraction;
 
     //Raycast
     int layerMaskWater;
     public Vector3 targetPos;
     Vector3 maxTargetPos;
+    float maxDist;
 
     private void Start()
     {
@@ -24,7 +28,7 @@ public class PlasticHook : MonoBehaviour
 
         originalHook = transform.GetChild(0);
 
-        maxTargetPos = maxTarget.position;
+        maxDist = (transform.GetChild(1).position - maxTarget.position).sqrMagnitude;
     }
 
     private void Update()
@@ -35,9 +39,14 @@ public class PlasticHook : MonoBehaviour
 
             //Set target position
             Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(960, 540)), out RaycastHit hit, 999f, layerMaskWater);
-            targetPos = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            if ((transform.GetChild(1).position - targetPos).sqrMagnitude > 2.25f)
+            targetPos = hit.point;
+            if ((transform.GetChild(1).position - targetPos).sqrMagnitude < maxDist)
             {
+                targetPos = new Vector3(hit.point.x - 0.13f, hit.point.y - 0.02f, hit.point.z);
+            }
+            else
+            {
+                maxTargetPos = new Vector3(maxTarget.position.x - 0.13f, maxTarget.position.y - 0.02f, maxTarget.position.z);
                 targetPos = maxTargetPos;
             }
 
