@@ -32,7 +32,7 @@ public class DropItem : MonoBehaviour
         }
         else
         {
-            transform.position = fakeHook.transform.position;
+            transform.position = new Vector3(fakeHook.transform.position.x + 0.1f, fakeHook.transform.position.y, fakeHook.transform.position.z);
         }
     }
 
