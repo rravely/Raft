@@ -58,9 +58,8 @@ public class SelectedItem : MonoBehaviour
             {
                 hammer.SetActive(false);
                 hook.SetActive(false);
+                rope.SetActive(false);
                 playerInteraction.PlayerIdle(true);
-                
-                
             }
         }
         else

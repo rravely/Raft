@@ -63,13 +63,20 @@ public class PlayerMovement : MonoBehaviour
             }
             else //in water
             {
-                playerRigid.AddForce(Vector3.up * 80f);
+                playerRigid.AddForce(Vector3.up * 30f);
             }
 
         }
         if (playerState.inWaterSurface && !playerState.isJumping)
         {
-            transform.position = new Vector3(transform.position.x, -0.599f, transform.position.z);
+            if (playerInput.moveVerticalValue > 0 && transform.GetChild(0).localRotation.x > 0.12)
+            {
+                transform.position -= new Vector3(0f, -0.1f, 0f);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, -0.599f, transform.position.z);
+            }
         }
 
         //player rigidbody

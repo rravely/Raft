@@ -7,11 +7,12 @@ public class PlayerState : MonoBehaviour
     [HideInInspector] public float moisture;
     [HideInInspector] public float satiation;
     [HideInInspector] public float health;
+    [HideInInspector] public float oxygen;
 
-    
     public const float maxMoisture = 100f;
     public const float maxSatiation = 100f;
     public const float maxHealth = 100f;
+    public const float maxOxygen = 100f;
 
     public Dictionary<string, int> playerItems = new Dictionary<string, int>();
 
@@ -21,11 +22,28 @@ public class PlayerState : MonoBehaviour
     [HideInInspector] public bool inWater = false;
     [HideInInspector] public bool inWaterSurface = false;
 
+    [Header("Player State UI")]
+    [SerializeField] private GameObject oxygenBar;
+
     public void InitializePlayerState()
     {
         moisture = maxMoisture;
         satiation = maxSatiation;
         health = maxHealth;
+        oxygen = maxOxygen;
+    }
+
+    private void Start()
+    {
+        InitializePlayerState();
+    }
+
+    private void Update()
+    {
+        if (inWater)
+        {
+            oxygen -= 0.01f;
+        }
     }
 
     public void AddPlayerItems(Item item)
