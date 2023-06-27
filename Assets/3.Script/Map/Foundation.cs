@@ -14,7 +14,7 @@ public class Foundation : MonoBehaviour
         {
             isBuildable = true;
         }
-        if (other.CompareTag("Foundation"))
+        else if (other.CompareTag("Foundation"))
         {
             isExist = true;
         }
@@ -26,7 +26,7 @@ public class Foundation : MonoBehaviour
         {
             isBuildable = true;
         }
-        if (other.CompareTag("Foundation"))
+        else if (other.CompareTag("Foundation"))
         {
             isExist = true;
         }
@@ -50,6 +50,13 @@ public class Foundation : MonoBehaviour
         {
             isExist = true;
         }
+        else if (collision.gameObject.tag.Equals("Player"))
+        {
+            if (collision.gameObject.GetComponent<PlayerState>().inWaterSurface)
+            {
+                collision.gameObject.GetComponent<PlayerState>().canJumpOnFoundation = true;
+            }
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -58,6 +65,13 @@ public class Foundation : MonoBehaviour
         {
             isExist = true;
         }
+        else if (collision.gameObject.tag.Equals("Player"))
+        {
+            if (collision.gameObject.GetComponent<PlayerState>().inWaterSurface)
+            {
+                collision.gameObject.GetComponent<PlayerState>().canJumpOnFoundation = true;
+            }
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -65,6 +79,13 @@ public class Foundation : MonoBehaviour
         if (collision.gameObject.tag.Equals("Foundation"))
         {
             isExist = false;
+        }
+        else if (collision.gameObject.tag.Equals("Player"))
+        {
+            if (collision.gameObject.GetComponent<PlayerState>().inWaterSurface)
+            {
+                collision.gameObject.GetComponent<PlayerState>().canJumpOnFoundation = false;
+            }
         }
     }
 }

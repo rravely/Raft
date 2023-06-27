@@ -16,6 +16,8 @@ public class PlayerState : MonoBehaviour
     public Dictionary<string, int> playerItems = new Dictionary<string, int>();
 
     [HideInInspector] public bool isJump = false;
+    [HideInInspector] public bool isJumping = false;
+    [HideInInspector] public bool canJumpOnFoundation = false;
     [HideInInspector] public bool inWater = false;
     [HideInInspector] public bool inWaterSurface = false;
 

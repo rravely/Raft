@@ -21,6 +21,7 @@ public class Water : MonoBehaviour
                 other.GetComponent<PlayerState>().inWater = false;
                 other.GetComponent<PlayerState>().inWaterSurface = true;
 
+                //other.GetComponent<Rigidbody>().useGravity = true;
                 RenderSettings.skybox = sky;
             }
         }
@@ -30,7 +31,7 @@ public class Water : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (!other.GetComponent<PlayerState>().inWater)
+            if (!other.GetComponent<PlayerState>().inWater && !other.GetComponent<PlayerState>().inWaterSurface)
             {
                 other.GetComponent<PlayerState>().inWater = true;
                 //Turn off player's rigidbody after 0.2f seconds
@@ -38,13 +39,17 @@ public class Water : MonoBehaviour
 
                 RenderSettings.skybox = water;
             }
+            else if (other.GetComponent<PlayerState>().inWaterSurface)
+            {
+                other.GetComponent<PlayerState>().inWaterSurface = false;
+            }
         }
     }
     IEnumerator TurnOffPlayerRigidbody(Rigidbody otherRigid)
     {
         yield return new WaitForSeconds(0.2f);
         otherRigid.useGravity = false;
-        otherRigid.velocity = Vector3.down * 0.05f;
+        otherRigid.velocity = Vector3.down * 0.1f;
     }
 
 }
