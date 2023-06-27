@@ -80,6 +80,9 @@ public class SelectedItem : MonoBehaviour
                 case "Table":
                     BuildableObjectPlaceable(1);
                     break;
+                case "Purifier":
+                    BuildableObjectPlaceable(3);
+                    break;
                 case "Foundation":
                     buildingFoundationManager.placeNow = true;
                     break;

@@ -44,6 +44,15 @@ public class PlayerState : MonoBehaviour
         {
             oxygen -= 0.01f;
         }
+        //Control state bar 
+        PlayerAlive(0.001f);
+        
+    }
+
+    void PlayerAlive(float value)
+    {
+        moisture -= value;
+        satiation -= value;
     }
 
     public void AddPlayerItems(Item item)
