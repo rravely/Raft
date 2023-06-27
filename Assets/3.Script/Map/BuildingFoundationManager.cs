@@ -24,7 +24,7 @@ public class BuildingFoundationManager : MonoBehaviour
     [HideInInspector] public bool tempObjectExists;
 
     //Raycast
-    int layerMaskWater;
+    int layerMaskFoundation;
 
     //Grid
     Tilemap tilemap;
@@ -38,7 +38,7 @@ public class BuildingFoundationManager : MonoBehaviour
         selectedItem = FindObjectOfType<SelectedItem>();
         tilemap = GetComponentInChildren<Tilemap>();
 
-        layerMaskWater = 1 << LayerMask.NameToLayer("Water");
+        layerMaskFoundation = 1 << LayerMask.NameToLayer("FoundationPlane");
     }
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class BuildingFoundationManager : MonoBehaviour
     {
         if (selectedItem.selectedItem.isFoundation)
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(960, 540)), out RaycastHit hit, 999f, layerMaskWater))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(960, 540)), out RaycastHit hit, 999f, layerMaskFoundation))
             {
                 place = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                 tilemapPlace = tilemap.GetCellCenterWorld(tilemap.WorldToCell(place));
@@ -78,6 +78,7 @@ public class BuildingFoundationManager : MonoBehaviour
 
                     GameObject foundation = Instantiate(objectToPlace, tilemapPlace, Quaternion.identity);
                     foundation.transform.SetParent(transform);
+                    foundation.GetComponent<Foundation>().isBuild = true;
                     placeNow = false;
                     placeObject = false;
 

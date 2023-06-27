@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     PlayerInput playerInput;
+    PlayerState playerState;
     Rigidbody playerRigid;
 
     float moveSpeed = 0.5f;
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        playerState = GetComponent<PlayerState>();
         playerRigid = GetComponent<Rigidbody>();
     }
 
@@ -43,6 +45,10 @@ public class PlayerMovement : MonoBehaviour
         if (playerInput.isJump)
         {
             playerRigid.AddForce(Vector3.up * 200f); 
+        }
+        if (playerState.inWaterSurface)
+        {
+            transform.position = new Vector3(transform.position.x, -0.599f, transform.position.z);
         }
     }
 }

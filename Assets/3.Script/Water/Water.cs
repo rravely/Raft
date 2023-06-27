@@ -12,6 +12,20 @@ public class Water : MonoBehaviour
         sky = RenderSettings.skybox;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (other.GetComponent<PlayerState>().inWater)
+            {
+                other.GetComponent<PlayerState>().inWater = false;
+                other.GetComponent<PlayerState>().inWaterSurface = true;
+
+                RenderSettings.skybox = sky;
+            }
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -24,14 +38,6 @@ public class Water : MonoBehaviour
 
                 RenderSettings.skybox = water;
             }
-            else
-            {
-                other.GetComponent<PlayerState>().inWater = false;
-                RenderSettings.skybox = sky;
-
-                TurnOnRigidbody(other.GetComponent<Rigidbody>());
-            }
-            
         }
     }
     IEnumerator TurnOffPlayerRigidbody(Rigidbody otherRigid)
@@ -39,12 +45,6 @@ public class Water : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         otherRigid.useGravity = false;
         otherRigid.velocity = Vector3.down * 0.05f;
-    }
-
-    IEnumerator TurnOnRigidbody(Rigidbody otherRigid)
-    {
-        yield return null;
-        otherRigid.useGravity = true;
     }
 
 }

@@ -17,6 +17,7 @@ public class PlayerState : MonoBehaviour
 
     [HideInInspector] public bool isJump = false;
     [HideInInspector] public bool inWater = false;
+    [HideInInspector] public bool inWaterSurface = false;
 
     public void InitializePlayerState()
     {
