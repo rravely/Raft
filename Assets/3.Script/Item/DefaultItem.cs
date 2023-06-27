@@ -15,7 +15,7 @@ public class DefaultItem : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < 10; j++)
             {
                 itemManager.AddItem(items[i]);
             }
