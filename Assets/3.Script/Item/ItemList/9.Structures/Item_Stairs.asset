@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 155dc2ee87468bf4a84bffc7054a4d29, type: 3}
-  m_Name: Item_Stair
+  m_Name: Item_Stairs
   m_EditorClassIdentifier: 
   id: 9004
-  itemName: Stair
+  itemName: Stairs
   itemKoreanName: "\uACC4\uB2E8"
   itemDescription: "\uB192\uC774 2\uCE78 \uAE38\uC774 2\uCE78\uC73C\uB85C \uACE0\uB3C4\uB97C
     \uB192\uC77C \uC218 \uC788\uB294 \uACC4\uB2E8\uC744 \uB9CC\uB4E0\uB2E4."

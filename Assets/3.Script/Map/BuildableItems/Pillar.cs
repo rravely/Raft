@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pillar : MonoBehaviour
 {
     [HideInInspector] public bool isExist = false; 
-    [HideInInspector] public bool isBuildable = false; //placeable condition: isExist -> true, isBuildable -> true
+    [HideInInspector] public bool isBuildable = false; //placeable condition: isExist -> false, isBuildable -> true
     public bool isBuild = false;
 
     private void OnTriggerEnter(Collider other)

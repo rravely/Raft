@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: -2038406819457625001}
   m_Layer: 0
   m_Name: Buildable_Purifier
-  m_TagString: Untagged
+  m_TagString: Buildable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
