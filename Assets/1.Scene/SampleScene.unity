@@ -1712,7 +1712,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &146249274
 MonoBehaviour:
@@ -9896,7 +9896,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &810868317
 BoxCollider:
@@ -15060,14 +15060,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  - {fileID: 11400000, guid: 84d81a4786e56f14d99bb4b311cfbb34, type: 2}
   - {fileID: 11400000, guid: b42ede522d067eb4ca67585dc552f11e, type: 2}
   - {fileID: 11400000, guid: 9a28c845e576340709dd5df87cf4e8b9, type: 2}
   - {fileID: 11400000, guid: 19ad559ce90e24c41878891fe2333bbe, type: 2}
   - {fileID: 11400000, guid: 5cd81f98337ca88469cb624666033361, type: 2}
   - {fileID: 11400000, guid: 1388141e574834f08aea83b6ddc6d02d, type: 2}
   - {fileID: 11400000, guid: ad012d786c42a37489c8fbdbea1ead20, type: 2}
-  - {fileID: 11400000, guid: 84d81a4786e56f14d99bb4b311cfbb34, type: 2}
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
 --- !u!1 &1199332549
 GameObject:
   m_ObjectHideFlags: 0
@@ -21218,7 +21218,7 @@ Transform:
   - {fileID: 474238636}
   - {fileID: 367064582}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724827149
 GameObject:
@@ -76442,7 +76442,7 @@ Transform:
   - {fileID: 1284411008174285571}
   - {fileID: 7568336439698213830}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 169.533, z: 0}
 --- !u!4 &550582042610560517
 Transform:
