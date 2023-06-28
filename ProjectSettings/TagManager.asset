@@ -14,6 +14,7 @@ TagManager:
   - FoundationInside
   - DropItem
   - Pillar
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - UI
   - Foundation
   - FoundationPlane
-  - 
+  - FloorPlane
   - 
   - 
   - 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class BuildingFoundationManager : MonoBehaviour
+public class BuildingFloorManager : MonoBehaviour
 {
     PlayerInteraction playerInteraction;
 
@@ -26,7 +26,7 @@ public class BuildingFoundationManager : MonoBehaviour
     [HideInInspector] public bool tempObjectExists;
 
     //Raycast
-    int layerMaskFoundation;
+    int layerMaskFloor;
 
     //Grid
     Tilemap tilemap;
@@ -40,7 +40,7 @@ public class BuildingFoundationManager : MonoBehaviour
         selectedItem = FindObjectOfType<SelectedItem>();
         tilemap = GetComponentInChildren<Tilemap>();
 
-        layerMaskFoundation = 1 << LayerMask.NameToLayer("FoundationPlane");
+        layerMaskFloor = 1 << LayerMask.NameToLayer("FloorPlane");
     }
 
     // Update is called once per frame
@@ -57,7 +57,7 @@ public class BuildingFoundationManager : MonoBehaviour
     {
         if (selectedItem.selectedItem.isFoundation)
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(960, 540)), out RaycastHit hit, 999f, layerMaskFoundation))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(960, 540)), out RaycastHit hit, 999f, layerMaskFloor))
             {
                 place = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                 tilemapPlace = tilemap.GetCellCenterWorld(tilemap.WorldToCell(place));
@@ -83,7 +83,7 @@ public class BuildingFoundationManager : MonoBehaviour
 
                 if (tempObject != null)
                 {
-                    if (!tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
+                    if (!tempObject.GetComponent<Floor>().isExist && tempObject.GetComponent<Floor>().isBuildable)
                     {
                         tempObject.GetComponent<MeshRenderer>().material = temp;
                     }
@@ -102,14 +102,14 @@ public class BuildingFoundationManager : MonoBehaviour
     {
         switch (selectedItemIndex)
         {
-            case 0: //foundation
-                if (!tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
+            case 0: //Wooden floor
+                if (!tempObject.GetComponent<Floor>().isExist && tempObject.GetComponent<Floor>().isBuildable)
                 {
                     playerInteraction.Hammer();
 
                     GameObject foundation = Instantiate(objectToPlace, tilemapPlace, Quaternion.identity);
                     foundation.transform.SetParent(transform);
-                    foundation.GetComponent<Foundation>().isBuild = true;
+                    foundation.GetComponent<Floor>().isBuild = true;
                     placeNow = false;
                     placeObject = false;
 
@@ -120,6 +120,7 @@ public class BuildingFoundationManager : MonoBehaviour
                 }
                 break;
             case 1: 
+                
                 break;
             case 2:
                 break;

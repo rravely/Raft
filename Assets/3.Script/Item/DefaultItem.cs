@@ -26,5 +26,6 @@ public class DefaultItem : MonoBehaviour
         itemManager.AddItem(items[5]);
         itemManager.AddItem(items[6]);
         itemManager.AddItem(items[7]);
+        itemManager.AddItem(items[8]);
     }
 }

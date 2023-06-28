@@ -9,6 +9,7 @@ public class SelectedItem : MonoBehaviour
     BuildingManager buildingManager;
     BuildingFoundationManager buildingFoundationManager;
     BuildingPillarManager buildingPillarManager;
+    BuildingFloorManager buildingFloorManager;
 
     ItemManager itemManager;
     PlayerInteraction playerInteraction;
@@ -22,6 +23,7 @@ public class SelectedItem : MonoBehaviour
         buildingManager = FindObjectOfType<BuildingManager>();
         buildingFoundationManager = FindObjectOfType<BuildingFoundationManager>();
         buildingPillarManager = FindObjectOfType<BuildingPillarManager>();
+        buildingFloorManager = FindObjectOfType<BuildingFloorManager>();
 
         itemManager = FindObjectOfType<ItemManager>();
         playerInteraction = FindObjectOfType<PlayerInteraction>();
@@ -44,6 +46,9 @@ public class SelectedItem : MonoBehaviour
 
             buildingPillarManager.placeNow = false;
             buildingPillarManager.DestoryTempObject();
+
+            buildingFloorManager.placeNow = false;
+            buildingFloorManager.DestoryTempObject();
 
             if (selectedItem.isTool)
             {
@@ -80,6 +85,9 @@ public class SelectedItem : MonoBehaviour
             if (!selectedItem.isFoundation)
             {
                 buildingFoundationManager.placeNow = false;
+                buildingPillarManager.placeNow = false;
+                buildingFloorManager.placeNow = false;
+
                 switch (selectedItem.itemName)
                 {
                     case "SimpleBed":
@@ -103,18 +111,23 @@ public class SelectedItem : MonoBehaviour
                     case "Foundation":
                         buildingFoundationManager.placeNow = true;
                         buildingPillarManager.placeNow = false;
+                        buildingFloorManager.placeNow = false;
 
                         buildingFoundationManager.selectedItemIndex = 0;
                         break;
                     case "WoodenFloor":
-                        buildingFoundationManager.placeNow = true;
+                        buildingFloorManager.placeNow = true;
+                        buildingFoundationManager.placeNow = false;
                         buildingPillarManager.placeNow = false;
 
-                        buildingFoundationManager.selectedItemIndex = 1;
+                        buildingFoundationManager.selectedItemIndex = 0;
                         break;
                     case "Pillar":
-                        buildingFoundationManager.placeNow = false;
                         buildingPillarManager.placeNow = true;
+                        buildingFoundationManager.placeNow = false;
+                        buildingFloorManager.placeNow = false;
+
+                        buildingPillarManager.selectedItemIndex = 0;
                         break;
                 }
             }
