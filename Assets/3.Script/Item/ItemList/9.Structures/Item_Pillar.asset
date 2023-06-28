@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 155dc2ee87468bf4a84bffc7054a4d29, type: 3}
-  m_Name: Item_Foundation
+  m_Name: Item_Pillar
   m_EditorClassIdentifier: 
-  id: 7001
-  itemName: Foundation
-  itemKoreanName: "\uD1A0\uB300"
-  itemDescription: "\uB5CF\uBAA9\uC758 \uD1A0\uB300\uAC00 \uB41C\uB2E4."
-  icon: {fileID: 21300000, guid: 40ba48a0d061c834e8592e283565ab44, type: 3}
+  id: 9002
+  itemName: Pillar
+  itemKoreanName: "\uAE30\uB465"
+  itemDescription: 
+  icon: {fileID: 21300000, guid: 73c7f71464338194d9cf26e2ddfecbff, type: 3}
   stackable: 1
   isTool: 0
   isBuildable: 1

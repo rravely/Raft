@@ -11,8 +11,10 @@ public class BuildingPillarManager : MonoBehaviour
     [HideInInspector] public int selectedItemIndex = 0;
 
     [HideInInspector] public GameObject objectToPlace, tempObject;
+
     [Header("Buildable Items List")]
-    public GameObject foundationObject;
+    public GameObject[] structuralItemList;
+
     [Header("Materials")]
     [SerializeField] Material temp;
     [SerializeField] Material tempDisable;
@@ -27,7 +29,7 @@ public class BuildingPillarManager : MonoBehaviour
     int layerMaskFoundation;
 
     //Grid
-    Tilemap tilemap;
+    Tilemap tilemap; //foundation grid
 
 
     // Start is called before the first frame update
@@ -47,7 +49,7 @@ public class BuildingPillarManager : MonoBehaviour
         if (placeNow)
         {
             SendRay();
-            objectToPlace = foundationObject;
+            objectToPlace = structuralItemList[selectedItemIndex];
         }
     }
 
@@ -59,12 +61,11 @@ public class BuildingPillarManager : MonoBehaviour
             {
                 place = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                 tilemapPlace = tilemap.GetCellCenterWorld(tilemap.WorldToCell(place));
-                //Debug.Log(tilemap.WorldToCell(place));
 
                 if (!tempObjectExists)
                 {
                     //Instantiate foundation temp object
-                    tempObject = Instantiate(foundationObject, tilemapPlace, Quaternion.identity);
+                    tempObject = Instantiate(structuralItemList[selectedItemIndex], tilemapPlace, Quaternion.identity);
                     tempObject.GetComponent<MeshRenderer>().material = temp;
                     tempObject.GetComponent<Collider>().isTrigger = true;
                     tempObjectExists = true;
@@ -72,13 +73,13 @@ public class BuildingPillarManager : MonoBehaviour
 
                 //If player clicks, instantiate object.
                 //Must check ispossible
-                if (Input.GetMouseButtonDown(0) && !tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
+                if (Input.GetMouseButtonDown(0) && !tempObject.GetComponent<Pillar>().isExist && tempObject.GetComponent<Pillar>().isBuildable)
                 {
                     playerInteraction.Hammer();
 
-                    GameObject foundation = Instantiate(objectToPlace, tilemapPlace, Quaternion.identity);
-                    foundation.transform.SetParent(transform);
-                    foundation.GetComponent<Foundation>().isBuild = true;
+                    GameObject pillar = Instantiate(objectToPlace, tilemapPlace, Quaternion.identity);
+                    pillar.transform.SetParent(transform);
+                    pillar.GetComponent<Pillar>().isBuild = true;
                     placeNow = false;
                     placeObject = false;
 
@@ -92,7 +93,7 @@ public class BuildingPillarManager : MonoBehaviour
 
                 if (tempObject != null)
                 {
-                    if (!tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
+                    if (!tempObject.GetComponent<Pillar>().isExist && tempObject.GetComponent<Pillar>().isBuildable)
                     {
                         tempObject.GetComponent<MeshRenderer>().material = temp;
                     }

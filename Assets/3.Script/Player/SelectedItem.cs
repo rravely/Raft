@@ -8,6 +8,8 @@ public class SelectedItem : MonoBehaviour
 
     BuildingManager buildingManager;
     BuildingFoundationManager buildingFoundationManager;
+    BuildingPillarManager buildingPillarManager;
+
     ItemManager itemManager;
     PlayerInteraction playerInteraction;
 
@@ -19,6 +21,8 @@ public class SelectedItem : MonoBehaviour
     {
         buildingManager = FindObjectOfType<BuildingManager>();
         buildingFoundationManager = FindObjectOfType<BuildingFoundationManager>();
+        buildingPillarManager = FindObjectOfType<BuildingPillarManager>();
+
         itemManager = FindObjectOfType<ItemManager>();
         playerInteraction = FindObjectOfType<PlayerInteraction>();
     }
@@ -34,8 +38,12 @@ public class SelectedItem : MonoBehaviour
         {
             buildingManager.placeNow = false;
             buildingManager.DestoryTempObject();
+
             buildingFoundationManager.placeNow = false;
             buildingFoundationManager.DestoryTempObject();
+
+            buildingPillarManager.placeNow = false;
+            buildingPillarManager.DestoryTempObject();
 
             if (selectedItem.isTool)
             {
@@ -69,23 +77,46 @@ public class SelectedItem : MonoBehaviour
             rope.SetActive(false);
             playerInteraction.GrabHands();
 
-            switch (selectedItem.itemName)
+            if (!selectedItem.isFoundation)
             {
-                case "SimpleBed":
-                    BuildableObjectPlaceable(2);
-                    break;
-                case "Chair":
-                    BuildableObjectPlaceable(0);
-                    break;
-                case "Table":
-                    BuildableObjectPlaceable(1);
-                    break;
-                case "Purifier":
-                    BuildableObjectPlaceable(3);
-                    break;
-                case "Foundation":
-                    buildingFoundationManager.placeNow = true;
-                    break;
+                buildingFoundationManager.placeNow = false;
+                switch (selectedItem.itemName)
+                {
+                    case "SimpleBed":
+                        BuildableObjectPlaceable(2);
+                        break;
+                    case "Chair":
+                        BuildableObjectPlaceable(0);
+                        break;
+                    case "Table":
+                        BuildableObjectPlaceable(1);
+                        break;
+                    case "Purifier":
+                        BuildableObjectPlaceable(3);
+                        break;
+                }
+            }
+            else 
+            {
+                switch (selectedItem.itemName)
+                {
+                    case "Foundation":
+                        buildingFoundationManager.placeNow = true;
+                        buildingPillarManager.placeNow = false;
+
+                        buildingFoundationManager.selectedItemIndex = 0;
+                        break;
+                    case "WoodenFloor":
+                        buildingFoundationManager.placeNow = true;
+                        buildingPillarManager.placeNow = false;
+
+                        buildingFoundationManager.selectedItemIndex = 1;
+                        break;
+                    case "Pillar":
+                        buildingFoundationManager.placeNow = false;
+                        buildingPillarManager.placeNow = true;
+                        break;
+                }
             }
         }
     }

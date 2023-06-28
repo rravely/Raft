@@ -11,8 +11,10 @@ public class BuildingFoundationManager : MonoBehaviour
     [HideInInspector] public int selectedItemIndex = 0;
 
     [HideInInspector] public GameObject objectToPlace, tempObject;
+
     [Header("Buildable Items List")]
-    public GameObject foundationObject;
+    public GameObject[] foundationObject;
+
     [Header("Materials")]
     [SerializeField] Material temp;
     [SerializeField] Material tempDisable;
@@ -47,7 +49,7 @@ public class BuildingFoundationManager : MonoBehaviour
         if (placeNow)
         {
             SendRay();
-            objectToPlace = foundationObject;
+            objectToPlace = foundationObject[selectedItemIndex];
         }
     }
 
@@ -64,7 +66,7 @@ public class BuildingFoundationManager : MonoBehaviour
                 if (!tempObjectExists)
                 {
                     //Instantiate foundation temp object
-                    tempObject = Instantiate(foundationObject, tilemapPlace, Quaternion.identity);
+                    tempObject = Instantiate(foundationObject[selectedItemIndex], tilemapPlace, Quaternion.identity);
                     tempObject.GetComponent<MeshRenderer>().material = temp;
                     tempObject.GetComponent<Collider>().isTrigger = true;
                     tempObjectExists = true;
@@ -72,20 +74,9 @@ public class BuildingFoundationManager : MonoBehaviour
 
                 //If player clicks, instantiate object.
                 //Must check ispossible
-                if (Input.GetMouseButtonDown(0) && !tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    playerInteraction.Hammer();
-
-                    GameObject foundation = Instantiate(objectToPlace, tilemapPlace, Quaternion.identity);
-                    foundation.transform.SetParent(transform);
-                    foundation.GetComponent<Foundation>().isBuild = true;
-                    placeNow = false;
-                    placeObject = false;
-
-                    //Delete item in quickslot
-                    selectedItem.RemoveSelectedItem();
-
-                    DestoryTempObject();
+                    CreateObject();
                 }
 
                 //Debug.Log($"{tempObject.GetComponent<Foundation>().isExist}, {tempObject.GetComponent<Foundation>().isBuildable}");
@@ -104,6 +95,35 @@ public class BuildingFoundationManager : MonoBehaviour
                 }
 
             }
+        }
+    }
+
+    void CreateObject()
+    {
+        switch (selectedItemIndex)
+        {
+            case 0: //foundation
+                if (!tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
+                {
+                    playerInteraction.Hammer();
+
+                    GameObject foundation = Instantiate(objectToPlace, tilemapPlace, Quaternion.identity);
+                    foundation.transform.SetParent(transform);
+                    foundation.GetComponent<Foundation>().isBuild = true;
+                    placeNow = false;
+                    placeObject = false;
+
+                    //Delete item in quickslot
+                    selectedItem.RemoveSelectedItem();
+
+                    DestoryTempObject();
+                }
+                break;
+            case 1: //Wooden floor
+
+                break;
+            case 2:
+                break;
         }
     }
 
