@@ -18,6 +18,7 @@ MonoBehaviour:
   itemDescription: 
   icon: {fileID: 21300000, guid: a23b18faf120c6e41bff9067be6d2c5a, type: 3}
   stackable: 0
+  isDrink: 1
   isTool: 0
   isBuildable: 0
   isFoundation: 0
