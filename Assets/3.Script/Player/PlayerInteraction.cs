@@ -188,4 +188,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerAni.SetBool("Grab", true);
     }
+
+    public void InteractionHands()
+    {
+        playerAni.SetTrigger("Interaction");
+    }
 }

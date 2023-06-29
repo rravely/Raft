@@ -68,6 +68,7 @@ public class BuildingManager : MonoBehaviour
                     playerInteraction.Hammer();
 
                     GameObject buildableItem = Instantiate(objectToPlace, place, /*Quaternion.identity*/ tempObject.transform.rotation);
+                    buildableItem.GetComponent<BuildableItem>().isBuilt = true;
                     buildableItem.transform.SetParent(transform);
                     placeNow = false;
                     placeObject = false;

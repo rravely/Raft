@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DropItem : MonoBehaviour
 {
@@ -65,5 +66,7 @@ public class DropItem : MonoBehaviour
     {
         ui.transform.GetChild(0).gameObject.SetActive(isActive);
         ui.transform.GetChild(1).gameObject.SetActive(isActive);
+
+        ui.transform.GetChild(1).GetComponent<Text>().text = string.Format($"{dropItem.itemKoreanName} ащ╠Б");
     }    
 }

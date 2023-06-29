@@ -90,6 +90,7 @@ public class InventoryInput : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(quickSlotBtns[selectedButton]);
 
         selectedItem.selectedItem = CheckSlotItem(selectedButton);
+        selectedItem.selectedButtonIndex = selectedButton;
     }
 
     private void InputQuickSlotWheel()

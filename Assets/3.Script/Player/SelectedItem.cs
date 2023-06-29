@@ -5,6 +5,7 @@ using UnityEngine;
 public class SelectedItem : MonoBehaviour
 {
     public Item selectedItem;
+    public int selectedButtonIndex;
 
     BuildingManager buildingManager;
     BuildingFoundationManager buildingFoundationManager;
@@ -40,20 +41,7 @@ public class SelectedItem : MonoBehaviour
     {
         if (!selectedItem.isBuildable)
         {
-            buildingManager.placeNow = false;
-            buildingManager.DestoryTempObject();
-
-            buildingFoundationManager.placeNow = false;
-            buildingFoundationManager.DestoryTempObject();
-
-            buildingPillarManager.placeNow = false;
-            buildingPillarManager.DestoryTempObject();
-
-            buildingFloorManager.placeNow = false;
-            buildingFloorManager.DestoryTempObject();
-
-            buildingStairsManager.placeNow = false;
-            buildingStairsManager.DestoryTempObject();
+            NoBuildableItem();
 
             if (selectedItem.isTool)
             {
@@ -74,20 +62,18 @@ public class SelectedItem : MonoBehaviour
             }
             else
             {
-                hammer.SetActive(false);
-                hook.SetActive(false);
-                rope.SetActive(false);
-                playerInteraction.PlayerIdle(true);
+                NoTool();
+
             }
         }
-        else
+        else //buildable Items
         {
             hammer.SetActive(true);
             hook.SetActive(false);
             rope.SetActive(false);
             playerInteraction.GrabHands();
 
-            if (!selectedItem.isFoundation)
+            if (!selectedItem.isFoundation) 
             {
                 buildingFoundationManager.placeNow = false;
                 buildingPillarManager.placeNow = false;
@@ -109,7 +95,7 @@ public class SelectedItem : MonoBehaviour
                         break;
                 }
             }
-            else 
+            else //foundation
             {
                 buildingManager.placeNow = false;
 
@@ -162,4 +148,30 @@ public class SelectedItem : MonoBehaviour
     {
         itemManager.RemoveItem(selectedItem, 1);
     }    
+
+    void NoBuildableItem()
+    {
+        buildingManager.placeNow = false;
+        buildingManager.DestoryTempObject();
+
+        buildingFoundationManager.placeNow = false;
+        buildingFoundationManager.DestoryTempObject();
+
+        buildingPillarManager.placeNow = false;
+        buildingPillarManager.DestoryTempObject();
+
+        buildingFloorManager.placeNow = false;
+        buildingFloorManager.DestoryTempObject();
+
+        buildingStairsManager.placeNow = false;
+        buildingStairsManager.DestoryTempObject();
+    }
+
+    void NoTool()
+    {
+        hammer.SetActive(false);
+        hook.SetActive(false);
+        rope.SetActive(false);
+        playerInteraction.PlayerIdle(true);
+    }
 }

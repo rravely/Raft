@@ -84,4 +84,13 @@ public class ItemManager : MonoBehaviour
         return false;
     }
 
+    public void ChangeItem(Item currentItem, Item displaceItem, int slotNum)
+    {
+        SlotItem itemInSlot = slots[slotNum].GetComponentInChildren<SlotItem>();
+        itemInSlot.InitialiseItem(displaceItem);
+        
+        playerState.RemovePlayerItems(currentItem, 1);
+        playerState.AddPlayerItems(displaceItem);
+    }
+
 }

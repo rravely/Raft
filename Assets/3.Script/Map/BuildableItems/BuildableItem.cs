@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuildableItem : MonoBehaviour
 {
     [HideInInspector] public bool isBuildable = true;
+    [HideInInspector] public bool isBuilt = false;
 
     private void OnTriggerEnter(Collider other)
     {
