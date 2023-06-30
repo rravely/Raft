@@ -7,6 +7,7 @@ public class PlayerCamera : MonoBehaviour
     PlayerInput playerInput;
 
     [SerializeField] GameObject craftMenu;
+    [SerializeField] GameObject escPanel;
 
     float xRotateSize, yRotateSize = 0f;
     float xRotate, yRotate = 0f;
@@ -21,7 +22,7 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!craftMenu.activeSelf)
+        if (!craftMenu.activeSelf && !escPanel.activeSelf)
         {
             xRotateSize = -playerInput.mouseVertical * turnSpeed;
             xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 45);

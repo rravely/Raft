@@ -1907,7 +1907,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &146249274
 MonoBehaviour:
@@ -1922,6 +1922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craftMenu: {fileID: 321086127}
+  escPanel: {fileID: 707927401}
 --- !u!114 &146249275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,7 +2022,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: b6e8f934b8f8ecf4c8f7648f5cbaaa48, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: da495cb00f830be4da64795bc5296df9, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -2035,7 +2036,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 157441021}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 707927405}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: ExitClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &157441021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,8 +2069,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d242fc1b7b8ecd4c86ee786886e4c6a, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: cbb4d47425a105c4e99dc4e49591f46e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5485,7 +5498,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: b6e8f934b8f8ecf4c8f7648f5cbaaa48, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: da495cb00f830be4da64795bc5296df9, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -5499,7 +5512,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 375318672}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1198146437}
+        m_TargetAssemblyTypeName: BackToGame, Assembly-CSharp
+        m_MethodName: BackToGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &375318672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5520,8 +5545,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d242fc1b7b8ecd4c86ee786886e4c6a, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: cbb4d47425a105c4e99dc4e49591f46e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9095,6 +9120,7 @@ GameObject:
   - component: {fileID: 707927402}
   - component: {fileID: 707927404}
   - component: {fileID: 707927403}
+  - component: {fileID: 707927405}
   m_Layer: 5
   m_Name: ESCPanel
   m_TagString: Untagged
@@ -9162,6 +9188,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707927401}
   m_CullTransparentMesh: 1
+--- !u!114 &707927405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707927401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430d5dae15a49b6459bfb657a47e5525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &709966176
 GameObject:
   m_ObjectHideFlags: 0
@@ -15644,6 +15682,7 @@ GameObject:
   - component: {fileID: 1198146431}
   - component: {fileID: 1198146435}
   - component: {fileID: 1198146436}
+  - component: {fileID: 1198146437}
   m_Layer: 5
   m_Name: UI
   m_TagString: Canvas
@@ -15815,6 +15854,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1388141e574834f08aea83b6ddc6d02d, type: 2}
   - {fileID: 11400000, guid: 08a53573a6a2b764c81582d663365c02, type: 2}
   - {fileID: 11400000, guid: 66e64a82a5c414f4e9a09d2fffc5754b, type: 2}
+--- !u!114 &1198146437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198146430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c0dae1d54137f4b8a234a0b5817cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escPanel: {fileID: 707927401}
 --- !u!1 &1199332549
 GameObject:
   m_ObjectHideFlags: 0
