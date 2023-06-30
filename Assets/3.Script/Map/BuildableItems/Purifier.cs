@@ -101,12 +101,15 @@ public class Purifier : MonoBehaviour
         float time = 0f;
         float maxTime = 5f;
 
+        transform.GetChild(3).gameObject.SetActive(true);
+
         while (time < maxTime)
         {
             time += Time.deltaTime;
             yield return null;
         }
         isFreshWater = true;
+        transform.GetChild(3).gameObject.SetActive(false);
     }
 
     void ActivateInteractionUI(bool isActive, string text)
