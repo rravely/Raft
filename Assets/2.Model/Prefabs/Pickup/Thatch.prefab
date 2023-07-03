@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4196465134650046177, guid: 6dd4586ce953d8c40a729ff0e6177385, type: 3}
+  - {fileID: 2100000, guid: 6b953f50013f4944c90dda5aa5b670cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,6 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  fakeHook: {fileID: 0}
+  isHooked: 0
 --- !u!65 &9037757545774516474
 BoxCollider:
   m_ObjectHideFlags: 0
