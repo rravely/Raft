@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,11 +11,17 @@ public class PlayerMovement : MonoBehaviour
 
     float moveSpeed = 0.5f;
 
+    PlayerInputAction playerInputAction;
+    InputAction jumpAction;
+
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         playerState = GetComponent<PlayerState>();
         playerRigid = GetComponent<Rigidbody>();
+
+        playerInputAction = new PlayerInputAction();
+        jumpAction = playerInputAction.Player.Jump;
     }
 
     private void Update()
@@ -38,35 +45,9 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
+        
 
         //sit
-
-        //jump
-        if (playerInput.isJump)
-        {
-            if (!playerState.inWater)
-            {
-                if (!playerState.inWaterSurface)
-                {
-                    playerRigid.AddForce(Vector3.up * 100f);
-                }
-                else
-                {
-                    if (playerState.canJumpOnFoundation && !playerState.isJumping)
-                    {
-                        //Jump to foundation
-                        playerState.isJumping = true;
-                        StartCoroutine(PlayerJumpOnFoundation_co());
-                        playerRigid.AddForce(Vector3.up * 100f);
-                    }
-                }
-            }
-            else //in water
-            {
-                playerRigid.AddForce(Vector3.up * 30f);
-            }
-
-        }
         if (playerState.inWaterSurface && !playerState.isJumping)
         {
             if (playerInput.moveVerticalValue > 0 && transform.GetChild(0).localRotation.x > 0.12)
@@ -89,6 +70,32 @@ public class PlayerMovement : MonoBehaviour
             playerRigid.useGravity = false;
         }
     }
+
+    void OnJump()
+    {
+        if (!playerState.inWater)
+        {
+            if (!playerState.inWaterSurface)
+            {
+                playerRigid.AddForce(Vector3.up * 100f);
+            }
+            else
+            {
+                if (playerState.canJumpOnFoundation && !playerState.isJumping)
+                {
+                    //Jump to foundation
+                    playerState.isJumping = true;
+                    StartCoroutine(PlayerJumpOnFoundation_co());
+                    playerRigid.AddForce(Vector3.up * 100f);
+                }
+            }
+        }
+        else //in water
+        {
+            playerRigid.AddForce(Vector3.up * 30f);
+        }
+    }
+
     IEnumerator PlayerJumpOnFoundation_co()
     {
         float time = 1f;

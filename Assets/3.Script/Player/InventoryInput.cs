@@ -58,7 +58,6 @@ public class InventoryInput : MonoBehaviour
         {
             selectedButton = 2;
         }
-        
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             selectedButton = 3;
