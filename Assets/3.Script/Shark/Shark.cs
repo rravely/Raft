@@ -75,7 +75,14 @@ public class Shark : MonoBehaviour
     {
         agent.destination = sharkAttackPoint.position;
         agent.speed = speed;
-        transform.position = new Vector3(transform.position.x, playerState.transform.position.y + 0.1f, transform.position.z);
+        if (playerState.inWater)
+        {
+            transform.position = new Vector3(transform.position.x, playerState.transform.position.y + 0.1f, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, -0.568f, transform.position.z);
+        }
     }
 
     public void AttackPlayer()
