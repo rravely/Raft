@@ -16,9 +16,14 @@ public class SelectedItem : MonoBehaviour
     ItemManager itemManager;
     PlayerInteraction playerInteraction;
 
+    [Header("Tools")]
     [SerializeField] GameObject hammer;
     [SerializeField] GameObject hook;
     [SerializeField] GameObject rope;
+
+    [Header("Hands")]
+    [SerializeField] GameObject defaultHands;
+    [SerializeField] GameObject rodHands;
 
     private void Start()
     {
@@ -39,6 +44,17 @@ public class SelectedItem : MonoBehaviour
 
     void SetActiveSelectedItem()
     {
+        if (selectedItem.itemName.Equals("FishingRod"))
+        {
+            defaultHands.SetActive(false);
+            rodHands.SetActive(true);
+        }
+        else
+        {
+            defaultHands.SetActive(true);
+            rodHands.SetActive(false);
+        }
+
         if (!selectedItem.isBuildable)
         {
             NoBuildableItem();

@@ -9,6 +9,15 @@ public class DefaultItem : MonoBehaviour
     [Header("Default Items")]
     [SerializeField] Item[] items;
 
+    [Header("Plank")]
+    [SerializeField] Item plank;
+
+    [Header("Thatch")]
+    [SerializeField] Item thatch;
+
+    [Header("plastic")]
+    [SerializeField] Item plastic;
+
     private void Start()
     {
         itemManager = GetComponent<ItemManager>();
@@ -27,5 +36,21 @@ public class DefaultItem : MonoBehaviour
         itemManager.AddItem(items[6]);
         itemManager.AddItem(items[7]);
         itemManager.AddItem(items[8]);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            itemManager.AddItem(plank);
+        }
+        else if (Input.GetKeyDown(KeyCode.F2))
+        {
+            itemManager.AddItem(thatch);
+        }
+        else if (Input.GetKeyDown(KeyCode.F3))
+        {
+            itemManager.AddItem(plastic);
+        }
     }
 }
