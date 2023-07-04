@@ -33,6 +33,7 @@ public class PlayerDrink : MonoBehaviour
                 if (playerInput.isLMDDown)
                 {
                     playerState.moisture -= 10;
+                    PlayerAudio.instance.Drink();
                     itemManager.RemoveItem(selectedItem.selectedItem, 1);
                 }
                 break;
@@ -41,6 +42,7 @@ public class PlayerDrink : MonoBehaviour
                 if (playerInput.isLMDDown)
                 {
                     playerState.moisture += 10;
+                    PlayerAudio.instance.Drink();
                     itemManager.RemoveItem(selectedItem.selectedItem, 1);
                 }
                 break;

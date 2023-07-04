@@ -100,6 +100,7 @@ public class BuildingFloorManager : MonoBehaviour
 
     void CreateObject()
     {
+        PlayerAudio.instance.PlaceObject();
         switch (selectedItemIndex)
         {
             case 0: //Wooden floor
@@ -118,11 +119,6 @@ public class BuildingFloorManager : MonoBehaviour
 
                     DestoryTempObject();
                 }
-                break;
-            case 1: 
-                
-                break;
-            case 2:
                 break;
         }
     }

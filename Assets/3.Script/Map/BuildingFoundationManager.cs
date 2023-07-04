@@ -100,6 +100,7 @@ public class BuildingFoundationManager : MonoBehaviour
 
     void CreateObject()
     {
+        PlayerAudio.instance.PlaceObject();
         switch (selectedItemIndex)
         {
             case 0: //foundation

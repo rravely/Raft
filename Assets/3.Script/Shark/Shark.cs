@@ -89,6 +89,7 @@ public class Shark : MonoBehaviour
         if (playerState.inWater || playerState.inWaterSurface)
         {
             playerState.health -= 10f;
+            PlayerAudio.instance.PlayerDamaged();
             bloodSplatter.BloodSplat();
             StartCoroutine(FollowPatrolTemp_co());
         }

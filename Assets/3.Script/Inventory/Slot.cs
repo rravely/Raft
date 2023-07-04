@@ -23,5 +23,6 @@ public class Slot : MonoBehaviour, IDropHandler
             slotItem.parentAfterDrag = transform;
             slotItem.transform.position = slotItem.parentAfterDrag.transform.position;
         }
+        AudioManager.instance.MoveItem();
     }
 }

@@ -44,6 +44,8 @@ public class Water : MonoBehaviour
                 StartCoroutine(TurnOffPlayerRigidbody(other.GetComponent<Rigidbody>()));
 
                 RenderSettings.skybox = water;
+
+                PlayerAudio.instance.WaterPlump();
             }
             else if (other.GetComponent<PlayerState>().inWaterSurface)
             {

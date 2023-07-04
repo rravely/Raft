@@ -76,6 +76,7 @@ public class BuildingPillarManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && !tempObject.GetComponent<Pillar>().isExist && tempObject.GetComponent<Pillar>().isBuildable)
                 {
                     playerInteraction.Hammer();
+                    PlayerAudio.instance.PlaceObject();
 
                     GameObject pillar = Instantiate(objectToPlace, tilemapPlace, Quaternion.identity);
                     pillar.transform.SetParent(transform);

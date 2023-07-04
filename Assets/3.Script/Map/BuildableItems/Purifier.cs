@@ -10,8 +10,13 @@ public class Purifier : MonoBehaviour
     PlayerInteraction playerInteraction;
     BuildableItem buildableItem;
 
+    [Header("Cup items")]
     [SerializeField] Item cupEmpty;
     [SerializeField] Item cupFreshWater;
+
+    [Header("Fire audio clip")]
+    AudioSource audio;
+    AudioClip fire;
 
     Transform interactionUI;
 
@@ -24,6 +29,7 @@ public class Purifier : MonoBehaviour
         itemManager = FindObjectOfType<ItemManager>();
         playerInteraction = FindObjectOfType<PlayerInteraction>();
         buildableItem = GetComponent<BuildableItem>();
+        audio = GetComponent<AudioSource>();
 
         interactionUI = GameObject.FindWithTag("InteractionUI").transform;
     }
@@ -61,6 +67,9 @@ public class Purifier : MonoBehaviour
 
                 //Change cupsaltwater to cupEmpty
                 itemManager.ChangeItem(selectedItem.selectedItem, cupEmpty, selectedItem.selectedButtonIndex);
+
+                //Fire audio
+                audio.Play();
 
                 //Inactive UI
                 ActivateInteractionUI(false, "");
@@ -109,6 +118,7 @@ public class Purifier : MonoBehaviour
             yield return null;
         }
         isFreshWater = true;
+        audio.Stop();
         transform.GetChild(3).gameObject.SetActive(false);
     }
 

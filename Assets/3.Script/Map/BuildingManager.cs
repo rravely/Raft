@@ -66,6 +66,7 @@ public class BuildingManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && tempObject.GetComponent<BuildableItem>().isBuildable)
                 {
                     playerInteraction.Hammer();
+                    PlayerAudio.instance.PlaceObject();
 
                     GameObject buildableItem = Instantiate(objectToPlace, place, /*Quaternion.identity*/ tempObject.transform.rotation);
                     buildableItem.GetComponent<BuildableItem>().isBuilt = true;

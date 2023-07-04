@@ -120,6 +120,8 @@ public class PlayerMovement : MonoBehaviour
         float up = 0.00533f;
         float jumpTime = 0f;
 
+        PlayerAudio.instance.WaterPlump();
+
         while (jumpTime < time)
         {
             playerRigid.velocity = Vector3.zero;
