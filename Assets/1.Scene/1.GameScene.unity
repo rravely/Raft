@@ -1877,10 +1877,11 @@ GameObject:
   - component: {fileID: 146249264}
   - component: {fileID: 146249274}
   - component: {fileID: 146249275}
-  - component: {fileID: 146249272}
   - component: {fileID: 146249273}
   - component: {fileID: 146249276}
   - component: {fileID: 146249277}
+  - component: {fileID: 146249272}
+  - component: {fileID: 146249278}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2168,6 +2169,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!136 &146249278
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146249262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.28273898
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.08956065, z: -1.8072172e-10}
 --- !u!1 &157441018
 GameObject:
   m_ObjectHideFlags: 0
@@ -24637,7 +24652,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723543246}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ca8858cc4c66dfb47a643f14f21f73cc, type: 2}
   m_CullingMode: 0

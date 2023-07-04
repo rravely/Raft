@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     private string moveHorizontal = "Horizontal"; //ad
     private string interaction = "Interaction";
     private string jump = "Jump";
+    private string sit = "Fire1";
     private string mouseX = "Mouse X";
     private string mouseY = "Mouse Y";
 
@@ -18,6 +19,8 @@ public class PlayerInput : MonoBehaviour
     //GetButton -> return bool data type
     public bool isInteraction { get; private set; }
     public bool isJump { get; private set; }
+    public bool isSit { get; private set; }
+    public bool isStandUp { get; private set; }
 
     public bool isLMD { get; private set; }
     public bool isLMDUp { get; private set; }
@@ -38,13 +41,13 @@ public class PlayerInput : MonoBehaviour
         //key down
         isInteraction = Input.GetButtonDown(interaction);
         isJump = Input.GetButtonDown(jump);
+        isSit = Input.GetButton(sit);
+        isStandUp = Input.GetButtonUp(sit);
 
         isLMD = Input.GetMouseButton(0);
         isLMDUp = Input.GetMouseButtonUp(0);
         isLMDDown = Input.GetMouseButtonDown(0);
         isRMD = Input.GetMouseButton(1);
-
-        //Debug.Log(isLMD);
 
         mouseHorizontal = Input.GetAxis(mouseX);
         mouseVertical = Input.GetAxis(mouseY);

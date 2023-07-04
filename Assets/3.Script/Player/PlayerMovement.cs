@@ -8,8 +8,11 @@ public class PlayerMovement : MonoBehaviour
     PlayerInput playerInput;
     PlayerState playerState;
     Rigidbody playerRigid;
+    Collider[] playerCollider;
 
     float moveSpeed = 0.5f;
+
+    bool isStandingUp = false;
 
     PlayerInputAction playerInputAction;
     InputAction jumpAction;
@@ -19,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerState = GetComponent<PlayerState>();
         playerRigid = GetComponent<Rigidbody>();
+        playerCollider = GetComponents<Collider>();
 
         playerInputAction = new PlayerInputAction();
         jumpAction = playerInputAction.Player.Jump;
@@ -48,13 +52,24 @@ public class PlayerMovement : MonoBehaviour
         
 
         //sit
+        if (playerInput.isSit && !playerState.inWater && !playerState.inWaterSurface)
+        {
+            playerCollider[0].enabled = false;
+        }
+        if (!playerInput.isSit && !isStandingUp)
+        {
+            isStandingUp = true;
+            StartCoroutine(PlayerStandUp_co());
+        }
+
+        //Set player y position inWaterSurface
         if (playerState.inWaterSurface && !playerState.isJumping)
         {
             if (playerInput.moveVerticalValue > 0 && transform.GetChild(0).localRotation.x > 0.12)
             {
                 transform.position -= new Vector3(0f, -0.1f, 0f);
             }
-            else
+            else 
             {
                 transform.position = new Vector3(transform.position.x, -0.599f, transform.position.z);
             }
@@ -65,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRigid.useGravity = true;
         }
-        else
+        else 
         {
             playerRigid.useGravity = false;
         }
@@ -112,6 +127,24 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         playerState.isJumping = false;
+    }
+
+    IEnumerator PlayerStandUp_co()
+    {
+        Vector3 newPos = transform.position;
+        while(transform.position.y < -0.2602059f)
+        {
+            //Debug.Log(transform.position.y);
+            newPos += new Vector3(0f, 0.01f, 0f);
+            transform.position = newPos;
+            if (transform.position.y > -0.250)
+            {
+                playerCollider[0].enabled = true;
+                break;
+            }
+            yield return null;
+        }
+        isStandingUp = false;
     }
 
 }
