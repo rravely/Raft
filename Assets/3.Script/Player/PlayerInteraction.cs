@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -10,8 +12,11 @@ public class PlayerInteraction : MonoBehaviour
     SelectedItem selectedItem;
     ItemManager itemManager;
 
+    PlayerInputAction playerInputAction;
+    InputAction interactionAction;
+
     GameObject ui;
-    
+
     [Header("Mouse Click Raycast Image")]
     [SerializeField] PlayerClickPanel playerClickPanel;
 
@@ -29,16 +34,23 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] Transform hookT;
     [SerializeField] Transform fakeHook;
 
-    bool isThrow = false; 
-    public bool isHookThrown = false; 
-    public bool isHookPull = false; 
+    [Header("Hook")]
+    bool isThrow = false;
+    public bool isHookThrown = false;
+    public bool isHookPull = false;
     public bool isHookBack = false;
     public bool isHooked = false;
     public bool canThrowHook = true;
 
+    [Header("Pick up")]
     public bool canPickup = false;
     public Item pickupItem = null;
     public GameObject pickupObject = null;
+
+    [Header("Purifier")]
+    public bool isWater = false;
+    [SerializeField] Item cupSaltWater;
+
 
 
     private void Start()
@@ -49,12 +61,15 @@ public class PlayerInteraction : MonoBehaviour
         itemManager = FindObjectOfType<ItemManager>();
 
         ui = GameObject.FindWithTag("InteractionUI");
+
+        playerInputAction = new PlayerInputAction();
+        interactionAction = playerInputAction.Player.Interaction;
     }
 
     private void Update()
     {
         Tools();
-        Interaction();
+        //Interaction();
     }
 
     void Tools()
@@ -127,7 +142,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     isHookPull = false;
                 }
-                
+
                 if (playerInput.isRMD && !isHooked)
                 {
                     //Pull hook right away
@@ -136,7 +151,7 @@ public class PlayerInteraction : MonoBehaviour
                     plasticHook.ResetHook();
                     playerAni.SetBool("Grab", true);
                 }
-                
+
 
             }
         }
@@ -172,6 +187,34 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    void OnInteraction()
+    {
+        if (canPickup)
+        {
+            InteractionHands();
+
+            itemManager.AddItem(pickupItem);
+            pickupObject.SetActive(false);
+
+            ui.transform.GetChild(0).gameObject.SetActive(false);
+            ui.transform.GetChild(1).gameObject.SetActive(false);
+        }
+
+        if (selectedItem.selectedItem.itemName.Equals("CupEmpty") && isWater)
+        {
+            //Fill cup salt water
+            itemManager.ChangeItem(selectedItem.selectedItem, cupSaltWater, selectedItem.selectedButtonIndex);
+            selectedItem.selectedItem = cupSaltWater;
+
+            //Play player animation
+            InteractionHands();
+        }
+        else if (selectedItem.selectedItem.itemName.Equals("CupSaltWater"))
+        {
+
+        }
+    }
+
     public void ResetHook()
     {
         plasticHook.ResetHook();
@@ -192,5 +235,20 @@ public class PlayerInteraction : MonoBehaviour
     public void InteractionHands()
     {
         playerAni.SetTrigger("Interaction");
+        hammer.SetActive(false);
+        plasticHook.gameObject.SetActive(false);
+    }
+
+    public void AfterInteractionAnimation()
+    {
+        switch (selectedItem.selectedItem.itemName)
+        {
+            case "Hammer":
+                hammer.SetActive(true);
+                break;
+            case "PlasticHook":
+                plasticHook.gameObject.SetActive(true);
+                break;
+        }
     }
 }

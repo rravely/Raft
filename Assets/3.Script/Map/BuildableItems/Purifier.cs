@@ -56,6 +56,9 @@ public class Purifier : MonoBehaviour
     {
         if (other.CompareTag("Player") && selectedItem.selectedItem.itemName.Equals("CupSaltWater") && isEmpty && !isFreshWater)
         {
+            //view [E]
+            ActivateInteractionUI(true, "¹Ù´å¹° ÄÅ ³õ±â");
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //Fill water in purifier

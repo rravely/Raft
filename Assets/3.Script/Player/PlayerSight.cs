@@ -26,28 +26,17 @@ public class PlayerSight : MonoBehaviour
     {
         if (Physics.Raycast(/*Camera.main.ScreenPointToRay(new Vector3(960, 540))*/ transform.position, transform.forward, out RaycastHit hit, 0.7f))
         {
-            if (selectedItem.selectedItem.itemName.Equals("CupEmpty") && hit.transform.tag.Equals("Water"))
+            if (hit.transform.tag.Equals("Water") && selectedItem.selectedItem.itemName.Equals("CupEmpty"))
             {
+                playerInteraction.isWater = true;
+
                 //view [E] ¹° ¶ß±â
                 ActivateInteractionUI(true);
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    itemManager.ChangeItem(selectedItem.selectedItem, cupSaltWater, selectedItem.selectedButtonIndex);
-                    selectedItem.selectedItem = cupSaltWater;
-
-                    //Play player animation
-                    playerInteraction.InteractionHands();
-
-                    ActivateInteractionUI(false);
-                }
-            }
-            else if (!hit.transform.TryGetComponent<DropItem>(out DropItem dropItem))
-            {
-
             }
             else
             {
+                playerInteraction.isWater = false;
+
                 ActivateInteractionUI(false);
             }
         }
