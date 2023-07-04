@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         
 
         //sit
+        /*
         if (playerInput.isSit && !playerState.inWater && !playerState.inWaterSurface)
         {
             playerCollider[0].enabled = false;
@@ -61,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
             isStandingUp = true;
             StartCoroutine(PlayerStandUp_co());
         }
+        */
 
         //Set player y position inWaterSurface
         if (playerState.inWaterSurface && !playerState.isJumping)

@@ -2178,7 +2178,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 146249262}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.05
   m_Height: 0.28273898
   m_Direction: 1
@@ -13522,7 +13522,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.05
-  far clip plane: 50
+  far clip plane: 30
   field of view: 20
   orthographic: 0
   orthographic size: 5
@@ -17564,7 +17564,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b42ede522d067eb4ca67585dc552f11e, type: 2}
   - {fileID: 11400000, guid: 9a28c845e576340709dd5df87cf4e8b9, type: 2}
   - {fileID: 11400000, guid: 19ad559ce90e24c41878891fe2333bbe, type: 2}
-  - {fileID: 11400000, guid: 5cd81f98337ca88469cb624666033361, type: 2}
+  - {fileID: 11400000, guid: ad012d786c42a37489c8fbdbea1ead20, type: 2}
   - {fileID: 11400000, guid: 1388141e574834f08aea83b6ddc6d02d, type: 2}
   - {fileID: 11400000, guid: 08a53573a6a2b764c81582d663365c02, type: 2}
   - {fileID: 11400000, guid: 66e64a82a5c414f4e9a09d2fffc5754b, type: 2}
@@ -23472,13 +23472,14 @@ GameObject:
   - component: {fileID: 1666177319}
   - component: {fileID: 1666177318}
   - component: {fileID: 1666177317}
+  - component: {fileID: 1666177320}
   m_Layer: 5
   m_Name: BloodSplatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1666177317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23492,7 +23493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -23537,6 +23538,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1666177320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666177316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f681f11c843fdb4f8867f9119745492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1669094221
 GameObject:
   m_ObjectHideFlags: 0
@@ -27474,7 +27487,7 @@ MonoBehaviour:
     FieldOfView: 20
     OrthographicSize: 5
     NearClipPlane: 0.05
-    FarClipPlane: 50
+    FarClipPlane: 30
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -80661,7 +80674,7 @@ MonoBehaviour:
   sharkPatrol: {fileID: 397835054}
   sharkAttackPoint: {fileID: 1713700100}
   playerState: {fileID: 146249268}
-  bloodSplatterImage: {fileID: 1666177317}
+  bloodSplatter: {fileID: 1666177320}
   isFollow: 0
   isAttacking: 0
 --- !u!1 &919132149553052063

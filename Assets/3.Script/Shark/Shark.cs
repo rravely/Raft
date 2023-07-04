@@ -14,19 +14,16 @@ public class Shark : MonoBehaviour
     [SerializeField] PlayerState playerState;
 
     [Header("Blood")]
-    [SerializeField] Image bloodSplatterImage;
+    [SerializeField] BloodSplatter bloodSplatter;
 
     NavMeshAgent agent;
     Animator sharkAni;
 
     [HideInInspector] public bool isFollow = false;
     [HideInInspector] public bool isAttacking = false;
+    bool afterAttack = false;
     float attackBet = 5f;
     float attackTime = 0f;
-
-    //Fade in
-    float fadeInTime = 1f;
-    float timeFadeIn = 0f;
 
     private void Start()
     {
@@ -52,15 +49,17 @@ public class Shark : MonoBehaviour
             {
                 FollowPlayer(2f);
             }
-            else
+            else if (!isAttacking && !afterAttack)
             {
                 FollowPlayer(0.1f);
             }
 
+            //Attack
             if (attackTime >= attackBet && (sharkAttackPoint.position - transform.position).sqrMagnitude <= 1.1f)
             {
                 sharkAni.SetBool("Bite", true);
                 isAttacking = true;
+                afterAttack = true;
                 attackTime = 0f;
             }
             else if (attackTime >= attackBet)
@@ -87,27 +86,29 @@ public class Shark : MonoBehaviour
 
     public void AttackPlayer()
     {
-        playerState.health -= 10f;
-        StartCoroutine(BloodSplatter_co());
+        if (playerState.inWater || playerState.inWaterSurface)
+        {
+            playerState.health -= 10f;
+            bloodSplatter.BloodSplat();
+            StartCoroutine(FollowPatrolTemp_co());
+        }
     }
 
-    IEnumerator BloodSplatter_co()
+    IEnumerator FollowPatrolTemp_co()
     {
-        bloodSplatterImage.gameObject.SetActive(true);
-
-        Color imgColor = bloodSplatterImage.color;
-        imgColor.a = 1f;
-
-        while (imgColor.a > 0f)
+        agent.destination = sharkPatrol.position;
+        agent.speed = 1f;
+        float time = 0f;
+        while (time < 3f)
         {
-            timeFadeIn += Time.deltaTime / fadeInTime;
-            imgColor.a = Mathf.Lerp(1f, 0f, timeFadeIn);
-            bloodSplatterImage.color = imgColor;
+            transform.position = new Vector3(transform.position.x, playerState.transform.position.y, transform.position.z);
+            if (!playerState.inWater || !playerState.inWaterSurface)
+            {
+                break;
+            }
+            time += Time.deltaTime;
             yield return null;
         }
-
-        bloodSplatterImage.gameObject.SetActive(false);
-        fadeInTime = 1f;
-        timeFadeIn = 0f;
+        afterAttack = false;
     }
 }
