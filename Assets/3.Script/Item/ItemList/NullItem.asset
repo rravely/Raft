@@ -17,5 +17,7 @@ MonoBehaviour:
   itemKoreanName: 
   itemDescription: 
   icon: {fileID: 0}
-  stackable: 1
-  isTool: 1
+  stackable: 0
+  isTool: 0
+  isBuildable: 0
+  isFoundation: 0

@@ -11,6 +11,10 @@ public class PlayerDrink : MonoBehaviour
 
     ItemManager itemManager;
 
+    [SerializeField] Item cupEmpty;
+    [SerializeField] Item cupSaltWater;
+    [SerializeField] Item cupFreshWater;
+
     [SerializeField] GameObject LMBUI;
 
     // Start is called before the first frame update
@@ -34,7 +38,8 @@ public class PlayerDrink : MonoBehaviour
                 {
                     playerState.moisture -= 10;
                     PlayerAudio.instance.Drink();
-                    itemManager.RemoveItem(selectedItem.selectedItem, 1);
+                    //itemManager.RemoveItem(selectedItem.selectedItem, 1);
+                    itemManager.ChangeItem(cupSaltWater, cupEmpty, selectedItem.selectedButtonIndex);
                 }
                 break;
             case "CupFreshWater":
@@ -43,7 +48,8 @@ public class PlayerDrink : MonoBehaviour
                 {
                     playerState.moisture += 10;
                     PlayerAudio.instance.Drink();
-                    itemManager.RemoveItem(selectedItem.selectedItem, 1);
+                    //itemManager.RemoveItem(selectedItem.selectedItem, 1);
+                    itemManager.ChangeItem(cupFreshWater, cupEmpty, selectedItem.selectedButtonIndex);
                 }
                 break;
             default:

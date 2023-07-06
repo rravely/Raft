@@ -2143,6 +2143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eef623c024f5741a41820324ac1543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cupEmpty: {fileID: 11400000, guid: 66e64a82a5c414f4e9a09d2fffc5754b, type: 2}
+  cupSaltWater: {fileID: 11400000, guid: 08a53573a6a2b764c81582d663365c02, type: 2}
+  cupFreshWater: {fileID: 11400000, guid: 97f01f2e18c58a7438ce9892eb33acf6, type: 2}
   LMBUI: {fileID: 794500403}
 --- !u!114 &146249277
 MonoBehaviour:

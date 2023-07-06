@@ -101,7 +101,7 @@ public class PlayerInteraction : MonoBehaviour
                 hammer.SetActive(true);
 
                 playerAni.SetTrigger("Hammer");
-                hammerAni.SetTrigger("Hammer");
+                hammerAni.SetBool("Hammer", true);
 
                 inventoryInput.DecreaseDurability(0.1f);
             }
@@ -226,15 +226,20 @@ public class PlayerInteraction : MonoBehaviour
         playerAni.SetBool("Idle", isActive);
     }
 
-    public void GrabHands()
+    public void GrabHands(bool isActive)
     {
-        playerAni.SetBool("Grab", true);
+        playerAni.SetBool("Grab", isActive);
     }
 
     public void HammerHands()
     {
         playerAni.SetTrigger("Hammer");
-        hammerAni.SetTrigger("Hammer");
+        hammerAni.SetBool("Hammer", true);
+    }
+
+    public void HammerHit(bool isActive)
+    {
+        hammerAni.SetBool("Hammer", isActive);
     }
 
     public void InteractionHands()

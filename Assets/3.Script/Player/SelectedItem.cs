@@ -58,6 +58,11 @@ public class SelectedItem : MonoBehaviour
             rodHands.SetActive(false);
         }
 
+        if (selectedItem.id.Equals(0))
+        {
+            playerInteraction.PlayerIdle(true);
+        }
+
         if (!selectedItem.isBuildable)
         {
             NoBuildableItem();
@@ -76,7 +81,7 @@ public class SelectedItem : MonoBehaviour
             hammer.SetActive(true);
             hook.SetActive(false);
             rope.SetActive(false);
-            playerInteraction.GrabHands();
+            playerInteraction.GrabHands(true);
 
             if (!selectedItem.isFoundation) 
             {

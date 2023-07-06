@@ -22,6 +22,8 @@ public class Purifier : MonoBehaviour
 
     bool isEmpty = true;
     bool isFreshWater = false;
+    bool canLetSaltWater = false;
+    bool canFillFreshWater = false;
 
     private void Start()
     {
@@ -41,22 +43,9 @@ public class Purifier : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(true);
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") && selectedItem.selectedItem.itemName.Equals("CupSaltWater") && isEmpty)
+        if (canLetSaltWater)
         {
-            //view [E]
-            ActivateInteractionUI(true, "¹Ù´å¹° ÄÅ ³õ±â");
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player") && selectedItem.selectedItem.itemName.Equals("CupSaltWater") && isEmpty && !isFreshWater)
-        {
-            //view [E]
             ActivateInteractionUI(true, "¹Ù´å¹° ÄÅ ³õ±â");
 
             if (Input.GetKeyDown(KeyCode.E))
@@ -79,9 +68,11 @@ public class Purifier : MonoBehaviour
 
                 //Start purifier
                 StartCoroutine(PurifierWater_co());
+
+                canLetSaltWater = false;
             }
         }
-        else if (other.CompareTag("Player") && selectedItem.selectedItem.itemName.Equals("CupEmpty") && !isEmpty && isFreshWater)
+        else if (canFillFreshWater)
         {
             ActivateInteractionUI(true, "´ã¼ö Ã¤¿ì±â");
 
@@ -103,8 +94,35 @@ public class Purifier : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && selectedItem.selectedItem.itemName.Equals("CupSaltWater") && isEmpty)
+        {
+            //view [E]
+            //ActivateInteractionUI(true, "¹Ù´å¹° ÄÅ ³õ±â");
+
+            canLetSaltWater = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && selectedItem.selectedItem.itemName.Equals("CupSaltWater") && isEmpty && !isFreshWater)
+        {
+            //view [E]
+            //ActivateInteractionUI(true, "¹Ù´å¹° ÄÅ ³õ±â");
+            canLetSaltWater = true;
+        }
+        else if (other.CompareTag("Player") && selectedItem.selectedItem.itemName.Equals("CupEmpty") && !isEmpty && isFreshWater)
+        {
+            canFillFreshWater = true;
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
+        canLetSaltWater = false;
+        canFillFreshWater = false;
         ActivateInteractionUI(false, "");
     }
 
