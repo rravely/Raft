@@ -108,11 +108,6 @@ public class ItemDatabase : MonoBehaviour
     public Item[] nailR;
     public int[] nailI;
 
-    [Header("Foundation")]
-    public Item foundation;
-    public Item[] foundationR;
-    public int[] foundationI;
-
     [Header("Sail")]
     public Item sail;
     public Item[] sailR;
@@ -145,7 +140,6 @@ public class ItemDatabase : MonoBehaviour
         items[9] = new ItemInfo(sail, sailR, sailI);
         items[10] = new ItemInfo(chair, chairR, chairI);
         items[11] = new ItemInfo(table, tableR, tableI);
-        items[12] = new ItemInfo(foundation, foundationR, foundationI);
    }
 
     public int FindIndexOfDB(Item item)

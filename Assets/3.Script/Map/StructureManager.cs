@@ -101,7 +101,7 @@ public class StructureManager : MonoBehaviour
             ChangeMaterial();
 
         }
-        
+
     }
 
     void SetLayerMask()
@@ -124,6 +124,7 @@ public class StructureManager : MonoBehaviour
                 layerMaskIndex = 0;
                 break;
         }
+        CheckResourcesItemCount();
     }
 
     void InstantiateTempObject()
@@ -263,5 +264,12 @@ public class StructureManager : MonoBehaviour
             Destroy(tempObject);
             tempObjectExists = false;
         }
+    }
+
+    bool CheckResourcesItemCount()
+    {
+
+
+        return false;
     }
 }
