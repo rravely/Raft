@@ -6,6 +6,7 @@ public class StructureMenu : MonoBehaviour
 {
     SelectedItem selectedItem;
     PlayerInput playerInput;
+    PlayerState playerState;
 
     StructureManager structureManager;
 
@@ -15,6 +16,7 @@ public class StructureMenu : MonoBehaviour
     {
         selectedItem = FindObjectOfType<SelectedItem>();
         playerInput = FindObjectOfType<PlayerInput>();
+        playerState = FindObjectOfType<PlayerState>();
 
         structureManager = GetComponent<StructureManager>();
     }
@@ -22,7 +24,7 @@ public class StructureMenu : MonoBehaviour
     private void Update()
     {
         //Open and close structure menu
-        if (selectedItem.selectedItem.itemName.Equals("Hammer"))
+        if (selectedItem.selectedItem.itemName.Equals("Hammer") && !playerState.inWater && !playerState.inWaterSurface)
         {
             structureManager.placeNow = true;
             if (playerInput.isRMD)
