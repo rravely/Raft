@@ -13,5 +13,5 @@ public class Item : ScriptableObject
     public bool stackable = true;
     public bool isTool = false;
     public bool isBuildable = false;
-    public bool isFoundation = false;
+    public bool isFoundation = false; //for structure items
 }

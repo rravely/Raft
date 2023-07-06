@@ -232,6 +232,12 @@ public class PlayerInteraction : MonoBehaviour
         playerAni.SetBool("Grab", true);
     }
 
+    public void HammerHands()
+    {
+        playerAni.SetTrigger("Hammer");
+        hammerAni.SetTrigger("Hammer");
+    }
+
     public void InteractionHands()
     {
         playerAni.SetTrigger("Interaction");

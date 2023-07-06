@@ -13,6 +13,8 @@ public class SelectedItem : MonoBehaviour
     BuildingFloorManager buildingFloorManager;
     BuildingStairsManager buildingStairsManager;
 
+    StructureManager structureManager;
+
     ItemManager itemManager;
     PlayerInteraction playerInteraction;
 
@@ -32,6 +34,7 @@ public class SelectedItem : MonoBehaviour
         buildingPillarManager = FindObjectOfType<BuildingPillarManager>();
         buildingFloorManager = FindObjectOfType<BuildingFloorManager>();
         buildingStairsManager = FindObjectOfType<BuildingStairsManager>();
+        structureManager = FindObjectOfType<StructureManager>();
 
         itemManager = FindObjectOfType<ItemManager>();
         playerInteraction = FindObjectOfType<PlayerInteraction>();
@@ -112,6 +115,9 @@ public class SelectedItem : MonoBehaviour
             }
             else //foundation
             {
+                structureManager.placeNow = true;
+
+                /*
                 buildingManager.placeNow = false;
 
                 switch (selectedItem.itemName)
@@ -149,6 +155,7 @@ public class SelectedItem : MonoBehaviour
                         break;
 
                 }
+                */
             }
         }
     }

@@ -60,8 +60,6 @@ public class BuildingManager : MonoBehaviour
                     tempObjectExists = true;
                 }
 
-                //Rotate temp Object
-
                 //If player clicks and temp object is buildable, instantiate object.
                 if (Input.GetMouseButtonDown(0) && tempObject.GetComponent<BuildableItem>().isBuildable)
                 {
@@ -80,6 +78,7 @@ public class BuildingManager : MonoBehaviour
                     DestoryTempObject();
                 }
 
+                //Rotate temp Object
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     tempObject.transform.Rotate(0f, 90f, 0f);
