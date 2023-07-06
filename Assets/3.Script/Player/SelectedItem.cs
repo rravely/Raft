@@ -93,9 +93,9 @@ public class SelectedItem : MonoBehaviour
 
             if (!selectedItem.isFoundation) 
             {
-                buildingFoundationManager.placeNow = false;
-                buildingPillarManager.placeNow = false;
-                buildingFloorManager.placeNow = false;
+                structureManager.placeNow = false;
+                structureManager.DestoryTempObject();
+                
 
                 switch (selectedItem.itemName)
                 {
@@ -116,46 +116,6 @@ public class SelectedItem : MonoBehaviour
             else //foundation
             {
                 structureManager.placeNow = true;
-
-                /*
-                buildingManager.placeNow = false;
-
-                switch (selectedItem.itemName)
-                {
-                    case "Foundation":
-                        buildingFoundationManager.placeNow = true;
-                        buildingPillarManager.placeNow = false;
-                        buildingFloorManager.placeNow = false;
-                        buildingStairsManager.placeNow = false;
-
-                        buildingFoundationManager.selectedItemIndex = 0;
-                        break;
-                    case "WoodenFloor":
-                        buildingFloorManager.placeNow = true;
-                        buildingFoundationManager.placeNow = false;
-                        buildingPillarManager.placeNow = false;
-                        buildingStairsManager.placeNow = false;
-
-                        buildingFoundationManager.selectedItemIndex = 0;
-                        break;
-                    case "Pillar":
-                        buildingPillarManager.placeNow = true;
-                        buildingFoundationManager.placeNow = false;
-                        buildingFloorManager.placeNow = false;
-                        buildingStairsManager.placeNow = false;
-
-                        buildingPillarManager.selectedItemIndex = 0;
-                        break;
-                    case "Stairs":
-                        buildingStairsManager.placeNow = true;
-                        buildingFoundationManager.placeNow = false;
-                        buildingPillarManager.placeNow = false;
-                        buildingFloorManager.placeNow = false;
-
-                        break;
-
-                }
-                */
             }
         }
     }
@@ -176,17 +136,8 @@ public class SelectedItem : MonoBehaviour
         buildingManager.placeNow = false;
         buildingManager.DestoryTempObject();
 
-        buildingFoundationManager.placeNow = false;
-        buildingFoundationManager.DestoryTempObject();
-
-        buildingPillarManager.placeNow = false;
-        buildingPillarManager.DestoryTempObject();
-
-        buildingFloorManager.placeNow = false;
-        buildingFloorManager.DestoryTempObject();
-
-        buildingStairsManager.placeNow = false;
-        buildingStairsManager.DestoryTempObject();
+        structureManager.placeNow = false;
+        structureManager.DestoryTempObject();
     }
 
     void NoTool()

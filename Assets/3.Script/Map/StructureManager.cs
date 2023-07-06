@@ -167,6 +167,38 @@ public class StructureManager : MonoBehaviour
                     DestoryTempObject();
                 }
                 break;
+            case "WoodenFloor":
+                if (!tempObject.GetComponent<Floor>().isExist && tempObject.GetComponent<Floor>().isBuildable)
+                {
+                    playerInteraction.Hammer();
+
+                    GameObject foundation = Instantiate(objectToPlace, tilemapPlace, tempObject.transform.rotation);
+                    foundation.transform.SetParent(parent);
+                    foundation.GetComponent<Floor>().isBuild = true;
+                    placeNow = false;
+                    placeObject = false;
+
+                    //Delete item in quickslot
+                    selectedItem.RemoveSelectedItem();
+
+                    DestoryTempObject();
+                }
+                break;
+            case "Stairs":
+                if (!tempObject.GetComponentInChildren<Stairs>().isExist && tempObject.GetComponentInChildren<Stairs>().isBuildable)
+                {
+                    GameObject foundation = Instantiate(objectToPlace, tilemapPlace, tempObject.transform.rotation);
+                    foundation.transform.SetParent(parent);
+                    foundation.GetComponentInChildren<Stairs>().isBuild = true;
+                    placeNow = false;
+                    placeObject = false;
+
+                    //Delete item in quickslot
+                    selectedItem.RemoveSelectedItem();
+
+                    DestoryTempObject();
+                }
+                break;
         }
     }
 
@@ -185,8 +217,6 @@ public class StructureManager : MonoBehaviour
                     {
                         tempObject.GetComponent<MeshRenderer>().material = tempDisable;
                     }
-
-                    //tempObject.transform.position = tilemaps[layerMaskIndex].GetCellCenterWorld(tilemaps[layerMaskIndex].WorldToCell(place));
                 }
                 break;
 
@@ -201,10 +231,34 @@ public class StructureManager : MonoBehaviour
                     {
                         tempObject.GetComponent<MeshRenderer>().material = tempDisable;
                     }
-                    //tempObject.transform.position = tilemaps[layerMaskIndex].GetCellCenterWorld(tilemaps[layerMaskIndex].WorldToCell(place));
                 }
                 break;
-
+            case "WoodenFloor":
+                if (tempObject != null)
+                {
+                    if (!tempObject.GetComponent<Floor>().isExist && tempObject.GetComponent<Floor>().isBuildable)
+                    {
+                        tempObject.GetComponent<MeshRenderer>().material = temp;
+                    }
+                    else
+                    {
+                        tempObject.GetComponent<MeshRenderer>().material = tempDisable;
+                    }
+                }
+                break;
+            case "Stairs":
+                if (tempObject != null)
+                {
+                    if (!tempObject.GetComponentInChildren<Stairs>().isExist && tempObject.GetComponentInChildren<Stairs>().isBuildable)
+                    {
+                        tempObject.GetComponentInChildren<MeshRenderer>().material = temp;
+                    }
+                    else
+                    {
+                        tempObject.GetComponentInChildren<MeshRenderer>().material = tempDisable;
+                    }
+                }
+                break;
         }
         tempObject.transform.position = tilemaps[layerMaskIndex].GetCellCenterWorld(tilemaps[layerMaskIndex].WorldToCell(place));
     }
