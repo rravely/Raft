@@ -90,6 +90,9 @@ public class Purifier : MonoBehaviour
 
                 //Inactive UI
                 ActivateInteractionUI(false, "");
+
+                canFillFreshWater = false;
+                isFreshWater = false;
             }
         }
     }
@@ -141,6 +144,8 @@ public class Purifier : MonoBehaviour
         isFreshWater = true;
         audio.Stop();
         transform.GetChild(3).gameObject.SetActive(false);
+
+
     }
 
     void ActivateInteractionUI(bool isActive, string text)
