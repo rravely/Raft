@@ -69,7 +69,6 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
         Tools();
-        //Interaction();
     }
 
     void Tools()

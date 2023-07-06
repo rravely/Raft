@@ -65,19 +65,6 @@ public class SelectedItem : MonoBehaviour
             if (selectedItem.isTool)
             {
                 playerInteraction.PlayerIdle(false);
-                switch (selectedItem.itemName)
-                {
-                    case "Hammer":
-                        hammer.SetActive(true);
-                        hook.SetActive(false);
-                        rope.SetActive(false);
-                        break;
-                    case "PlasticHook":
-                        hammer.SetActive(false);
-                        hook.SetActive(true);
-                        rope.SetActive(true);
-                        break;
-                }
             }
             else
             {
@@ -146,5 +133,16 @@ public class SelectedItem : MonoBehaviour
         hook.SetActive(false);
         rope.SetActive(false);
         playerInteraction.PlayerIdle(true);
+    }
+
+    public void SetActiveHammer(bool isActive)
+    {
+        hammer.SetActive(isActive);
+    }
+
+    public void SetActiveHook(bool isActive)
+    {
+        hook.SetActive(isActive);
+        rope.SetActive(isActive);
     }
 }
