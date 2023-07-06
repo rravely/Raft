@@ -21,7 +21,7 @@ public class DefaultItem : MonoBehaviour
     private void Start()
     {
         itemManager = GetComponent<ItemManager>();
-
+        /*
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 10; j++)
@@ -29,13 +29,12 @@ public class DefaultItem : MonoBehaviour
                 itemManager.AddItem(items[i]);
             }
         }
-
+        */
+        itemManager.AddItem(items[0]);
+        itemManager.AddItem(items[1]);
+        itemManager.AddItem(items[2]);
         itemManager.AddItem(items[3]);
         itemManager.AddItem(items[4]);
-        itemManager.AddItem(items[5]);
-        itemManager.AddItem(items[6]);
-        itemManager.AddItem(items[7]);
-        itemManager.AddItem(items[8]);
     }
 
     private void Update()

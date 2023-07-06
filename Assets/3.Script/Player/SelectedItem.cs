@@ -8,14 +8,9 @@ public class SelectedItem : MonoBehaviour
     public int selectedButtonIndex;
 
     BuildingManager buildingManager;
-    BuildingFoundationManager buildingFoundationManager;
-    BuildingPillarManager buildingPillarManager;
-    BuildingFloorManager buildingFloorManager;
-    BuildingStairsManager buildingStairsManager;
-
     StructureManager structureManager;
-
     ItemManager itemManager;
+
     PlayerInteraction playerInteraction;
 
     [Header("Tools")]
@@ -27,13 +22,12 @@ public class SelectedItem : MonoBehaviour
     [SerializeField] GameObject defaultHands;
     [SerializeField] GameObject rodHands;
 
+    [Header("StructureMenu")]
+    [SerializeField] GameObject structureMenu;
+
     private void Start()
     {
         buildingManager = FindObjectOfType<BuildingManager>();
-        buildingFoundationManager = FindObjectOfType<BuildingFoundationManager>();
-        buildingPillarManager = FindObjectOfType<BuildingPillarManager>();
-        buildingFloorManager = FindObjectOfType<BuildingFloorManager>();
-        buildingStairsManager = FindObjectOfType<BuildingStairsManager>();
         structureManager = FindObjectOfType<StructureManager>();
 
         itemManager = FindObjectOfType<ItemManager>();
@@ -58,7 +52,7 @@ public class SelectedItem : MonoBehaviour
             rodHands.SetActive(false);
         }
 
-        if (selectedItem.id.Equals(0))
+        if (selectedItem.id.Equals(0)) //nullitem
         {
             playerInteraction.PlayerIdle(true);
         }
