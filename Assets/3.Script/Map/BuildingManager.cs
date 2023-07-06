@@ -63,7 +63,7 @@ public class BuildingManager : MonoBehaviour
                 //If player clicks and temp object is buildable, instantiate object.
                 if (Input.GetMouseButtonDown(0) && tempObject.GetComponent<BuildableItem>().isBuildable)
                 {
-                    playerInteraction.Hammer();
+                    playerInteraction.InteractionHands();
                     PlayerAudio.instance.PlaceObject();
 
                     GameObject buildableItem = Instantiate(objectToPlace, place, /*Quaternion.identity*/ tempObject.transform.rotation);

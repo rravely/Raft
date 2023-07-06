@@ -51,6 +51,8 @@ public class PlayerInteraction : MonoBehaviour
     public bool isWater = false;
     [SerializeField] Item cupSaltWater;
 
+    [Header("Building")]
+    public bool isBuilding = false;
 
 
     private void Start()
@@ -165,23 +167,6 @@ public class PlayerInteraction : MonoBehaviour
             playerAni.SetBool("HookCharging", false);
 
             isHookThrown = true; //Hook will be thrown by itself
-        }
-    }
-
-    void Interaction()
-    {
-        if (canPickup)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                playerAni.SetTrigger("Interaction");
-
-                itemManager.AddItem(pickupItem);
-                pickupObject.SetActive(false);
-
-                ui.transform.GetChild(0).gameObject.SetActive(false);
-                ui.transform.GetChild(1).gameObject.SetActive(false);
-            }
         }
     }
 
