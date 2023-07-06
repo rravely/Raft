@@ -50,7 +50,7 @@ public class StructureMenu : MonoBehaviour
             else
             {
                 SetUI(false);
-                SetResources();
+                structureManager.placeObject = SetResources();
             }
         }
         else
@@ -68,33 +68,37 @@ public class StructureMenu : MonoBehaviour
         interactionButton.SetActive(!isActive);
     }
 
-    void SetResources()
+    bool SetResources()
     {
         index = itemDB.FindIndexOfDB(structureManager.selectedStructureItem);
+        bool check;
         if (itemDB.structureItems[index].resourcesItems.Length < 2)
         {
             itemSlots[1].gameObject.SetActive(false);
-            SetSlotPanel(0);
+            check = SetSlotPanel(0);
         }
         else
         {
             itemSlots[1].gameObject.SetActive(true);
-            SetSlotPanel(0);
             SetSlotPanel(1);
+            check = SetSlotPanel(0) && SetSlotPanel(1);
         }
+        return check;
     }
 
-    void SetSlotPanel(int panelIndex)
+    bool SetSlotPanel(int panelIndex)
     {
         itemSlots[panelIndex].GetChild(0).GetComponent<Image>().sprite = itemDB.structureItems[index].resourcesItems[panelIndex].icon;
         itemSlots[panelIndex].GetChild(1).GetComponent<Text>().text = string.Format($"{playerState.FindItemCount(itemDB.structureItems[index].resourcesItems[panelIndex])}/{itemDB.structureItems[index].resourcesItemCount[panelIndex]}");
         if (playerState.FindItemCount(itemDB.structureItems[index].resourcesItems[panelIndex]) >= itemDB.structureItems[index].resourcesItemCount[panelIndex])
         {
             itemSlots[panelIndex].GetComponent<Image>().sprite = trueSprite;
+            return true;
         }
         else
         {
             itemSlots[panelIndex].GetComponent<Image>().sprite = falseSprite;
+            return false;
         }
     }
 }

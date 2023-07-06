@@ -124,7 +124,6 @@ public class StructureManager : MonoBehaviour
                 layerMaskIndex = 0;
                 break;
         }
-        CheckResourcesItemCount();
     }
 
     void InstantiateTempObject()
@@ -143,6 +142,7 @@ public class StructureManager : MonoBehaviour
 
         parent = parents[layerMaskIndex];
 
+        
         switch (selectedStructureItem.itemName)
         {
             case "Foundation":
@@ -198,63 +198,70 @@ public class StructureManager : MonoBehaviour
 
     void ChangeMaterial()
     {
-        switch (selectedStructureItem.itemName)
+        if (placeObject)
         {
-            case "Foundation":
-                if (tempObject != null)
-                {
-                    if (!tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
+            switch (selectedStructureItem.itemName)
+            {
+                case "Foundation":
+                    if (tempObject != null)
                     {
-                        tempObject.GetComponent<MeshRenderer>().material = temp;
+                        if (!tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
+                        {
+                            tempObject.GetComponent<MeshRenderer>().material = temp;
+                        }
+                        else
+                        {
+                            tempObject.GetComponent<MeshRenderer>().material = tempDisable;
+                        }
                     }
-                    else
-                    {
-                        tempObject.GetComponent<MeshRenderer>().material = tempDisable;
-                    }
-                }
-                break;
+                    break;
 
-            case "Pillar":
-                if (tempObject != null)
-                {
-                    if (!tempObject.GetComponent<Pillar>().isExist && tempObject.GetComponent<Pillar>().isBuildable)
+                case "Pillar":
+                    if (tempObject != null)
                     {
-                        tempObject.GetComponent<MeshRenderer>().material = temp;
+                        if (!tempObject.GetComponent<Pillar>().isExist && tempObject.GetComponent<Pillar>().isBuildable)
+                        {
+                            tempObject.GetComponent<MeshRenderer>().material = temp;
+                        }
+                        else
+                        {
+                            tempObject.GetComponent<MeshRenderer>().material = tempDisable;
+                        }
                     }
-                    else
+                    break;
+                case "WoodenFloor":
+                    if (tempObject != null)
                     {
-                        tempObject.GetComponent<MeshRenderer>().material = tempDisable;
+                        if (!tempObject.GetComponent<Floor>().isExist && tempObject.GetComponent<Floor>().isBuildable)
+                        {
+                            tempObject.GetComponent<MeshRenderer>().material = temp;
+                        }
+                        else
+                        {
+                            tempObject.GetComponent<MeshRenderer>().material = tempDisable;
+                        }
                     }
-                }
-                break;
-            case "WoodenFloor":
-                if (tempObject != null)
-                {
-                    if (!tempObject.GetComponent<Floor>().isExist && tempObject.GetComponent<Floor>().isBuildable)
+                    break;
+                case "Stairs":
+                    if (tempObject != null)
                     {
-                        tempObject.GetComponent<MeshRenderer>().material = temp;
+                        if (!tempObject.GetComponentInChildren<Stairs>().isExist && tempObject.GetComponentInChildren<Stairs>().isBuildable)
+                        {
+                            tempObject.GetComponentInChildren<MeshRenderer>().material = temp;
+                        }
+                        else
+                        {
+                            tempObject.GetComponentInChildren<MeshRenderer>().material = tempDisable;
+                        }
                     }
-                    else
-                    {
-                        tempObject.GetComponent<MeshRenderer>().material = tempDisable;
-                    }
-                }
-                break;
-            case "Stairs":
-                if (tempObject != null)
-                {
-                    if (!tempObject.GetComponentInChildren<Stairs>().isExist && tempObject.GetComponentInChildren<Stairs>().isBuildable)
-                    {
-                        tempObject.GetComponentInChildren<MeshRenderer>().material = temp;
-                    }
-                    else
-                    {
-                        tempObject.GetComponentInChildren<MeshRenderer>().material = tempDisable;
-                    }
-                }
-                break;
+                    break;
+            }
+            tempObject.transform.position = tilemaps[layerMaskIndex].GetCellCenterWorld(tilemaps[layerMaskIndex].WorldToCell(place));
         }
-        tempObject.transform.position = tilemaps[layerMaskIndex].GetCellCenterWorld(tilemaps[layerMaskIndex].WorldToCell(place));
+        else
+        {
+            DestoryTempObject();
+        }
     }
 
     public void DestoryTempObject()
@@ -264,12 +271,5 @@ public class StructureManager : MonoBehaviour
             Destroy(tempObject);
             tempObjectExists = false;
         }
-    }
-
-    bool CheckResourcesItemCount()
-    {
-
-
-        return false;
     }
 }

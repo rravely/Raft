@@ -18288,7 +18288,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
   - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
   starisI: 0600000003000000
-  wallWood: {fileID: 11400000, guid: 84d81a4786e56f14d99bb4b311cfbb34, type: 2}
+  wallWood: {fileID: 11400000, guid: 65599acb4e378c849b38e8135df1351c, type: 2}
   wallWoodR:
   - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
   wallWoodI: 04000000
@@ -26417,6 +26417,8 @@ MonoBehaviour:
   structureMenu: {fileID: 1319341813}
   structureResourcesUI: {fileID: 1199237194}
   interactionButton: {fileID: 783952264}
+  trueSprite: {fileID: 21300000, guid: f8109dcbea2431843b2e22d5d2272ad7, type: 3}
+  falseSprite: {fileID: 21300000, guid: 970b5b3f578b9684e9c0649095b10874, type: 3}
   itemSlots:
   - {fileID: 837549404}
   - {fileID: 1341267096}
