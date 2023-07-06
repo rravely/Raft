@@ -62,28 +62,44 @@ public class SelectedItem : MonoBehaviour
         {
             NoBuildableItem();
 
-            if (selectedItem.isTool)
+            if (selectedItem.isTool) //hook or fishingrod
             {
                 playerInteraction.PlayerIdle(false);
+                switch (selectedItem.itemName)
+                {
+                    case "PlasticHook":
+                        hammer.SetActive(false);
+                        hook.SetActive(true);
+                        rope.SetActive(true);
+                        break;
+                }
             }
-            else
+            else 
             {
                 NoTool();
+                if (selectedItem.itemName.Equals("Hammer"))
+                {
+                    hammer.SetActive(true);
+                }
+                else
+                {
+                    hammer.SetActive(false);   
+                }
             }
         }
         else //buildable Items
         {
-            hammer.SetActive(true);
+            //interaction hands
+            hammer.SetActive(false);
             hook.SetActive(false);
             rope.SetActive(false);
-            playerInteraction.GrabHands(true);
+            playerInteraction.PlayerIdle(true);
 
             if (!selectedItem.isFoundation) 
             {
                 structureManager.placeNow = false;
                 structureManager.DestoryTempObject();
                 
-
                 switch (selectedItem.itemName)
                 {
                     case "SimpleBed":
@@ -99,10 +115,6 @@ public class SelectedItem : MonoBehaviour
                         BuildableObjectPlaceable(3);
                         break;
                 }
-            }
-            else //foundation
-            {
-                structureManager.placeNow = true;
             }
         }
     }

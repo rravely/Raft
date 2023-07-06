@@ -28,11 +28,16 @@ public class StructureMenu : MonoBehaviour
             if (playerInput.isRMD)
             {
                 structureMenu.SetActive(true);
+                structureManager.DestoryTempObject();
             }
             else
             {
                 structureMenu.SetActive(false);
             }
-        }    
+        }
+        else
+        {
+            structureManager.placeNow = false;
+        }
     }
 }

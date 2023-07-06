@@ -77,7 +77,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             case "Hammer":
                 playerAni.SetBool("Grab", true);
-                Hammer();
                 break;
             case "PlasticHook":
                 if (!isThrow)
@@ -233,7 +232,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void HammerHands()
     {
-        playerAni.SetTrigger("Hammer");
+        playerAni.SetBool("Hammer", true);
         hammerAni.SetBool("Hammer", true);
     }
 

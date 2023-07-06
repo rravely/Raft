@@ -60,6 +60,10 @@ public class StructureManager : MonoBehaviour
             SendRay();
             objectToPlace = structureObject[layerMaskIndex];
         }
+        else
+        {
+            DestoryTempObject();
+        }
     }
 
     void SendRay()
@@ -149,7 +153,6 @@ public class StructureManager : MonoBehaviour
                     placeNow = false;
                     placeObject = false;
 
-
                     DestoryTempObject();
                 }
                 break;
@@ -168,8 +171,6 @@ public class StructureManager : MonoBehaviour
             case "WoodenFloor":
                 if (!tempObject.GetComponent<Floor>().isExist && tempObject.GetComponent<Floor>().isBuildable)
                 {
-                    playerInteraction.Hammer();
-
                     GameObject foundation = Instantiate(objectToPlace, tilemapPlace, tempObject.transform.rotation);
                     foundation.transform.SetParent(parent);
                     foundation.GetComponent<Floor>().isBuild = true;
