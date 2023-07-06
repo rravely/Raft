@@ -7,7 +7,7 @@ public class StructureManager : MonoBehaviour
 {
     PlayerInteraction playerInteraction;
 
-    SelectedItem selectedItem;
+    //SelectedItem selectedItem;
     [HideInInspector] public int selectedItemIndex = 0;
 
     [HideInInspector] public GameObject objectToPlace, tempObject;
@@ -27,7 +27,7 @@ public class StructureManager : MonoBehaviour
     [HideInInspector] public bool tempObjectExists;
 
     //For selected sturcture item
-    Item selectedStructureItem;
+    public Item selectedStructureItem;
     bool isSelected = false;
 
     //Raycast (foundation -> pillar -> floor -> stairs)
@@ -43,7 +43,7 @@ public class StructureManager : MonoBehaviour
     void Start()
     {
         playerInteraction = FindObjectOfType<PlayerInteraction>();
-        selectedItem = FindObjectOfType<SelectedItem>();
+        //selectedItem = FindObjectOfType<SelectedItem>();
 
         layerMasks = new int[4];
         layerMasks[0] = 1 << LayerMask.NameToLayer("Foundation");
@@ -75,7 +75,7 @@ public class StructureManager : MonoBehaviour
             {
                 InstantiateTempObject();
             }
-            else if (tempObjectExists && !tempItem.Equals(selectedItem.selectedItem))
+            else if (tempObjectExists && !tempItem.Equals(selectedStructureItem))
             {
                 DestoryTempObject();
                 InstantiateTempObject();
@@ -102,7 +102,7 @@ public class StructureManager : MonoBehaviour
 
     void SetLayerMask()
     {
-        switch (selectedItem.selectedItem.itemName)
+        switch (selectedStructureItem.itemName)
         {
             case "Foundation":
                 layerMaskIndex = 0;
@@ -116,6 +116,9 @@ public class StructureManager : MonoBehaviour
             case "Stairs":
                 layerMaskIndex = 3;
                 break;
+            default:
+                layerMaskIndex = 0;
+                break;
         }
     }
 
@@ -125,7 +128,7 @@ public class StructureManager : MonoBehaviour
         tempObject.GetComponentInChildren<MeshRenderer>().material = temp;
         tempObject.GetComponent<Collider>().isTrigger = true;
         tempObjectExists = true;
-        tempItem = selectedItem.selectedItem;
+        tempItem = selectedStructureItem;
     }
 
     void InstantiateObject()
@@ -135,7 +138,7 @@ public class StructureManager : MonoBehaviour
 
         parent = parents[layerMaskIndex];
 
-        switch (selectedItem.selectedItem.itemName)
+        switch (selectedStructureItem.itemName)
         {
             case "Foundation":
                 if (!tempObject.GetComponent<Foundation>().isExist && tempObject.GetComponent<Foundation>().isBuildable)
@@ -146,8 +149,6 @@ public class StructureManager : MonoBehaviour
                     placeNow = false;
                     placeObject = false;
 
-                    //Delete item in quickslot
-                    selectedItem.RemoveSelectedItem();
 
                     DestoryTempObject();
                 }
@@ -160,9 +161,6 @@ public class StructureManager : MonoBehaviour
                     pillar.GetComponent<Pillar>().isBuild = true;
                     placeNow = false;
                     placeObject = false;
-
-                    //Delete item in quickslot
-                    selectedItem.RemoveSelectedItem();
 
                     DestoryTempObject();
                 }
@@ -178,9 +176,6 @@ public class StructureManager : MonoBehaviour
                     placeNow = false;
                     placeObject = false;
 
-                    //Delete item in quickslot
-                    selectedItem.RemoveSelectedItem();
-
                     DestoryTempObject();
                 }
                 break;
@@ -193,9 +188,6 @@ public class StructureManager : MonoBehaviour
                     placeNow = false;
                     placeObject = false;
 
-                    //Delete item in quickslot
-                    selectedItem.RemoveSelectedItem();
-
                     DestoryTempObject();
                 }
                 break;
@@ -204,7 +196,7 @@ public class StructureManager : MonoBehaviour
 
     void ChangeMaterial()
     {
-        switch (selectedItem.selectedItem.itemName)
+        switch (selectedStructureItem.itemName)
         {
             case "Foundation":
                 if (tempObject != null)

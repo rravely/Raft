@@ -17,7 +17,7 @@ MonoBehaviour:
   itemKoreanName: "\uBC18 \uB098\uBB34 \uBCBD"
   itemDescription: "\uB192\uC774 1\uCE78\uC758 \uBCBD\uC744 \uC138\uC6B4\uB2E4."
   icon: {fileID: 21300000, guid: 372bf2932924d3c409c15236ff03eaf7, type: 3}
-  stackable: 0
+  stackable: 1
   isTool: 0
-  isBuildable: 0
+  isBuildable: 1
   isFoundation: 1

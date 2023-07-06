@@ -67,7 +67,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""name"": ""RightMouse"",
                     ""type"": ""Value"",
                     ""id"": ""96686418-5e21-4c6d-89f0-8224b488080c"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Double"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

@@ -1,25 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class StructureMenu : MonoBehaviour
 {
     SelectedItem selectedItem;
+    PlayerInput playerInput;
 
-    PlayerInputAction playerInputAction;
-    InputAction rightMoustButtonAction;
+    StructureManager structureManager;
+
+    [SerializeField] GameObject structureMenu;
 
     private void Start()
     {
         selectedItem = FindObjectOfType<SelectedItem>();
+        playerInput = FindObjectOfType<PlayerInput>();
 
-        playerInputAction = new PlayerInputAction();
-        rightMoustButtonAction = playerInputAction.Player.RightMouse;
+        structureManager = GetComponent<StructureManager>();
     }
 
-    void OnRightMouse()
+    private void Update()
     {
-
+        //Open and close structure menu
+        if (selectedItem.selectedItem.itemName.Equals("Hammer"))
+        {
+            structureManager.placeNow = true;
+            if (playerInput.isRMD)
+            {
+                structureMenu.SetActive(true);
+            }
+            else
+            {
+                structureMenu.SetActive(false);
+            }
+        }    
     }
 }

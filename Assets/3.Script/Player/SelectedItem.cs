@@ -41,6 +41,7 @@ public class SelectedItem : MonoBehaviour
 
     void SetActiveSelectedItem()
     {
+        //Fishing
         if (selectedItem.itemName.Equals("FishingRod"))
         {
             defaultHands.SetActive(false);
@@ -121,14 +122,10 @@ public class SelectedItem : MonoBehaviour
     {
         buildingManager.placeNow = false;
         buildingManager.DestoryTempObject();
-
-        structureManager.placeNow = false;
-        structureManager.DestoryTempObject();
     }
 
     void NoTool()
     {
-        hammer.SetActive(false);
         hook.SetActive(false);
         rope.SetActive(false);
         playerInteraction.PlayerIdle(true);
