@@ -7,9 +7,6 @@ public class RandomObjectSpawn : MonoBehaviour
     //[SerializeField] GameObject[] itemObjectPrefabs;
     [SerializeField] GameObject[] dropItems;
 
-    int randomIndex = 0;
-    float randomPositionX = 0f;
-
     int inactiveIndex = 0;
 
     private void Start()

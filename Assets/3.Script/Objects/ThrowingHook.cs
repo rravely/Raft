@@ -12,8 +12,6 @@ public class ThrowingHook : MonoBehaviour
 
     public List<GameObject> dropItem;
 
-    bool isLock = false;
-
     private void Start()
     {
         playerInteraction = FindObjectOfType<PlayerInteraction>();

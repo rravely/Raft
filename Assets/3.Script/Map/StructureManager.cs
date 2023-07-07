@@ -30,7 +30,6 @@ public class StructureManager : MonoBehaviour
 
     //For selected sturcture item
     public Item selectedStructureItem;
-    bool isSelected = false;
 
     //Raycast (foundation -> pillar -> floor -> stairs)
     int[] layerMasks;
