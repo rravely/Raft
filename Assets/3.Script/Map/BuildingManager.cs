@@ -57,6 +57,7 @@ public class BuildingManager : MonoBehaviour
                 {
                     tempObject = Instantiate(buildableObject[selectedItemIndex], place, Quaternion.identity);
                     tempObject.GetComponentInChildren<MeshRenderer>().material = temp;
+                    tempObject.GetComponent<Collider>().isTrigger = false;
                     tempObjectExists = true;
                 }
 

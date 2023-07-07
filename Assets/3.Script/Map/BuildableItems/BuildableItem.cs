@@ -9,7 +9,7 @@ public class BuildableItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Buildable"))
+        if (other.CompareTag("Buildable") || other.CompareTag("Pillar"))
         {
             isBuildable = false;
         }
@@ -17,7 +17,7 @@ public class BuildableItem : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Buildable"))
+        if (other.CompareTag("Buildable") || other.CompareTag("Pillar"))
         {
             isBuildable = true;
         }

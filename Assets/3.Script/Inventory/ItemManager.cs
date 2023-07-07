@@ -16,6 +16,10 @@ public class ItemManager : MonoBehaviour
     [Header("Player")]
     [SerializeField] PlayerState playerState;
 
+    [Header("AlarmSlot")]
+    [SerializeField] Transform alarmPanel;
+    [SerializeField] GameObject alarmSlotPrefab;
+
     int maxStackedCount = 9;
 
     public bool AddItem(Item item)
@@ -30,6 +34,9 @@ public class ItemManager : MonoBehaviour
                 itemInSlot.RefreshCount();
                 
                 playerState.AddPlayerItems(item);
+
+                GameObject alarmSlot = Instantiate(alarmSlotPrefab, alarmPanel);
+                SetAlarmSlot(alarmSlot, item);
                 return true;
             }
         }
@@ -42,6 +49,10 @@ public class ItemManager : MonoBehaviour
             {
                 SpawnItem(item, slot);
                 playerState.AddPlayerItems(item);
+
+                GameObject alarmSlot = Instantiate(alarmSlotPrefab, alarmPanel);
+                SetAlarmSlot(alarmSlot, item);
+
                 return true;
             }
         }
@@ -93,4 +104,9 @@ public class ItemManager : MonoBehaviour
         playerState.AddPlayerItems(displaceItem);
     }
 
+    void SetAlarmSlot(GameObject alarmSlot, Item item)
+    {
+        alarmSlot.transform.GetChild(1).GetComponent<Image>().sprite = item.icon;
+        alarmSlot.transform.GetChild(2).GetComponent<Text>().text = item.itemKoreanName;
+    }
 }

@@ -102,7 +102,7 @@ public class SelectedItem : MonoBehaviour
                 
                 switch (selectedItem.itemName)
                 {
-                    case "SimpleBed":
+                    case "BedSimple":
                         BuildableObjectPlaceable(2);
                         break;
                     case "Chair":
