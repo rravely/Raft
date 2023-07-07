@@ -18502,6 +18502,7 @@ GameObject:
   - component: {fileID: 1185676394}
   - component: {fileID: 1185676393}
   - component: {fileID: 1185676395}
+  - component: {fileID: 1185676396}
   m_Layer: 0
   m_Name: ItemDatabase
   m_TagString: Untagged
@@ -18640,6 +18641,42 @@ MonoBehaviour:
   halfWallWoodR:
   - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
   halfWallWoodI: 02000000
+--- !u!114 &1185676396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185676392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3022eb1750530474c808494cb8f29e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  herringRaw: {fileID: 11400000, guid: e8628d3a0ceddaa49acb9c90c437b112, type: 2}
+  herringRawT: -10
+  herringRawH: 12.5
+  herringCooked: {fileID: 11400000, guid: 942d20d79751a634ea7a84f81c8d5ef1, type: 2}
+  herringCookedT: 0
+  herringCookedH: 20
+  pomfretRaw: {fileID: 11400000, guid: 65e427755946d1345a7ae77e587c5199, type: 2}
+  pomfretRawT: -10
+  pomfretRawH: 12.5
+  pomfretCooked: {fileID: 11400000, guid: 5e24107828d25354e9e76a768bc6ced7, type: 2}
+  pomfretCookedT: 0
+  pomfretCookedH: 20
+  MackerelRaw: {fileID: 11400000, guid: 4d14a2e9ff0429c41a7ca9268b413fac, type: 2}
+  MackerelRawT: -10
+  MackerelRawH: 15
+  MackerelCooked: {fileID: 11400000, guid: 4d14a2e9ff0429c41a7ca9268b413fac, type: 2}
+  MackerelCookedT: 0
+  MackerelCookedH: 35
+  TilapiaRaw: {fileID: 11400000, guid: 7a175f8f55b4dcf408f470729d66d24b, type: 2}
+  TilapiaRawT: -10
+  TilapiaRawH: 15
+  TilapiaCooked: {fileID: 11400000, guid: 5cb91550ee5f6aa4587f11410e181ba0, type: 2}
+  TilapiaCookedT: 0
+  TilapiaCookedH: 35
 --- !u!1 &1185875391
 GameObject:
   m_ObjectHideFlags: 0
