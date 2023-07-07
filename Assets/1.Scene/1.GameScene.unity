@@ -82849,7 +82849,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263f857a7f6c21f44be483af73712b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishes: []
+  fishes:
+  - {fileID: 11400000, guid: e8628d3a0ceddaa49acb9c90c437b112, type: 2}
+  - {fileID: 11400000, guid: 65e427755946d1345a7ae77e587c5199, type: 2}
+  - {fileID: 11400000, guid: fd58eb823910d40478e275b67422ad6d, type: 2}
+  - {fileID: 11400000, guid: 7a175f8f55b4dcf408f470729d66d24b, type: 2}
 --- !u!1 &919132148135096220
 GameObject:
   m_ObjectHideFlags: 0
