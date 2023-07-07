@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 public class StructureManager : MonoBehaviour
 {
     PlayerInteraction playerInteraction;
+    ItemManager itemManager;
+    StructureItemDatabase itemDB;
 
     //SelectedItem selectedItem;
     [HideInInspector] public int selectedItemIndex = 0;
@@ -43,6 +45,8 @@ public class StructureManager : MonoBehaviour
     void Start()
     {
         playerInteraction = FindObjectOfType<PlayerInteraction>();
+        itemManager = FindObjectOfType<ItemManager>();
+        itemDB = FindObjectOfType<StructureItemDatabase>();
         //selectedItem = FindObjectOfType<SelectedItem>();
 
         layerMasks = new int[4];
@@ -86,7 +90,7 @@ public class StructureManager : MonoBehaviour
             }
 
             //If player clicks and temp object is buildable, instantiate object.
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && placeObject)
             {
                 InstantiateObject();
             }
@@ -194,6 +198,8 @@ public class StructureManager : MonoBehaviour
                 }
                 break;
         }
+
+        RemoveResourceItems(selectedStructureItem);
     }
 
     void ChangeMaterial()
@@ -261,6 +267,15 @@ public class StructureManager : MonoBehaviour
         else
         {
             DestoryTempObject();
+        }
+    }
+
+    void RemoveResourceItems(Item item)
+    {
+        int index = itemDB.FindIndexOfDB(item);
+        for (int i = 0; i < itemDB.structureItems[index].resourcesItems.Length; i++)
+        {
+            itemManager.RemoveItem(itemDB.structureItems[index].resourcesItems[i], itemDB.structureItems[index].resourcesItemCount[i]);
         }
     }
 

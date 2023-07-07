@@ -18,6 +18,8 @@ public class StructureMenu : MonoBehaviour
     [SerializeField] GameObject structureMenu;
     [SerializeField] GameObject structureResourcesUI;
     [SerializeField] GameObject interactionButton;
+    [SerializeField] GameObject inventoryPanel;
+    [SerializeField] GameObject escPanel;
 
     [Header("Sprite")]
     [SerializeField] Sprite trueSprite;
@@ -39,7 +41,7 @@ public class StructureMenu : MonoBehaviour
     private void Update()
     {
         //Open and close structure menu
-        if (selectedItem.selectedItem.itemName.Equals("Hammer") && !playerState.inWater && !playerState.inWaterSurface)
+        if (selectedItem.selectedItem.itemName.Equals("Hammer") && !playerState.inWater && !playerState.inWaterSurface && !inventoryPanel.activeSelf && !escPanel.activeSelf)
         {
             structureManager.placeNow = true;
             if (playerInput.isRMD)
