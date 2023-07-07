@@ -12,6 +12,7 @@ public class SelectedItem : MonoBehaviour
     ItemManager itemManager;
 
     PlayerInteraction playerInteraction;
+    PlayerFishing playerFishing;
 
     [Header("Tools")]
     [SerializeField] GameObject hammer;
@@ -29,9 +30,10 @@ public class SelectedItem : MonoBehaviour
     {
         buildingManager = FindObjectOfType<BuildingManager>();
         structureManager = FindObjectOfType<StructureManager>();
-
         itemManager = FindObjectOfType<ItemManager>();
-        playerInteraction = FindObjectOfType<PlayerInteraction>();
+
+        playerInteraction = GetComponent<PlayerInteraction>();
+        playerFishing = GetComponent<PlayerFishing>();
     }
 
     private void Update()
@@ -46,11 +48,19 @@ public class SelectedItem : MonoBehaviour
         {
             defaultHands.SetActive(false);
             rodHands.SetActive(true);
+            playerFishing.enabled = true;
+            playerInteraction.enabled = false;
+
+            hammer.SetActive(false);
+            hook.SetActive(false);
+            rope.SetActive(false);
         }
         else
         {
             defaultHands.SetActive(true);
             rodHands.SetActive(false);
+            playerFishing.enabled = false;
+            playerInteraction.enabled = true;
         }
 
         if (selectedItem.id.Equals(0)) //nullitem

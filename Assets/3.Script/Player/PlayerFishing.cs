@@ -5,25 +5,52 @@ using UnityEngine;
 public class PlayerFishing : MonoBehaviour
 {
     PlayerInput playerInput;
-    SelectedItem selectedItem;
 
-    Animator fishingHandsAni;
+    [SerializeField] Animator fishingHandsAni;
 
     bool isFishing = false;
+    bool isCatchFish = false;
+
+    float time = 0f;
 
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
-        selectedItem = GetComponent<SelectedItem>();
-
-        fishingHandsAni = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (selectedItem.selectedItem.itemName.Equals("FishingRod") && playerInput.isLMDDown && !isFishing) 
+        if (isFishing && !isCatchFish && playerInput.isRMDDown)
+        {
+            fishingHandsAni.SetBool("RodBack", true);
+            fishingHandsAni.SetBool("RodDrop", false);
+
+            time = 0f;
+            isFishing = false;
+        }
+        if (isFishing && isCatchFish && playerInput.isLMDDown)
+        {
+            fishingHandsAni.SetTrigger("RodBackCatched");
+        }
+
+        if (!isFishing && playerInput.isLMDDown)
         {
             fishingHandsAni.SetBool("RodDrop", true);
+            time = 0f;
+            isFishing = true;
+        }
+
+        
+        if (isFishing && !isCatchFish)
+        {
+            time += Time.deltaTime;
+        }
+        if (time > 8f)
+        {
+            fishingHandsAni.SetBool("FishCatch", true);
+            fishingHandsAni.SetBool("RodDrop", false);
+
+            isCatchFish = true;
         }
     }
 }
