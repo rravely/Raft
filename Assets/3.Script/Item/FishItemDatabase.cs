@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishingInfo
+public class FishInfo
 {
     public Item item;
     public float thirst;
     public float hungry;
 
-    public FishingInfo(Item item, float thirst, float hungry)
+    public FishInfo(Item item, float thirst, float hungry)
     {
         this.item = item;
         this.thirst = thirst;
@@ -55,22 +55,62 @@ public class FishItemDatabase : MonoBehaviour
     public float pomfretCookedH;
 
     [Header("MackerelRaw")]
-    public Item MackerelRaw;
-    public float MackerelRawT;
-    public float MackerelRawH;
+    public Item mackerelRaw;
+    public float mackerelRawT;
+    public float mackerelRawH;
 
     [Header("MackerelCooked")]
-    public Item MackerelCooked;
-    public float MackerelCookedT;
-    public float MackerelCookedH;
+    public Item mackerelCooked;
+    public float mackerelCookedT;
+    public float mackerelCookedH;
 
     [Header("TilapiaRaw")]
-    public Item TilapiaRaw;
-    public float TilapiaRawT;
-    public float TilapiaRawH;
+    public Item tilapiaRaw;
+    public float tilapiaRawT;
+    public float tilapiaRawH;
 
     [Header("TilapiaCooked")]
-    public Item TilapiaCooked;
-    public float TilapiaCookedT;
-    public float TilapiaCookedH;
+    public Item tilapiaCooked;
+    public float tilapiaCookedT;
+    public float tilapiaCookedH;
+
+    public FishInfo[] fishes = new FishInfo[8];
+
+    private void Start()
+    {
+        fishes[0] = new FishInfo(herringRaw, herringRawT, herringRawH);
+        fishes[1] = new FishInfo(herringCooked, herringCookedT, herringCookedH);
+        fishes[2] = new FishInfo(pomfretRaw, pomfretRawT, pomfretRawH);
+        fishes[3] = new FishInfo(pomfretCooked, pomfretCookedT, pomfretCookedH);
+        fishes[4] = new FishInfo(mackerelRaw, mackerelRawT, mackerelCookedH);
+        fishes[5] = new FishInfo(mackerelCooked, mackerelCookedT, mackerelCookedH);
+        fishes[6] = new FishInfo(tilapiaRaw, tilapiaRawT, tilapiaRawH);
+        fishes[7] = new FishInfo(tilapiaCooked, tilapiaCookedT, tilapiaCookedH);
+    }
+
+    public float ReturnThirst(Item item)
+    {
+        for (int i = 0; i < fishes.Length; i++)
+        {
+            if (fishes[i].item.Equals(item))
+            {
+                return fishes[i].thirst;
+            }
+        }
+
+        return 0f;
+    }
+
+    public float ReturnHungry(Item item)
+    {
+        for (int i = 0; i < fishes.Length; i++)
+        {
+            if (fishes[i].item.Equals(item))
+            {
+                return fishes[i].hungry;
+            }
+        }
+
+        return 0f;
+    }
 }

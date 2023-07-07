@@ -21,3 +21,4 @@ MonoBehaviour:
   isTool: 0
   isBuildable: 0
   isFoundation: 0
+  isFish: 1
