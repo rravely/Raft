@@ -44,6 +44,7 @@ public class Wall : MonoBehaviour
         }
     }
 
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag.Equals("Wall"))
@@ -67,4 +68,5 @@ public class Wall : MonoBehaviour
             isExist = false;
         }
     }
+    */
 }
