@@ -2513,6 +2513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd62734abff6f849a210f4ef7e4e559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LMBUI: {fileID: 794500403}
 --- !u!1 &157441018
 GameObject:
   m_ObjectHideFlags: 0
@@ -12068,6 +12069,192 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717852989}
   m_CullTransparentMesh: 1
+--- !u!1 &734430487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734430488}
+  - component: {fileID: 734430491}
+  - component: {fileID: 734430490}
+  - component: {fileID: 734430489}
+  m_Layer: 0
+  m_Name: Database
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734430488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734430487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &734430489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734430487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3022eb1750530474c808494cb8f29e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  herringRaw: {fileID: 11400000, guid: e8628d3a0ceddaa49acb9c90c437b112, type: 2}
+  herringRawT: -10
+  herringRawH: 12.5
+  herringCooked: {fileID: 11400000, guid: 942d20d79751a634ea7a84f81c8d5ef1, type: 2}
+  herringCookedT: 0
+  herringCookedH: 20
+  pomfretRaw: {fileID: 11400000, guid: 65e427755946d1345a7ae77e587c5199, type: 2}
+  pomfretRawT: -10
+  pomfretRawH: 12.5
+  pomfretCooked: {fileID: 11400000, guid: 5e24107828d25354e9e76a768bc6ced7, type: 2}
+  pomfretCookedT: 0
+  pomfretCookedH: 20
+  mackerelRaw: {fileID: 11400000, guid: fd58eb823910d40478e275b67422ad6d, type: 2}
+  mackerelRawT: -10
+  mackerelRawH: 15
+  mackerelCooked: {fileID: 11400000, guid: 4d14a2e9ff0429c41a7ca9268b413fac, type: 2}
+  mackerelCookedT: 0
+  mackerelCookedH: 35
+  tilapiaRaw: {fileID: 11400000, guid: 7a175f8f55b4dcf408f470729d66d24b, type: 2}
+  tilapiaRawT: -10
+  tilapiaRawH: 15
+  tilapiaCooked: {fileID: 11400000, guid: 5cb91550ee5f6aa4587f11410e181ba0, type: 2}
+  tilapiaCookedT: 0
+  tilapiaCookedH: 35
+--- !u!114 &734430490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734430487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf25325b2beab84a93e21390a65e380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foundation: {fileID: 11400000, guid: b42ede522d067eb4ca67585dc552f11e, type: 2}
+  foundationR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  foundationI: 0200000002000000
+  pillar: {fileID: 11400000, guid: 3adef2884001b524c8c55ea04d29f57b, type: 2}
+  pillarR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  pillarI: 0200000002000000
+  floor: {fileID: 11400000, guid: 84d81a4786e56f14d99bb4b311cfbb34, type: 2}
+  floorR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  floorI: 04000000
+  staris: {fileID: 11400000, guid: ad012d786c42a37489c8fbdbea1ead20, type: 2}
+  stairsR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  starisI: 0600000003000000
+  wallWood: {fileID: 11400000, guid: 65599acb4e378c849b38e8135df1351c, type: 2}
+  wallWoodR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  wallWoodI: 04000000
+  halfWallWood: {fileID: 11400000, guid: e22438c14a5ed3644beaf895adebe5dc, type: 2}
+  halfWallWoodR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  halfWallWoodI: 02000000
+--- !u!114 &734430491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734430487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f2f922d73794d179412353c83a48a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cupEmpty: {fileID: 11400000, guid: 66e64a82a5c414f4e9a09d2fffc5754b, type: 2}
+  cupEmptyR:
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  cupEmptyI: 04000000
+  grillSmall: {fileID: 11400000, guid: 6248f8f610c124ace86ec660e907209b, type: 2}
+  grillSmallR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  grillSmallI: 06000000
+  purifier: {fileID: 11400000, guid: 1388141e574834f08aea83b6ddc6d02d, type: 2}
+  purifierR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  purifierI: 060000000600000004000000
+  bedSimple: {fileID: 11400000, guid: af3762e07c9b74a50b054146adb24229, type: 2}
+  bedSimpleR:
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  bedSimpleI: 0a000000060000000600000004000000
+  hammer: {fileID: 11400000, guid: 9a28c845e576340709dd5df87cf4e8b9, type: 2}
+  hammerR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  hammerI: 0400000002000000
+  plasticHook: {fileID: 11400000, guid: 19ad559ce90e24c41878891fe2333bbe, type: 2}
+  plasticHookR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  plasticHookI: 0100000002000000
+  woodSpear: {fileID: 11400000, guid: b4cb6505871154690a1ea5662d4daa56, type: 2}
+  woodSpearR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  woodSpearI: 0800000003000000
+  rope: {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  ropeR:
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  ropeI: 02000000
+  nail: {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  nailR:
+  - {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  nailI: 02000000
+  sail: {fileID: 11400000, guid: fa61fd355ab0efd42be41129f7e681a8, type: 2}
+  sailR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  - {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  sailI: 0a0000001400000003000000
+  chair: {fileID: 11400000, guid: 5cd81f98337ca88469cb624666033361, type: 2}
+  chairR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  chairI: 0400000001000000
+  table: {fileID: 11400000, guid: a8d5f9e018f6ef148a5b3e1c22ffc351, type: 2}
+  tableR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  tableI: 0400000003000000
+  fishingRod: {fileID: 11400000, guid: d936e7ff9dbf640489694484b7286352, type: 2}
+  fishingRodR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  fishingRodI: 0600000008000000
 --- !u!1 &738760303
 GameObject:
   m_ObjectHideFlags: 0
@@ -18505,192 +18692,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1185676392
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1185676394}
-  - component: {fileID: 1185676393}
-  - component: {fileID: 1185676395}
-  - component: {fileID: 1185676396}
-  m_Layer: 0
-  m_Name: ItemDatabase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1185676393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185676392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6f2f922d73794d179412353c83a48a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cupEmpty: {fileID: 11400000, guid: 66e64a82a5c414f4e9a09d2fffc5754b, type: 2}
-  cupEmptyR:
-  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
-  cupEmptyI: 04000000
-  grillSmall: {fileID: 11400000, guid: 6248f8f610c124ace86ec660e907209b, type: 2}
-  grillSmallR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  grillSmallI: 06000000
-  purifier: {fileID: 11400000, guid: 1388141e574834f08aea83b6ddc6d02d, type: 2}
-  purifierR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
-  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
-  purifierI: 060000000600000004000000
-  bedSimple: {fileID: 11400000, guid: af3762e07c9b74a50b054146adb24229, type: 2}
-  bedSimpleR:
-  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
-  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
-  bedSimpleI: 0a000000060000000600000004000000
-  hammer: {fileID: 11400000, guid: 9a28c845e576340709dd5df87cf4e8b9, type: 2}
-  hammerR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
-  hammerI: 0400000002000000
-  plasticHook: {fileID: 11400000, guid: 19ad559ce90e24c41878891fe2333bbe, type: 2}
-  plasticHookR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
-  plasticHookI: 0100000002000000
-  woodSpear: {fileID: 11400000, guid: b4cb6505871154690a1ea5662d4daa56, type: 2}
-  woodSpearR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
-  woodSpearI: 0800000003000000
-  rope: {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
-  ropeR:
-  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
-  ropeI: 02000000
-  nail: {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
-  nailR:
-  - {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
-  nailI: 02000000
-  sail: {fileID: 11400000, guid: fa61fd355ab0efd42be41129f7e681a8, type: 2}
-  sailR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
-  - {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
-  sailI: 0a0000001400000003000000
-  chair: {fileID: 11400000, guid: 5cd81f98337ca88469cb624666033361, type: 2}
-  chairR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
-  chairI: 0400000001000000
-  table: {fileID: 11400000, guid: a8d5f9e018f6ef148a5b3e1c22ffc351, type: 2}
-  tableR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
-  tableI: 0400000003000000
-  fishingRod: {fileID: 11400000, guid: d936e7ff9dbf640489694484b7286352, type: 2}
-  fishingRodR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
-  fishingRodI: 0600000008000000
---- !u!4 &1185676394
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185676392}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 344.27972, y: 761.6595, z: -5.6304374}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1185676395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185676392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbf25325b2beab84a93e21390a65e380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foundation: {fileID: 11400000, guid: b42ede522d067eb4ca67585dc552f11e, type: 2}
-  foundationR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
-  foundationI: 0200000002000000
-  pillar: {fileID: 11400000, guid: 3adef2884001b524c8c55ea04d29f57b, type: 2}
-  pillarR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
-  pillarI: 0200000002000000
-  floor: {fileID: 11400000, guid: 84d81a4786e56f14d99bb4b311cfbb34, type: 2}
-  floorR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  floorI: 04000000
-  staris: {fileID: 11400000, guid: ad012d786c42a37489c8fbdbea1ead20, type: 2}
-  stairsR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
-  starisI: 0600000003000000
-  wallWood: {fileID: 11400000, guid: 65599acb4e378c849b38e8135df1351c, type: 2}
-  wallWoodR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  wallWoodI: 04000000
-  halfWallWood: {fileID: 11400000, guid: e22438c14a5ed3644beaf895adebe5dc, type: 2}
-  halfWallWoodR:
-  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  halfWallWoodI: 02000000
---- !u!114 &1185676396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185676392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3022eb1750530474c808494cb8f29e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  herringRaw: {fileID: 11400000, guid: e8628d3a0ceddaa49acb9c90c437b112, type: 2}
-  herringRawT: -10
-  herringRawH: 12.5
-  herringCooked: {fileID: 11400000, guid: 942d20d79751a634ea7a84f81c8d5ef1, type: 2}
-  herringCookedT: 0
-  herringCookedH: 20
-  pomfretRaw: {fileID: 11400000, guid: 65e427755946d1345a7ae77e587c5199, type: 2}
-  pomfretRawT: -10
-  pomfretRawH: 12.5
-  pomfretCooked: {fileID: 11400000, guid: 5e24107828d25354e9e76a768bc6ced7, type: 2}
-  pomfretCookedT: 0
-  pomfretCookedH: 20
-  mackerelRaw: {fileID: 0}
-  mackerelRawT: 0
-  mackerelRawH: 0
-  mackerelCooked: {fileID: 0}
-  mackerelCookedT: 0
-  mackerelCookedH: 0
-  tilapiaRaw: {fileID: 0}
-  tilapiaRawT: 0
-  tilapiaRawH: 0
-  tilapiaCooked: {fileID: 0}
-  tilapiaCookedT: 0
-  tilapiaCookedH: 0
 --- !u!1 &1185875391
 GameObject:
   m_ObjectHideFlags: 0
@@ -19192,7 +19193,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a28c845e576340709dd5df87cf4e8b9, type: 2}
   - {fileID: 11400000, guid: 19ad559ce90e24c41878891fe2333bbe, type: 2}
   - {fileID: 11400000, guid: 1388141e574834f08aea83b6ddc6d02d, type: 2}
-  - {fileID: 11400000, guid: e8628d3a0ceddaa49acb9c90c437b112, type: 2}
+  - {fileID: 11400000, guid: fd58eb823910d40478e275b67422ad6d, type: 2}
   - {fileID: 11400000, guid: d936e7ff9dbf640489694484b7286352, type: 2}
   plank: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
   thatch: {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
@@ -21171,7 +21172,7 @@ GameObject:
   - component: {fileID: 1374815833}
   m_Layer: 5
   m_Name: InteractionButton
-  m_TagString: Untagged
+  m_TagString: InteractionUIBelow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

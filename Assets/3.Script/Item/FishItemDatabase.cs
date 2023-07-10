@@ -120,7 +120,7 @@ public class FishItemDatabase : MonoBehaviour
         {
             case "HerringRaw":
                 return herringCooked;
-            case "pomfretRaw":
+            case "PomfretRaw":
                 return pomfretCooked;
             case "MackerelRaw":
                 return mackerelCooked;

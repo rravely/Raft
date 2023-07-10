@@ -16,6 +16,7 @@ TagManager:
   - Pillar
   - Floor
   - Water
+  - InteractionUIBelow
   layers:
   - Default
   - TransparentFX

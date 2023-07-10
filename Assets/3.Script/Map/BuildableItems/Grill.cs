@@ -22,6 +22,7 @@ public class Grill : MonoBehaviour
     SelectedItem selectedItem;
 
     ItemManager itemManager;
+    FishItemDatabase fishItemDB;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class Grill : MonoBehaviour
         playerInput = FindObjectOfType<PlayerInput>();
         selectedItem = FindObjectOfType<SelectedItem>();
         itemManager = FindObjectOfType<ItemManager>();
+        fishItemDB = FindObjectOfType<FishItemDatabase>();
     }
 
     private void Update()
@@ -49,7 +51,8 @@ public class Grill : MonoBehaviour
                     //Turn on fish object
                     childIndex = SetRawFishOnGrill(selectedItem.selectedItem);
                     fishRaw = selectedItem.selectedItem;
-                    fishCooked = FishItemDatabase.instance.ReturnCookedFish(fishRaw);
+                    fishCooked = fishItemDB.ReturnCookedFish(fishRaw);
+                    Debug.Log(fishCooked);
 
                     isEmpty = false;
 

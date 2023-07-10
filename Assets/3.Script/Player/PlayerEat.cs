@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerEat : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerEat : MonoBehaviour
     PlayerInput playerInput;
 
     ItemManager itemManager;
+
+    [SerializeField] GameObject LMBUI;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,9 @@ public class PlayerEat : MonoBehaviour
         if (selectedItem.selectedItem.isFish)
         {
             //Show interaction ui
+            LMBUI.SetActive(true);
+            LMBUI.transform.GetChild(1).GetComponent<Text>().text = "¸Ô±â";
+
             if (playerInput.isLMDDown)
             {
                 //Remove item in quickslot
@@ -35,6 +41,8 @@ public class PlayerEat : MonoBehaviour
                 //Change player state
                 playerState.moisture += FishItemDatabase.instance.ReturnThirst(selectedItem.selectedItem);
                 playerState.satiation += FishItemDatabase.instance.ReturnHungry(selectedItem.selectedItem);
+
+                LMBUI.SetActive(false);
             }
         }
     }
