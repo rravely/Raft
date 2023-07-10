@@ -34,8 +34,9 @@ public class StructureManager : MonoBehaviour
     //Raycast (foundation -> pillar -> floor -> stairs)
     int[] layerMasks;
     int layerMaskIndex = 0;
+    int tilemapIndex = 0;
 
-    [Header("Tilemap (foundation -> pillar -> floor -> stairs)")]
+    [Header("Tilemap (foundation -> pillar -> floor -> stairs -> wallsX -> wallsZ)")]
     [SerializeField] Tilemap[] tilemaps;
     [SerializeField] Transform[] parents;
     Transform parent;
@@ -48,11 +49,13 @@ public class StructureManager : MonoBehaviour
         itemDB = FindObjectOfType<StructureItemDatabase>();
         //selectedItem = FindObjectOfType<SelectedItem>();
 
-        layerMasks = new int[4];
+        layerMasks = new int[6];
         layerMasks[0] = 1 << LayerMask.NameToLayer("Foundation");
         layerMasks[1] = 1 << LayerMask.NameToLayer("FoundationPlane");
         layerMasks[2] = 1 << LayerMask.NameToLayer("FloorPlane");
         layerMasks[3] = 1 << LayerMask.NameToLayer("Foundation");
+        layerMasks[4] = 1 << LayerMask.NameToLayer("FoundationPlane");
+        layerMasks[5] = 1 << LayerMask.NameToLayer("FoundationPlane");
     }
 
     // Update is called once per frame
@@ -76,7 +79,25 @@ public class StructureManager : MonoBehaviour
         if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(960, 540)), out RaycastHit hit, 999f, layerMasks[layerMaskIndex]))
         {
             place = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            tilemapPlace = tilemaps[layerMaskIndex].GetCellCenterWorld(tilemaps[layerMaskIndex].WorldToCell(place));
+            if (selectedStructureItem.itemName.Equals("WoodWall") || selectedStructureItem.itemName.Equals("HalfWoodWall"))
+            {
+                if (!tempObjectExists)
+                {
+                    tilemapIndex = 4;
+                }
+                else
+                {
+                    if (tempObject.transform.rotation.y.Equals(0) || tempObject.transform.rotation.y.Equals(1))
+                    {
+                        tilemapIndex = 4;
+                    }
+                    else
+                    {
+                        tilemapIndex = 5;
+                    }
+                }
+            }
+            tilemapPlace = tilemaps[tilemapIndex].GetCellCenterWorld(tilemaps[tilemapIndex].WorldToCell(place));
 
             if (!tempObjectExists)
             {
@@ -113,18 +134,31 @@ public class StructureManager : MonoBehaviour
         {
             case "Foundation":
                 layerMaskIndex = 0;
+                tilemapIndex = 0;
                 break;
             case "Pillar":
                 layerMaskIndex = 1;
+                tilemapIndex = 1;
                 break;
             case "WoodenFloor":
                 layerMaskIndex = 2;
+                tilemapIndex = 2;
                 break;
             case "Stairs":
                 layerMaskIndex = 3;
+                tilemapIndex = 3;
+                break;
+            case "WoodWall":
+                layerMaskIndex = 4;
+                tilemapIndex = 4;
+                break;
+            case "HalfWoodWall":
+                layerMaskIndex = 5;
+                tilemapIndex = 5;
                 break;
             default:
                 layerMaskIndex = 0;
+                tilemapIndex = 0;
                 break;
         }
     }
@@ -145,7 +179,6 @@ public class StructureManager : MonoBehaviour
 
         parent = parents[layerMaskIndex];
 
-        
         switch (selectedStructureItem.itemName)
         {
             case "Foundation":
@@ -190,6 +223,31 @@ public class StructureManager : MonoBehaviour
                     GameObject foundation = Instantiate(objectToPlace, tilemapPlace, tempObject.transform.rotation);
                     foundation.transform.SetParent(parent);
                     foundation.GetComponentInChildren<Stairs>().isBuild = true;
+                    placeNow = false;
+                    placeObject = false;
+
+                    DestoryTempObject();
+                }
+                break;
+            case "WoodWall":
+                Debug.Log("¿©±â");
+                if (!tempObject.GetComponentInChildren<Wall>().isExist && tempObject.GetComponentInChildren<Wall>().isBuildable)
+                {
+                    GameObject foundation = Instantiate(objectToPlace, tilemapPlace, tempObject.transform.rotation);
+                    foundation.transform.SetParent(parent);
+                    foundation.GetComponentInChildren<Wall>().isBuild = true;
+                    placeNow = false;
+                    placeObject = false;
+
+                    DestoryTempObject();
+                }
+                break;
+            case "HalfWoodWall":
+                if (!tempObject.GetComponentInChildren<Wall>().isExist && tempObject.GetComponentInChildren<Wall>().isBuildable)
+                {
+                    GameObject foundation = Instantiate(objectToPlace, tilemapPlace, tempObject.transform.rotation);
+                    foundation.transform.SetParent(parent);
+                    foundation.GetComponentInChildren<Wall>().isBuild = true;
                     placeNow = false;
                     placeObject = false;
 
@@ -260,8 +318,34 @@ public class StructureManager : MonoBehaviour
                         }
                     }
                     break;
+                case "WoodWall":
+                    if (tempObject != null)
+                    {
+                        if (!tempObject.GetComponentInChildren<Wall>().isExist && tempObject.GetComponentInChildren<Wall>().isBuildable)
+                        {
+                            tempObject.GetComponentInChildren<MeshRenderer>().material = temp;
+                        }
+                        else
+                        {
+                            tempObject.GetComponentInChildren<MeshRenderer>().material = tempDisable;
+                        }
+                    }
+                    break;
+                case "HalfWoodWall":
+                    if (tempObject != null)
+                    {
+                        if (!tempObject.GetComponentInChildren<Wall>().isExist && tempObject.GetComponentInChildren<Wall>().isBuildable)
+                        {
+                            tempObject.GetComponentInChildren<MeshRenderer>().material = temp;
+                        }
+                        else
+                        {
+                            tempObject.GetComponentInChildren<MeshRenderer>().material = tempDisable;
+                        }
+                    }
+                    break;
             }
-            tempObject.transform.position = tilemaps[layerMaskIndex].GetCellCenterWorld(tilemaps[layerMaskIndex].WorldToCell(place));
+            tempObject.transform.position = tilemaps[tilemapIndex].GetCellCenterWorld(tilemaps[tilemapIndex].WorldToCell(place));
         }
         else
         {
