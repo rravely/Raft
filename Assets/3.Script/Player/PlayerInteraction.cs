@@ -181,6 +181,7 @@ public class PlayerInteraction : MonoBehaviour
 
             ui.transform.GetChild(0).gameObject.SetActive(false);
             ui.transform.GetChild(1).gameObject.SetActive(false);
+            canPickup = false;
         }
 
         if (selectedItem.selectedItem.itemName.Equals("CupEmpty") && isWater)

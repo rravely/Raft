@@ -22,3 +22,4 @@ MonoBehaviour:
   isBuildable: 0
   isFoundation: 0
   isFish: 1
+  isCooked: 1

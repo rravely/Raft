@@ -113,4 +113,21 @@ public class FishItemDatabase : MonoBehaviour
 
         return 0f;
     }
+
+    public Item ReturnCookedFish(Item rawFish)
+    {
+        switch (rawFish.itemName)
+        {
+            case "HerringRaw":
+                return herringCooked;
+            case "pomfretRaw":
+                return pomfretCooked;
+            case "MackerelRaw":
+                return mackerelCooked;
+            case "TilapiaRaw":
+                return tilapiaCooked;
+            default:
+                return null;
+        }
+    }
 }

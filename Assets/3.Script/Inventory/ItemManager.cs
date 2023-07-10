@@ -95,6 +95,22 @@ public class ItemManager : MonoBehaviour
         return false;
     }
 
+    public bool RemoveItemInSlot(Item item, int count, int slotInex)
+    {
+        Slot slot = allSlots[slotInex];
+        SlotItem itemInSlot = slot.GetComponentInChildren<SlotItem>();
+        if (itemInSlot != null && itemInSlot.item == item)
+        {
+            itemInSlot.count -= count;
+            itemInSlot.RefreshCount();
+
+            playerState.RemovePlayerItems(item, count);
+
+            return true;
+        }
+        return false;
+    }
+
     public void ChangeItem(Item currentItem, Item displaceItem, int slotNum)
     {
         SlotItem itemInSlot = slots[slotNum].GetComponentInChildren<SlotItem>();

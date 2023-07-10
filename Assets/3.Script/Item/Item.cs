@@ -15,4 +15,5 @@ public class Item : ScriptableObject
     public bool isBuildable = false;
     public bool isFoundation = false; //for structure items
     public bool isFish = false;
+    public bool isCooked = false;
 }
