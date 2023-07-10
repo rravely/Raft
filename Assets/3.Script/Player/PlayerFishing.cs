@@ -38,6 +38,7 @@ public class PlayerFishing : MonoBehaviour
             fishingHandsAni.SetBool("RodDrop", true);
             time = 0f;
             isFishing = true;
+            PlayerAudio.instance.Throw();
         }
 
         

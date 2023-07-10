@@ -18,6 +18,7 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] AudioClip throwObject;
     [SerializeField] AudioClip placeObject;
     [SerializeField] AudioClip waterPlump;
+    [SerializeField] AudioClip chew;
 
     static public PlayerAudio instance = null;
 
@@ -85,5 +86,10 @@ public class PlayerAudio : MonoBehaviour
     public void WaterPlump()
     {
         audio[1].PlayOneShot(waterPlump);
+    }
+
+    public void Chew()
+    {
+        audio[1].PlayOneShot(chew);
     }
 }

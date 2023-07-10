@@ -24,10 +24,13 @@ public class PlayerEat : MonoBehaviour
     {
         if (selectedItem.selectedItem.isFish)
         {
+            //Show interaction ui
             if (playerInput.isLMDDown)
             {
                 //Remove item in quickslot
                 itemManager.RemoveItem(selectedItem.selectedItem, 1);
+
+                PlayerAudio.instance.Chew();
 
                 //Change player state
                 playerState.moisture += FishItemDatabase.instance.ReturnThirst(selectedItem.selectedItem);
