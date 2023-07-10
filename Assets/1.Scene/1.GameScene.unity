@@ -3103,7 +3103,6 @@ MonoBehaviour:
   craft2TitleName: {fileID: 1040918966}
   titleName: "\uD56D\uD574"
   items:
-  - {fileID: 11400000, guid: b42ede522d067eb4ca67585dc552f11e, type: 2}
   - {fileID: 11400000, guid: fa61fd355ab0efd42be41129f7e681a8, type: 2}
 --- !u!1 &197671671
 GameObject:
@@ -19006,6 +19005,8 @@ MonoBehaviour:
   - {fileID: 1847054025}
   imagePanel: {fileID: 1635950637}
   craftBtn: {fileID: 662292041}
+  titleItemName: {fileID: 1724827151}
+  titleItemDescription: {fileID: 765149140}
   selectedItem: {fileID: 0}
 --- !u!1 &1198146430
 GameObject:
@@ -25039,6 +25040,8 @@ MonoBehaviour:
   slots: []
   imagePanel: {fileID: 0}
   craftBtn: {fileID: 0}
+  titleItemName: {fileID: 0}
+  titleItemDescription: {fileID: 0}
   selectedItem: {fileID: 0}
 --- !u!1 &1635950636
 GameObject:

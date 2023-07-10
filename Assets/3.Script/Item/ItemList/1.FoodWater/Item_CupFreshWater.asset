@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1005
   itemName: CupFreshWater
-  itemKoreanName: 
-  itemDescription: 
+  itemKoreanName: "\uB2F4\uC218"
+  itemDescription: "\uB2F4\uC218\uB294 \uBC14\uB2E4\uC5D0\uC11C \uB9E4\uC6B0 \uC911\uC694\uD569\uB2C8\uB2E4."
   icon: {fileID: 21300000, guid: a23b18faf120c6e41bff9067be6d2c5a, type: 3}
   stackable: 0
-  isDrink: 1
   isTool: 0
   isBuildable: 0
   isFoundation: 0
+  isFish: 0
+  isCooked: 0

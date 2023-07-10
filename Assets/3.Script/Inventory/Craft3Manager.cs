@@ -8,6 +8,8 @@ public class Craft3Manager : MonoBehaviour
     [SerializeField] GameObject[] slots;
     [SerializeField] RectTransform imagePanel;
     [SerializeField] Button craftBtn;
+    [SerializeField] Text titleItemName;
+    [SerializeField] Text titleItemDescription;
 
     public Item selectedItem;
     ItemInfo item;
@@ -38,6 +40,10 @@ public class Craft3Manager : MonoBehaviour
         //Get information from item database
         int itemIndex = ItemDatabase.instance.FindIndexOfDB(selectedItem);
         item = ItemDatabase.instance.items[itemIndex];
+
+        //View item info
+        titleItemName.text = item.item.itemKoreanName;
+        titleItemDescription.text = item.item.itemDescription;
 
         //View Item list
         

@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1004
   itemName: CupSaltWater
-  itemKoreanName: 
-  itemDescription: 
+  itemKoreanName: "\uBC14\uB2F7\uBB3C"
+  itemDescription: "\uBC14\uB2F7\uBB3C\uC744 \uB9C8\uC2DC\uB294 \uAC83\uC740 \uC88B\uC9C0
+    \uC54A\uC2B5\uB2C8\uB2E4. \uB2F4\uC218\uB85C \uBC14\uAFC0 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   icon: {fileID: 21300000, guid: a158fcc4c3ebe4c4e91262b56039bfc8, type: 3}
   stackable: 0
-  isDrink: 1
   isTool: 0
   isBuildable: 0
   isFoundation: 0
+  isFish: 0
+  isCooked: 0

@@ -52,7 +52,6 @@ public class Grill : MonoBehaviour
                     childIndex = SetRawFishOnGrill(selectedItem.selectedItem);
                     fishRaw = selectedItem.selectedItem;
                     fishCooked = fishItemDB.ReturnCookedFish(fishRaw);
-                    Debug.Log(fishCooked);
 
                     isEmpty = false;
 
