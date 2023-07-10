@@ -7,10 +7,12 @@ public class Grill : MonoBehaviour
 {
     Transform interactionUI;
 
-    [SerializeField] bool isEmpty = true; //Is there any fish on the grill?
-    [SerializeField] bool isPlankExist = false;
-    [SerializeField] bool isCooked = false;
-    [SerializeField] bool canInteraction = false; //Is there a player near the grill?
+    AudioSource audioGrill;
+
+    bool isEmpty = true; //Is there any fish on the grill?
+    bool isPlankExist = false;
+    bool isCooked = false;
+    bool canInteraction = false; //Is there a player near the grill?
 
     Item fishRaw;
     Item fishCooked;
@@ -24,6 +26,8 @@ public class Grill : MonoBehaviour
     private void Start()
     {
         interactionUI = GameObject.FindWithTag("InteractionUI").transform;
+
+        audioGrill = GetComponent<AudioSource>();
 
         playerInput = FindObjectOfType<PlayerInput>();
         selectedItem = FindObjectOfType<SelectedItem>();
@@ -61,14 +65,13 @@ public class Grill : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("판자 올려놓음");
-
                 //Set plank
                 isPlankExist = true;
                 ActivatePlank(isPlankExist);
 
                 //Start Fire
                 transform.GetChild(2).gameObject.SetActive(true);
+                audioGrill.Play();
 
                 //Inactive interactionUI
                 ActivateInteractionUI(false, "");
@@ -156,6 +159,8 @@ public class Grill : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+        //Stop fire audio
+        audioGrill.Stop();
 
         //Inactivate plank
         isPlankExist = false;
