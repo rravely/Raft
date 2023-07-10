@@ -230,7 +230,6 @@ public class StructureManager : MonoBehaviour
                 }
                 break;
             case "WoodWall":
-                Debug.Log("¿©±â");
                 if (!tempObject.GetComponentInChildren<Wall>().isExist && tempObject.GetComponentInChildren<Wall>().isBuildable)
                 {
                     GameObject foundation = Instantiate(objectToPlace, tilemapPlace, tempObject.transform.rotation);

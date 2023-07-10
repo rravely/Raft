@@ -94,6 +94,9 @@ public class Grill : MonoBehaviour
 
                 //Inactive cooked fish object
                 transform.GetChild(0).GetChild(0).GetChild(childIndex).gameObject.SetActive(false);
+
+                isEmpty = true;
+                isCooked = false;
             }
         }
     }

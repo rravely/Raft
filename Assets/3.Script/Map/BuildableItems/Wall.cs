@@ -43,30 +43,4 @@ public class Wall : MonoBehaviour
             isBuildable = false;
         }
     }
-
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag.Equals("Wall"))
-        {
-            isExist = true;
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag.Equals("Wall"))
-        {
-            isExist = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag.Equals("Wall"))
-        {
-            isExist = false;
-        }
-    }
-    */
 }
