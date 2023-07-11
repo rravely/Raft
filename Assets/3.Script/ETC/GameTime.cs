@@ -109,4 +109,10 @@ public class GameTime : MonoBehaviour
             return false;
         }
     }
+
+    public void PlayerSleep()
+    {
+        StopAllCoroutines();
+        currTime = morningTime;
+    }
 }

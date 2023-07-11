@@ -68,7 +68,7 @@ public class PlayerSleep : MonoBehaviour
         fadeImage.gameObject.SetActive(false);
 
         //Set Time
-        gameTime.SetMorningTime();
+        gameTime.PlayerSleep();
 
         //Change player stat
         playerState.health = 100f;

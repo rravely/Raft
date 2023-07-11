@@ -2533,6 +2533,9 @@ MonoBehaviour:
   gameTime: {fileID: 1115643240}
   fadeImage: {fileID: 948455676}
   vcam: {fileID: 2041357628}
+  playerHands:
+  - {fileID: 33562571}
+  - {fileID: 2051757148957323122}
 --- !u!1 &157441018
 GameObject:
   m_ObjectHideFlags: 0
@@ -83639,7 +83642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &919132148057414619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85299,7 +85302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &2051757148957323123
 Animator:
   serializedVersion: 5
