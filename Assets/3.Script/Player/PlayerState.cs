@@ -21,6 +21,7 @@ public class PlayerState : MonoBehaviour
     [HideInInspector] public bool canJumpOnFoundation = false;
     [HideInInspector] public bool inWater = false;
     [HideInInspector] public bool inWaterSurface = false;
+    [HideInInspector] public bool isSleep = false;
 
     [Header("Player State UI")]
     [SerializeField] private GameObject oxygenBar;

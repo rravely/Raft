@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class GameTime : MonoBehaviour
 {
-    float dayTime = 240f;
+    float dayTime = 480f;
     float currTime = 0f;
     float morningTime, nightTime, hour;
 
@@ -24,7 +24,7 @@ public class GameTime : MonoBehaviour
         volume = GetComponent<Volume>();
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
 
-        morningTime = dayTime / 4; // 6:00
+        morningTime = dayTime / 24 * 5; // 5:00
         nightTime = dayTime / 6 * 5; // 20:00
         hour = dayTime / 24; //1 hour
 
@@ -41,19 +41,19 @@ public class GameTime : MonoBehaviour
             dayTime = 0f;
         }
 
-        if (currTime > morningTime && currTime < nightTime) //6:00 ~ 20:00
+        if (currTime >= morningTime && currTime <= nightTime) //5:00 ~ 20:00
         {
             colorAdjustments.colorFilter.value = day;
             isChanging = false;
             isChanged = false;
         }
-        else if (currTime > nightTime + hour || currTime < morningTime - hour) // 20:00 ~ 6:00
+        else if (currTime >= nightTime + hour || currTime <= morningTime - hour) // 20:00 ~ 5:00
         {
             colorAdjustments.colorFilter.value = night;
             isChanging = false;
             isChanged = false;
         }
-        else if (currTime > morningTime && currTime < morningTime + hour && !isChanging && !isChanged) //6:00 ~ 7:00
+        else if (currTime > morningTime && currTime < morningTime + hour && !isChanging && !isChanged) //5:00 ~ 6:00
         {
             isChanging = true;
             StartCoroutine(ChangeNightToDay_co());
@@ -91,5 +91,22 @@ public class GameTime : MonoBehaviour
         }
         isChanging = false;
         isChanged = true;
+    }
+
+    public void SetMorningTime()
+    {
+        currTime = morningTime + hour;
+    }
+
+    public bool PlayerCanSleep()
+    {
+        if (currTime > nightTime || currTime < morningTime)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
