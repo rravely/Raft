@@ -75,6 +75,7 @@ public class StructureManager : MonoBehaviour
     void SendRay()
     {
         SetLayerMask();
+        SetTilemapPosition();
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(960, 540)), out RaycastHit hit, 999f, layerMasks[layerMaskIndex]))
         {
@@ -160,6 +161,24 @@ public class StructureManager : MonoBehaviour
                 layerMaskIndex = 0;
                 tilemapIndex = 0;
                 break;
+        }
+    }
+
+    void SetTilemapPosition()
+    {
+        if (playerInteraction.transform.position.y > 0.2f)
+        {
+            for (int i = 0; i < tilemaps.Length; i++)
+            {
+                tilemaps[i].transform.localPosition = new Vector3(0f, 0.47f, 0f);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < tilemaps.Length; i++)
+            {
+                tilemaps[i].transform.localPosition = new Vector3(0f, 0f, 0f);
+            }
         }
     }
 

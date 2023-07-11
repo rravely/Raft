@@ -14,7 +14,7 @@ public class Pillar : MonoBehaviour
         {
             isExist = true;
         }
-        else if (other.CompareTag("Foundation"))
+        else if (other.CompareTag("Foundation") || other.CompareTag("Floor"))
         {
             isBuildable = true;
         }
@@ -26,7 +26,7 @@ public class Pillar : MonoBehaviour
         {
             isExist = true;
         }
-        else if (other.CompareTag("Foundation"))
+        else if (other.CompareTag("Foundation") || other.CompareTag("Floor"))
         {
             isBuildable = true;
         }
@@ -38,7 +38,7 @@ public class Pillar : MonoBehaviour
         {
             isExist = false;
         }
-        else if (other.CompareTag("Foundation"))
+        else if (other.CompareTag("Foundation") || other.CompareTag("Floor"))
         {
             isBuildable = false;
         }

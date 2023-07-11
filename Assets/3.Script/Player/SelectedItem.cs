@@ -124,6 +124,9 @@ public class SelectedItem : MonoBehaviour
                     case "Purifier":
                         BuildableObjectPlaceable(3);
                         break;
+                    case "SimpleGrill":
+                        BuildableObjectPlaceable(4);
+                        break;
                 }
             }
         }
