@@ -34,6 +34,8 @@ public class ItemDatabase : MonoBehaviour
         }
     }
 
+    [SerializeField] Item[] itemList;
+
 #region Using Dictionary
 
     public Dictionary<string, int>[][] itemDB = new Dictionary<string, int>[4][];
@@ -62,7 +64,8 @@ public class ItemDatabase : MonoBehaviour
     };
     #endregion
 
-    
+    #region Using List
+    /*
     [Header("Cup Empty")]
     public Item cupEmpty;
     public Item[] cupEmptyR;
@@ -146,7 +149,7 @@ public class ItemDatabase : MonoBehaviour
         items[10] = new ItemInfo(chair, chairR, chairI);
         items[11] = new ItemInfo(table, tableR, tableI);
         items[12] = new ItemInfo(fishingRod, fishingRodR, fishingRodI);
-   }
+    }
 
     public int FindIndexOfDB(Item item)
     {
@@ -158,5 +161,21 @@ public class ItemDatabase : MonoBehaviour
             }
         }
         return 10000;
+    }
+    */
+    #endregion
+
+
+
+    public Item FindItem(string itemName)
+    {
+        for (int i = 0; i < itemList.Length; i++)
+        {
+            if (itemList[i].itemName.Equals(itemName))
+            {
+                return itemList[i];
+            }
+        }
+        return null;
     }
 }

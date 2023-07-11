@@ -13,6 +13,8 @@ public class Craft3Manager : MonoBehaviour
 
     public Item selectedItem;
     ItemInfo item;
+    List<string> itemNameList;
+    List<int> itemCountList;
 
     PlayerState playerState;
     ItemManager itemManager;
@@ -37,6 +39,7 @@ public class Craft3Manager : MonoBehaviour
         //ItemSlotCraft2 set active as items's length
         SetCraft3ItemSlotInactive();
 
+        /*
         //Get information from item database
         int itemIndex = ItemDatabase.instance.FindIndexOfDB(selectedItem);
         item = ItemDatabase.instance.items[itemIndex];
@@ -54,24 +57,49 @@ public class Craft3Manager : MonoBehaviour
             slots[j].transform.GetChild(2).GetComponent<Text>().text = item.resourcesItems[j].itemKoreanName;
             //Compare player item count between inventory info and craft info
         }
+
         UpdateItemList(item);
         ChangeCraftBtn(CheckCraftItem(item));
         
         //Modify Craft2Panel Size 
         imagePanel.offsetMin = new Vector2(0, 300 - 65 * (item.resourcesItems.Length - 1));
+        */
+
+        //Get information from item database
+        ItemSQLManager.instance.FindResourceItems(selectedItem);
+        itemNameList = ItemSQLManager.instance.craftItem.itemNameList;
+        itemCountList = ItemSQLManager.instance.craftItem.itemCountList;
+
+        //View item info
+        titleItemName.text = selectedItem.itemKoreanName;
+        titleItemDescription.text = selectedItem.itemDescription;
+
+        //View Item list
+        for (int j = 0; j < itemNameList.Count; j++)
+        {
+            slots[j].SetActive(true);
+            slots[j].transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = ItemDatabase.instance.FindItem(itemNameList[j]).icon;
+            slots[j].transform.GetChild(2).GetComponent<Text>().text = ItemDatabase.instance.FindItem(itemNameList[j]).itemKoreanName;
+        }
+
+        UpdateItemList();
+        ChangeCraftBtn(CheckCraftItem());
+        
+        //Modify Craft2Panel Size 
+        imagePanel.offsetMin = new Vector2(0, 300 - 65 * (itemNameList.Count - 1));
     }
 
-    public bool CheckCraftItem(ItemInfo item)
+    public bool CheckCraftItem()
     {
         int count = 0;
-        for (int i = 0; i < item.resourcesItems.Length; i++)
+        for (int i = 0; i < itemNameList.Count; i++)
         {
-            if (playerState.FindItemCount(item.resourcesItems[i]) >= item.resourcesItemCount[i])
+            if (playerState.FindItemCount(ItemDatabase.instance.FindItem(itemNameList[i])) >= itemCountList[i])
             {
                 count++;
             }
         }
-        if (count.Equals(item.resourcesItems.Length))
+        if (count.Equals(itemNameList.Count))
         {
             return true;
         }
@@ -95,22 +123,19 @@ public class Craft3Manager : MonoBehaviour
 
     public void CraftItem()
     {
-        for (int i = 0; i < item.resourcesItems.Length; i++)
+        for (int i = 0; i < itemNameList.Count; i++)
         {
-            itemManager.RemoveItem(item.resourcesItems[i], item.resourcesItemCount[i]);
+            itemManager.RemoveItem(ItemDatabase.instance.FindItem(itemNameList[i]), itemCountList[i]);
         }
-        itemManager.AddItem(item.item);
-        UpdateItemList(item);
-
-        //Remove from inventory
-
+        itemManager.AddItem(selectedItem);
+        UpdateItemList();
     }
 
-    void UpdateItemList(ItemInfo item)
+    void UpdateItemList()
     {
-        for (int j = 0; j < item.resourcesItems.Length; j++)
+        for (int j = 0; j < itemCountList.Count; j++)
         {
-            slots[j].transform.GetChild(3).GetComponent<Text>().text = string.Format("{0}/{1}", playerState.FindItemCount(item.resourcesItems[j]), item.resourcesItemCount[j]);
+            slots[j].transform.GetChild(3).GetComponent<Text>().text = string.Format("{0}/{1}", playerState.FindItemCount(ItemDatabase.instance.FindItem(itemNameList[j])), itemCountList[j]);
         }
     }
 }

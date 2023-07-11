@@ -13,17 +13,14 @@ using LitJson;
 public class CraftResourceItems
 {
     public string itemName { get; private set; }
-    public Dictionary<string, int> resourceItemList { get; private set; }
+    public List<string> itemNameList { get; private set; }
+    public List<int> itemCountList { get; private set; }
 
     public CraftResourceItems(string itemName)
     {
         this.itemName = itemName;
-        resourceItemList = new Dictionary<string, int>();
-    }
-
-    public void AddItemInList(string resourceItemName, int count)
-    {
-        resourceItemList.Add(resourceItemName, count);
+        itemNameList = new List<string>();
+        itemCountList = new List<int>();
     }
 }
 
@@ -121,7 +118,9 @@ public class ItemSQLManager : MonoBehaviour
 
                     if (!resourceItem.Equals(string.Empty) || !count.Equals(0))
                     {
-                        craftItem.AddItemInList(resourceItem, count);
+                        //craftItem.AddItemInList(resourceItem, count);
+                        craftItem.itemNameList.Add(resourceItem);
+                        craftItem.itemCountList.Add(count);
                     }
                 }
                 //Debug.Log("Read data completely");
