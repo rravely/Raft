@@ -12,6 +12,8 @@ public class PlayerSleep : MonoBehaviour
 
     [SerializeField] GameObject vcam;
 
+    [SerializeField] GameObject[] playerHands;
+
     private void Start()
     {
         playerState = GetComponent<PlayerState>();
@@ -24,6 +26,9 @@ public class PlayerSleep : MonoBehaviour
         vcam.SetActive(true);
         vcam.transform.position = liePos;
 
+        //Player Hands inactivate
+        ActivateHands(false);
+
         if (gameTime.PlayerCanSleep())
         {
             PlayerGoSleep();
@@ -35,12 +40,13 @@ public class PlayerSleep : MonoBehaviour
         //vcam move
         vcam.SetActive(false);
 
+        ActivateHands(true);
+
         playerState.isSleep = false;
     }
 
     public void PlayerGoSleep()
     {
-        Debug.Log("Sleep");
         StartCoroutine(SleepFade_co());
     }
 
@@ -66,5 +72,11 @@ public class PlayerSleep : MonoBehaviour
 
         //Change player stat
         playerState.health = 100f;
+    }
+
+    void ActivateHands(bool isActive)
+    {
+        playerHands[0].SetActive(isActive);
+        playerHands[1].SetActive(isActive);
     }
 }
