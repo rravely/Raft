@@ -60,7 +60,6 @@ public class ItemSQLManager : MonoBehaviour
             }
             connection = new MySqlConnection(serverInfo);
             connection.Open();
-            Debug.Log("Sql open completely");
         }
         catch (Exception e)
         {

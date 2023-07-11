@@ -8,8 +8,8 @@ public class PlayerFishing : MonoBehaviour
 
     [SerializeField] Animator fishingHandsAni;
 
-    bool isFishing = false;
-    bool isCatchFish = false;
+    [SerializeField] bool isFishing = false;
+    [SerializeField] bool isCatchFish = false;
 
     float time = 0f;
 
@@ -46,12 +46,20 @@ public class PlayerFishing : MonoBehaviour
         {
             time += Time.deltaTime;
         }
-        if (time > 8f)
+        if (time > 8f && !isCatchFish)
         {
             fishingHandsAni.SetBool("FishCatch", true);
             fishingHandsAni.SetBool("RodDrop", false);
 
             isCatchFish = true;
+            time = 0f;
         }
+    }
+
+    public void FinishFishingAfterCatch()
+    {
+        fishingHandsAni.SetBool("FishCatch", false);
+        isCatchFish = false;
+        isFishing = false;
     }
 }

@@ -39,7 +39,7 @@ public class Craft3Manager : MonoBehaviour
         //ItemSlotCraft2 set active as items's length
         SetCraft3ItemSlotInactive();
 
-        /*
+        
         //Get information from item database
         int itemIndex = ItemDatabase.instance.FindIndexOfDB(selectedItem);
         item = ItemDatabase.instance.items[itemIndex];
@@ -63,8 +63,8 @@ public class Craft3Manager : MonoBehaviour
         
         //Modify Craft2Panel Size 
         imagePanel.offsetMin = new Vector2(0, 300 - 65 * (item.resourcesItems.Length - 1));
-        */
 
+        /*
         //Get information from item database
         ItemSQLManager.instance.FindResourceItems(selectedItem);
         itemNameList = ItemSQLManager.instance.craftItem.itemNameList;
@@ -87,19 +87,20 @@ public class Craft3Manager : MonoBehaviour
         
         //Modify Craft2Panel Size 
         imagePanel.offsetMin = new Vector2(0, 300 - 65 * (itemNameList.Count - 1));
+        */
     }
 
-    public bool CheckCraftItem()
+    public bool CheckCraftItem(ItemInfo item)
     {
         int count = 0;
-        for (int i = 0; i < itemNameList.Count; i++)
+        for (int i = 0; i < item.resourcesItems.Length; i++)
         {
-            if (playerState.FindItemCount(ItemDatabase.instance.FindItem(itemNameList[i])) >= itemCountList[i])
+            if (playerState.FindItemCount(item.resourcesItems[i]) >= item.resourcesItemCount[i])
             {
                 count++;
             }
         }
-        if (count.Equals(itemNameList.Count))
+        if (count.Equals(item.resourcesItems.Length))
         {
             return true;
         }
@@ -123,19 +124,19 @@ public class Craft3Manager : MonoBehaviour
 
     public void CraftItem()
     {
-        for (int i = 0; i < itemNameList.Count; i++)
+        for (int i = 0; i < item.resourcesItems.Length; i++)
         {
-            itemManager.RemoveItem(ItemDatabase.instance.FindItem(itemNameList[i]), itemCountList[i]);
+            itemManager.RemoveItem(item.resourcesItems[i], item.resourcesItemCount[i]);
         }
-        itemManager.AddItem(selectedItem);
-        UpdateItemList();
+        itemManager.AddItem(item.item);
+        UpdateItemList(item);
     }
 
-    void UpdateItemList()
+    void UpdateItemList(ItemInfo item)
     {
-        for (int j = 0; j < itemCountList.Count; j++)
+        for (int j = 0; j < item.resourcesItems.Length; j++)
         {
-            slots[j].transform.GetChild(3).GetComponent<Text>().text = string.Format("{0}/{1}", playerState.FindItemCount(ItemDatabase.instance.FindItem(itemNameList[j])), itemCountList[j]);
+            slots[j].transform.GetChild(3).GetComponent<Text>().text = string.Format("{0}/{1}", playerState.FindItemCount(item.resourcesItems[j]), item.resourcesItemCount[j]);
         }
     }
 }

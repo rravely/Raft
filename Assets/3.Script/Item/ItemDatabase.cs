@@ -64,8 +64,6 @@ public class ItemDatabase : MonoBehaviour
     };
     #endregion
 
-    #region Using List
-    /*
     [Header("Cup Empty")]
     public Item cupEmpty;
     public Item[] cupEmptyR;
@@ -162,10 +160,6 @@ public class ItemDatabase : MonoBehaviour
         }
         return 10000;
     }
-    */
-    #endregion
-
-
 
     public Item FindItem(string itemName)
     {

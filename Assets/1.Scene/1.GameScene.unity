@@ -2501,6 +2501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishingHandsAni: {fileID: 1184343693}
+  isFishing: 0
+  isCatchFish: 0
 --- !u!114 &146249283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12127,7 +12129,6 @@ GameObject:
   - component: {fileID: 734430491}
   - component: {fileID: 734430490}
   - component: {fileID: 734430489}
-  - component: {fileID: 734430492}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -12244,19 +12245,73 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
   - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
   - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
---- !u!114 &734430492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734430487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8616ac7aef394334aaacf0191bd14e73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DBPath: 
+  cupEmpty: {fileID: 11400000, guid: 66e64a82a5c414f4e9a09d2fffc5754b, type: 2}
+  cupEmptyR:
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  cupEmptyI: 04000000
+  grillSmall: {fileID: 11400000, guid: 6248f8f610c124ace86ec660e907209b, type: 2}
+  grillSmallR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  grillSmallI: 060000000100000003000000
+  purifier: {fileID: 11400000, guid: 1388141e574834f08aea83b6ddc6d02d, type: 2}
+  purifierR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  purifierI: 060000000600000004000000
+  bedSimple: {fileID: 11400000, guid: af3762e07c9b74a50b054146adb24229, type: 2}
+  bedSimpleR:
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  bedSimpleI: 0a000000060000000600000004000000
+  hammer: {fileID: 11400000, guid: 9a28c845e576340709dd5df87cf4e8b9, type: 2}
+  hammerR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  hammerI: 0400000002000000
+  plasticHook: {fileID: 11400000, guid: 19ad559ce90e24c41878891fe2333bbe, type: 2}
+  plasticHookR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  plasticHookI: 0100000002000000
+  woodSpear: {fileID: 11400000, guid: b4cb6505871154690a1ea5662d4daa56, type: 2}
+  woodSpearR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  woodSpearI: 0800000003000000
+  rope: {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  ropeR:
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  ropeI: 02000000
+  nail: {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  nailR:
+  - {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  nailI: 02000000
+  sail: {fileID: 11400000, guid: fa61fd355ab0efd42be41129f7e681a8, type: 2}
+  sailR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  - {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
+  sailI: 0a0000001400000003000000
+  chair: {fileID: 0}
+  chairR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  chairI: 0400000003000000
+  table: {fileID: 0}
+  tableR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  tableI: 0800000003000000
+  fishingRod: {fileID: 11400000, guid: d936e7ff9dbf640489694484b7286352, type: 2}
+  fishingRodR:
+  - {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
+  - {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
+  fishingRodI: 0600000008000000
 --- !u!1 &738760303
 GameObject:
   m_ObjectHideFlags: 0

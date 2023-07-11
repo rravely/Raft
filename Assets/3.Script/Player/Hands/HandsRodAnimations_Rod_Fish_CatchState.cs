@@ -15,6 +15,8 @@ public class HandsRodAnimations_Rod_Fish_CatchState : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("RodBack", false);
+        FindObjectOfType<PlayerFishing>().FinishFishingAfterCatch();
+
         //Add Item
         handsRod.AcquiredRandomFish();
     }
