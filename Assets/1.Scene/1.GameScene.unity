@@ -19223,8 +19223,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd58eb823910d40478e275b67422ad6d, type: 2}
   - {fileID: 11400000, guid: d936e7ff9dbf640489694484b7286352, type: 2}
   plank: {fileID: 11400000, guid: 694a668b27339454991c6741e4e83874, type: 2}
-  thatch: {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  thatch: {fileID: 11400000, guid: f625a3f01d55ca04484454e648add9df, type: 2}
+  scrap: {fileID: 11400000, guid: ef34063621ebd6b409e09caab9dd1092, type: 2}
   plastic: {fileID: 11400000, guid: efb9e2cd0d0e8e3438410c2673b8ffc3, type: 2}
+  nail: {fileID: 11400000, guid: e51472378347e45c39e6faaf02d4f2c9, type: 2}
+  rope: {fileID: 11400000, guid: 7ddcd5536ed1349d598dfe5f7d6d2983, type: 2}
 --- !u!114 &1198146437
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -210,6 +210,7 @@ public class StructureManager : MonoBehaviour
                     placeObject = false;
 
                     DestoryTempObject();
+                    RemoveResourceItems(selectedStructureItem);
                 }
                 break;
             case "Pillar":
@@ -222,6 +223,7 @@ public class StructureManager : MonoBehaviour
                     placeObject = false;
 
                     DestoryTempObject();
+                    RemoveResourceItems(selectedStructureItem);
                 }
                 break;
             case "WoodenFloor":
@@ -234,6 +236,7 @@ public class StructureManager : MonoBehaviour
                     placeObject = false;
 
                     DestoryTempObject();
+                    RemoveResourceItems(selectedStructureItem);
                 }
                 break;
             case "Stairs":
@@ -246,6 +249,7 @@ public class StructureManager : MonoBehaviour
                     placeObject = false;
 
                     DestoryTempObject();
+                    RemoveResourceItems(selectedStructureItem);
                 }
                 break;
             case "WoodWall":
@@ -258,6 +262,7 @@ public class StructureManager : MonoBehaviour
                     placeObject = false;
 
                     DestoryTempObject();
+                    RemoveResourceItems(selectedStructureItem);
                 }
                 break;
             case "HalfWoodWall":
@@ -270,11 +275,12 @@ public class StructureManager : MonoBehaviour
                     placeObject = false;
 
                     DestoryTempObject();
+                    RemoveResourceItems(selectedStructureItem);
                 }
                 break;
         }
 
-        RemoveResourceItems(selectedStructureItem);
+        
     }
 
     void ChangeMaterial()

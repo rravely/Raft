@@ -15,8 +15,17 @@ public class DefaultItem : MonoBehaviour
     [Header("Thatch")]
     [SerializeField] Item thatch;
 
+    [Header("Scrap")]
+    [SerializeField] Item scrap;
+
     [Header("plastic")]
     [SerializeField] Item plastic;
+
+    [Header("Nail")]
+    [SerializeField] Item nail;
+
+    [Header("Rope")]
+    [SerializeField] Item rope;
 
     private void Start()
     {
@@ -50,6 +59,18 @@ public class DefaultItem : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.F3))
         {
             itemManager.AddItem(plastic);
+        }
+        else if (Input.GetKeyDown(KeyCode.F4))
+        {
+            itemManager.AddItem(scrap);
+        }
+        else if (Input.GetKeyDown(KeyCode.F5))
+        {
+            itemManager.AddItem(nail);
+        }
+        else if (Input.GetKeyDown(KeyCode.F6))
+        {
+            itemManager.AddItem(rope);
         }
     }
 }
