@@ -12,6 +12,7 @@ public class SelectedItem : MonoBehaviour
     ItemManager itemManager;
 
     PlayerInteraction playerInteraction;
+    PlayerState playerState;
     PlayerFishing playerFishing;
 
     [Header("Tools")]
@@ -34,11 +35,15 @@ public class SelectedItem : MonoBehaviour
 
         playerInteraction = GetComponent<PlayerInteraction>();
         playerFishing = GetComponent<PlayerFishing>();
+        playerState = GetComponent<PlayerState>();
     }
 
     private void Update()
     {
-        SetActiveSelectedItem();
+        if (!playerState.isSleep)
+        {
+            SetActiveSelectedItem();
+        }
     }
 
     void SetActiveSelectedItem()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerSleep : MonoBehaviour
 {
     PlayerState playerState;
+    PlayerInteraction playerInteraction;
     [SerializeField] GameTime gameTime;
 
     [SerializeField] Image fadeImage;
@@ -17,6 +18,7 @@ public class PlayerSleep : MonoBehaviour
     private void Start()
     {
         playerState = GetComponent<PlayerState>();
+        playerInteraction = GetComponent<PlayerInteraction>();
     }
 
     public void PlayerLieOnBed(Vector3 liePos)
@@ -28,6 +30,7 @@ public class PlayerSleep : MonoBehaviour
 
         //Player Hands inactivate
         ActivateHands(false);
+        playerInteraction.enabled = false;
 
         if (gameTime.PlayerCanSleep())
         {
@@ -41,6 +44,7 @@ public class PlayerSleep : MonoBehaviour
         vcam.SetActive(false);
 
         ActivateHands(true);
+        playerInteraction.enabled = true;
 
         playerState.isSleep = false;
     }

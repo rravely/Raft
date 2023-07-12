@@ -84179,10 +84179,10 @@ GameObject:
   - component: {fileID: 3228994317731640856}
   - component: {fileID: 804814408222425810}
   - component: {fileID: 2495813946954724219}
-  - component: {fileID: 3616218663349534422}
-  - component: {fileID: 6105508336874390739}
-  - component: {fileID: 6105508336874390740}
   - component: {fileID: 6105508336874390741}
+  - component: {fileID: 6105508336874390739}
+  - component: {fileID: 3616218663349534422}
+  - component: {fileID: 6105508336874390740}
   m_Layer: 0
   m_Name: Placeable_Bed_Basic_Floor
   m_TagString: Buildable
