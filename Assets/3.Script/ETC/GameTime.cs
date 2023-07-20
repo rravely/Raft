@@ -28,7 +28,7 @@ public class GameTime : MonoBehaviour
         nightTime = dayTime / 6 * 5; // 20:00
         hour = dayTime / 24; //1 hour
 
-        currTime = nightTime - 5f;
+        currTime = morningTime + hour * 2;
     }
 
     // Update is called once per frame

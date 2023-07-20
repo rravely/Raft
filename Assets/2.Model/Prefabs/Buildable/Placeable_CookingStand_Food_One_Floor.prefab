@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: -1952985259805007346}
   m_Layer: 0
   m_Name: Placeable_CookingStand_Food_One_Floor
-  m_TagString: Untagged
+  m_TagString: Buildable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,9 +15,13 @@ public class StructureMenuSlot : MonoBehaviour, IPointerEnterHandler
     [Header("Title image")]
     [SerializeField] Image titleImage;
 
+    [Header("Title item name")]
+    [SerializeField] Text itemName;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         titleImage.sprite = transform.GetChild(0).GetComponent<Image>().sprite;
+        itemName.text = structureItem.itemKoreanName;
         structureManager.selectedStructureItem = structureItem;
     }
 }

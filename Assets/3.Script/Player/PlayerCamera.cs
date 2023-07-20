@@ -12,7 +12,7 @@ public class PlayerCamera : MonoBehaviour
 
     float xRotateSize, yRotateSize = 0f;
     float xRotate, yRotate = 0f;
-    float turnSpeed = 4f;
+    float turnSpeed = 2f;
 
     [SerializeField] Texture2D cursorImg;
 

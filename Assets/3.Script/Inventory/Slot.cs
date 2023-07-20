@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour, IDropHandler
+public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 {
+    [SerializeField] bool isInventory = false;
+    [SerializeField] Image itemImage;
+
     public void OnDrop(PointerEventData eventData) //마우스를 놓았을 때
     {
         if (transform.childCount == 0) //자식 객체가 없으면(아이템이 없으면)
@@ -24,5 +28,13 @@ public class Slot : MonoBehaviour, IDropHandler
             slotItem.transform.position = slotItem.parentAfterDrag.transform.position;
         }
         AudioManager.instance.MoveItem();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (isInventory && transform.childCount > 0)
+        {
+            itemImage.sprite = transform.GetComponentInChildren<SlotItem>().item.icon;
+        }
     }
 }
